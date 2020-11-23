@@ -1,7 +1,8 @@
-package com.android.example.podomarket
+package com.android.example.podomarket.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.android.example.podomarket.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.MyPageFragment">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#d3d3d3">
+
+            <RelativeLayout
+                android:id="@+id/myPage_topBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/myPage_scrollView"
+                android:layout_marginBottom="1dp"
+                android:background="@color/white"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="나의 당근"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+                <ImageButton
+                    android:id="@+id/myPage_topBar_appSettingBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"/>
+
+            </RelativeLayout>
+
+            <ScrollView
+                android:id="@+id/myPage_scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myPage_topBar"
+                android:background="#d3d3d3">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:background="@color/white">
+
+                        <ImageButton
+                            android:id="@+id/myPage_profileImg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:layout_marginLeft="20dp"/>
+
+                        <TextView
+                            android:id="@+id/myPage_profileName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toTopOf="@+id/myPage_profileAddress"
+                            app:layout_constraintLeft_toRightOf="@+id/myPage_profileImg"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="24dp"
+                            android:text="name"
+                            android:textColor="@color/black"
+                            android:textSize="30sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/myPage_profileAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/myPage_profileName"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/myPage_profileImg"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginLeft="25dp"
+                            android:text="address"
+                            android:textSize="20sp"/>
+
+                        <Button
+                            android:id="@+id/myPage_profileBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parentㄴ"
+                            app:layout_constraintRight_toRightOf="parent"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/button_white_gray"
+                            android:text="프로필 보기"
+                            android:textColor="@color/black"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="1dp"
+                        android:background="@color/white">
+
+                        <ImageButton
+                            android:id="@+id/myPage_saleHistoryBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/myPage_saleHistoryTv"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/myPage_purchaseHistoryBtn"/>
+                        <TextView
+                            android:id="@+id/myPage_saleHistoryTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/myPage_saleHistoryBtn"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/myPage_purchaseHistoryBtn"
+                            android:text="판매내역"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+                        <ImageButton
+                            android:id="@+id/myPage_purchaseHistoryBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/myPage_purchaseHistoryTv"
+                            app:layout_constraintLeft_toRightOf="@id/myPage_saleHistoryBtn"
+                            app:layout_constraintRight_toLeftOf="@id/myPage_watchlistBtn"/>
+                        <TextView
+                            android:id="@+id/myPage_purchaseHistoryTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/myPage_purchaseHistoryBtn"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/myPage_saleHistoryBtn"
+                            app:layout_constraintRight_toLeftOf="@id/myPage_watchlistBtn"
+                            android:text="구매내역"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+                        <ImageButton
+                            android:id="@+id/myPage_watchlistBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/myPage_watchlistTv"
+                            app:layout_constraintLeft_toRightOf="@id/myPage_purchaseHistoryBtn"
+                            app:layout_constraintRight_toRightOf="parent"/>
+                        <TextView
+                            android:id="@+id/myPage_watchlistTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/myPage_watchlistBtn"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/myPage_purchaseHistoryBtn"
+                            app:layout_constraintRight_toRightOf="parent"
+                            android:text="관심목록"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:orientation="vertical"
+                        android:background="@color/white">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="10dp">
+                            <ImageButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:text="내 동네 설정"
+                                android:textSize="25sp"
+                                android:textColor="black"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+</layout>
