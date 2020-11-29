@@ -12,7 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PodoMarket">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.search.SearchActivity"></activity>
+        <activity android:name=".ui.chat.ChatRoomActivity" />
+        <activity android:name=".ui.article.ArticleCategoryActivity" />
+        <activity android:name=".ui.article.ArticleUserActivity" />
+        <activity android:name=".ui.article.ArticleCategorizedActivity" />
+        <activity android:name=".ui.article.ArticleDetailActivity" />
+        <activity android:name=".ui.article.ArticleCreateActivity" />
+        <activity android:name=".ui.product.ProductUserBuyActivity" />
+        <activity android:name=".ui.product.ProductUserSellActivity" />
+        <activity android:name=".ui.product.ProductDetailActivity" />
+        <activity android:name=".ui.product.ProductCreateActivity" />
+        <activity android:name=".ui.user.UserInterestedActivity" />
+        <activity android:name=".ui.user.ProfileActivity" />
+        <activity android:name=".ui.user.SignInActivity" />
+        <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

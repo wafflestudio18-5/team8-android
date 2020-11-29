@@ -1,11 +1,12 @@
-package com.android.example.podomarket
+package com.android.example.podomarket.ui.user
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.android.example.podomarket.R
 
-class MainActivity : AppCompatActivity() {
+class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_sign_in)
     }
 }
