@@ -2,4 +2,8 @@
     <string name="app_name">Podo Market</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bottom_navigation_product">홈</string>
+    <string name="bottom_navigation_article">동네생활</string>
+    <string name="bottom_navigation_chat_room_list">채팅</string>
+    <string name="bottom_navigation_my_page">나의 당근</string>
 </resources>
