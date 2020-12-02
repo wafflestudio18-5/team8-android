@@ -8,10 +8,15 @@ import com.android.example.podomarket.databinding.ActivityMainBinding
 import com.android.example.podomarket.ui.main.MainPageType.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private val binding: ActivityMainBinding by lazy {
+        DataBindingUtil.setContentView(
+            this,
+            R.layout.activity_main
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.run {
             pager.adapter = MainPagerAdapter(this@MainActivity)
             pager.isUserInputEnabled = false
