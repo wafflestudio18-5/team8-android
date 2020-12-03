@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityMainBinding
-import com.android.example.podomarket.ui.main.FragmentConst.ARTICLE
-import com.android.example.podomarket.ui.main.FragmentConst.CHAT
-import com.android.example.podomarket.ui.main.FragmentConst.MYPAGE
-import com.android.example.podomarket.ui.main.FragmentConst.PRODUCT
+import com.android.example.podomarket.ui.main.MainPageConst.ARTICLE
+import com.android.example.podomarket.ui.main.MainPageConst.CHAT
+import com.android.example.podomarket.ui.main.MainPageConst.MYPAGE
+import com.android.example.podomarket.ui.main.MainPageConst.PRODUCT
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
