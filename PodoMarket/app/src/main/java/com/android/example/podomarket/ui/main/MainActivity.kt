@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityMainBinding
-import com.android.example.podomarket.ui.main.MainPageType.*
+import com.android.example.podomarket.ui.main.FragmentConst.ARTICLE
+import com.android.example.podomarket.ui.main.FragmentConst.CHAT
+import com.android.example.podomarket.ui.main.FragmentConst.MYPAGE
+import com.android.example.podomarket.ui.main.FragmentConst.PRODUCT
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
@@ -22,10 +25,10 @@ class MainActivity : AppCompatActivity() {
             pager.isUserInputEnabled = false
             bottomNavigation.setOnNavigationItemSelectedListener {
                 when (it.itemId) {
-                    R.id.product_fragment -> pager.setCurrentItem(PRODUCT.value, false)
-                    R.id.article_fragment -> pager.setCurrentItem(ARTICLE.value, false)
-                    R.id.chat_room_list_fragment -> pager.setCurrentItem(CHAT.value, false)
-                    R.id.my_page_fragment -> pager.setCurrentItem(MYPAGE.value, false)
+                    R.id.product_fragment -> pager.setCurrentItem(PRODUCT, false)
+                    R.id.article_fragment -> pager.setCurrentItem(ARTICLE, false)
+                    R.id.chat_room_list_fragment -> pager.setCurrentItem(CHAT, false)
+                    R.id.my_page_fragment -> pager.setCurrentItem(MYPAGE, false)
                     else -> {
                         error("Invalid itemId in bottomNavigation")
                     }
