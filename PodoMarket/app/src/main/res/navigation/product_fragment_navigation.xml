@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/product_fragment_navigation"
+    app:startDestination="@id/productListFragment">
+
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.android.example.podomarket.ui.main.product.ProductListFragment"
+        android:label="fragment_product_list"
+        tools:layout="@layout/fragment_product_list">
+        <action
+            android:id="@+id/action_productListFragment_to_productCategoryFragment"
+            app:destination="@id/productCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productCategoryFragment"
+        android:name="com.android.example.podomarket.ui.main.product.ProductCategoryFragment"
+        android:label="fragment_product_category"
+        tools:layout="@layout/fragment_product_category" />
+</navigation>
