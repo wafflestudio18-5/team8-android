@@ -18,7 +18,6 @@ class ProductFragment : Fragment() {
         val binding: FragmentProductBinding by lazy {
             DataBindingUtil.inflate(inflater, R.layout.fragment_product, container, false)
         }
-        // Inflate the layout for this fragment
         return binding.root
     }
 
