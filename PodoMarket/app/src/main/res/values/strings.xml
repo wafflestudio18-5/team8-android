@@ -6,6 +6,7 @@
     <string name="bottom_navigation_article">동네생활</string>
     <string name="bottom_navigation_chat_room_list">채팅</string>
     <string name="bottom_navigation_my_page">나의 당근</string>
+    <string name="appbar_product_category_fragment">관심 카테고리 설정</string>
     <string name="profile_actionbar_title">프로필</string>
     <string name="profile_manner">매너온도</string>
     <string name="profile_retransaction_hope_rate">재거래희망률 <b>-%</b></string>
