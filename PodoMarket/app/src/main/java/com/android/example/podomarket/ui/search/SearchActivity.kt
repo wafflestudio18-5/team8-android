@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityMainBinding
 import com.android.example.podomarket.databinding.ActivitySearchBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class SearchActivity : AppCompatActivity() {
     private val binding: ActivitySearchBinding by lazy {
@@ -18,7 +19,14 @@ class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.run {
-            
+            pagerSearch.adapter = SearchPagerAdapter(this@SearchActivity)
+
+            TabLayoutMediator(tabSearch, pagerSearch) { tab, position ->
+                when(position) {
+                    0 -> tab.text = "중고거래"
+                    1 -> tab.text = "사람"
+                }
+            }.attach()
         }
     }
 }
