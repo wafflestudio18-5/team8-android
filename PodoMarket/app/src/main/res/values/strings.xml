@@ -6,4 +6,15 @@
     <string name="bottom_navigation_article">동네생활</string>
     <string name="bottom_navigation_chat_room_list">채팅</string>
     <string name="bottom_navigation_my_page">나의 당근</string>
+    <string name="profile_actionbar_title">프로필</string>
+    <string name="profile_manner">매너온도</string>
+    <string name="profile_retransaction_hope_rate">재거래희망률 <b>-%</b></string>
+    <string name="profile_retransaction_hope_rate_not_enough">표시될 만큼 충분히 거래하지 않았어요.</string>
+    <string name="profile_response_rate">응답률 <b>-%</b></string>
+    <string name="profile_response_rate_not_enough">표시될 만큼 충분히 채팅하지 않았어요.</string>
+    <string name="profile_city_certification">xx동 <b>-회</b> 인증</string>
+    <string name="profile_created_at_modified_at">yyyy년 mm월 dd일 가입(최근 -일 이내 활동)</string>
+    <string name="profile_sale_product">판매상품 -개</string>
+    <string name="profile_manner_evaluation">받은 매너 평가</string>
+    <string name="profile_transaction_review">받은 거래 후기</string>
 </resources>
