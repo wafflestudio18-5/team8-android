@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_product_list">
         <action
             android:id="@+id/action_productListFragment_to_productCategoryFragment"
-            app:destination="@id/productCategoryFragment" />
+            app:destination="@id/productCategoryFragment"
+            app:popUpTo="@id/productListFragment" />
     </fragment>
     <fragment
         android:id="@+id/productCategoryFragment"
