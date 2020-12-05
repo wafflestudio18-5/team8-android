@@ -90,6 +90,13 @@
     <string name="appbar_product_user_buy_activity">구매내역</string>
     <string name="appbar_product_user_sell_activity">판매내역</string>
     <string name="appbar_user_interested_activity">관심목록</string>
-    <string name="used_trading">중고거래</string>
     <string name="all">전체</string>
+    <string name="product_create_close">닫기</string>
+    <string name="product_create_complete">완료</string>
+    <string name="product_create_location">중고거래 글쓰기</string>
+    <string name="product_create_title">글 제목</string>
+    <string name="product_create_category">카테고리 선택</string>
+    <string name="product_create_price">￦ 가격입력(선택사항)</string>
+    <string name="product_create_description">xx동에 올릴 게시글 내용을 작성해주세요.(가품 및 판매 금지품목은 게시가 제한될 수 있어요.)</string>
+    <string name="product_create_near_city_number">xx동과 근처 동네 -개</string>
 </resources>
