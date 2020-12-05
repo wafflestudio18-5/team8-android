@@ -75,4 +75,5 @@
     <string name="sign_in_or_sign_up">로그인/회원가입</string>
     <string name="welcome_to_podomarket">포도마켓에 오신 것을 환영합니다.</string>
     <string name="appbar_profile_activity">프로필</string>
+    <string name="search_enter_search_term">검색어를 입력하세요.</string>
 </resources>
