@@ -43,7 +43,11 @@
 
         <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:tabIndicatorColor="@color/black"
+            app:tabSelectedTextColor="@color/black"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/pager_search"
