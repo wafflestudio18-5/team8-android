@@ -5,8 +5,17 @@ import android.os.Bundle
 import com.android.example.podomarket.R
 
 class ProfileActivity : AppCompatActivity() {
+    private val binding: ActivityProfileBinding by lazy {
+        DataBindingUtil.setContentView(
+            this,
+            R.layout.activity_profile
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+        binding.run {
+
+        }
     }
 }
