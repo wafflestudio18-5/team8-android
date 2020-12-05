@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/border_chatroom_round_loyal_blue"
                 android:text="other.manner"
-                android:textColor="@color/loyal_blue"
+                android:textColor="@color/royal_blue"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/tv_chatRoom_avgResponseTime"
                 app:layout_constraintLeft_toRightOf="@+id/tv_chatRoom_username"
