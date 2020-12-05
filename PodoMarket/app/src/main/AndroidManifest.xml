@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PodoMarket">
-        <activity android:name=".ui.search.SearchActivity"></activity>
+        <activity android:name=".ui.search.SearchActivity" />
         <activity android:name=".ui.chat.ChatRoomActivity" />
         <activity android:name=".ui.article.ArticleCategoryActivity" />
         <activity android:name=".ui.article.ArticleUserActivity" />
