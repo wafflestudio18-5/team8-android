@@ -3,6 +3,7 @@ package com.android.example.podomarket.ui.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityMainBinding
 import com.android.example.podomarket.ui.main.MainPageConst.ARTICLE
@@ -34,6 +35,24 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 true
+            }
+        }
+    }
+
+    override fun onBackPressed() {
+        binding.run {
+            when (pager.currentItem) {
+                PRODUCT -> {
+                    val navController = findNavController(R.id.product_nav_host_fragment_container)
+                    when {
+                        (navController.graph.startDestination != navController.currentDestination?.id)
+                        -> navController.popBackStack()
+                        else -> super.onBackPressed()
+                    }
+                }
+                else -> {
+                    super.onBackPressed()
+                }
             }
         }
     }
