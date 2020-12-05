@@ -20,7 +20,14 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/white"
                 android:id="@+id/tool_bar"
-                app:title="@string/bottom_navigation_product" />
+                app:title="@{null}">
+
+                <TextView
+                    style="@style/AppBarTitle"
+                    android:text="@string/bottom_navigation_product"
+                    android:id="@+id/tool_bar_title" />
+            </androidx.appcompat.widget.Toolbar>
+
         </com.google.android.material.appbar.AppBarLayout>
 
         <TextView
