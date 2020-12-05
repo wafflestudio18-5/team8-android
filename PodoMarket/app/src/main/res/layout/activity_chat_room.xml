@@ -41,7 +41,7 @@
                 android:id="@+id/tv_chatRoom_manner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_round_loyal_blue"
+                android:background="@drawable/border_round_royal_blue"
                 android:text="other.manner"
                 android:textColor="@color/royal_blue"
                 app:layout_constraintTop_toTopOf="parent"
