@@ -36,7 +36,7 @@ class ProductListFragment : Fragment() {
         when (item.itemId) {
             R.id.search_button -> Toast.makeText(activity, "Search", Toast.LENGTH_SHORT).show()
             R.id.category_button -> findNavController().navigate(R.id.action_productListFragment_to_productCategoryFragment)
-            R.id.alert_button -> Toast.makeText(activity, "Alert", Toast.LENGTH_SHORT).show()
+            R.id.alert_button -> findNavController().navigate(R.id.action_productListFragment_to_inboxFragment)
             else -> throw Error("Not valid menu item for in toolbar.")
         }
         return super.onOptionsItemSelected(item)
