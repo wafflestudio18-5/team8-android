@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentProductListBinding
+import com.android.example.podomarket.ui.main.MainActivity
 
 
 class ProductListFragment : Fragment() {
@@ -25,6 +26,16 @@ class ProductListFragment : Fragment() {
             setHasOptionsMenu(true)
         }
         return binding.root
+    }
+
+    override fun onResume() {
+        (activity as MainActivity).controlAddProductFab(true)
+        super.onResume()
+    }
+
+    override fun onPause() {
+        (activity as MainActivity).controlAddProductFab(false)
+        super.onPause()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
