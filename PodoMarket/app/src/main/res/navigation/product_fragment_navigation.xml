@@ -18,10 +18,23 @@
             app:popEnterAnim="@anim/slide_from_left"
             app:popExitAnim="@anim/slide_to_right"
             app:popUpTo="@id/productListFragment" />
+        <action
+            android:id="@+id/action_productListFragment_to_inboxFragment"
+            app:destination="@id/inboxFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"
+            app:popUpTo="@id/productListFragment" />
     </fragment>
     <fragment
         android:id="@+id/productCategoryFragment"
         android:name="com.android.example.podomarket.ui.main.product.ProductCategoryFragment"
         android:label="fragment_product_category"
         tools:layout="@layout/fragment_product_category" />
+    <fragment
+        android:id="@+id/inboxFragment"
+        android:name="com.android.example.podomarket.ui.main.InboxFragment"
+        android:label="fragment_inbox"
+        tools:layout="@layout/fragment_inbox" />
 </navigation>
