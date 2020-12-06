@@ -9,6 +9,13 @@
     <string name="appbar_product_category_fragment">관심 카테고리 설정</string>
     <string name="appbar_inbox_fragment">알림</string>
     <string name="add">add</string>
+    <string name="image">image</string>
+    <string name="product_main_image">product_main_image</string>
+    <string name="heart">heart</string>
+    <string name="product_name_long">예시 문구입니다. 두 줄이 넘어가면 자동으로 줄바꿈이 되나요?</string>
+    <string name="city_name">동네 위치</string>
+    <string name="sold_out">거래완료</string>
+    <string name="price_placeholder">10,000원</string>
     <string name="profile_actionbar_title">프로필</string>
     <string name="profile_manner">매너온도</string>
     <string name="profile_retransaction_hope_rate">재거래희망률 <b>-%</b></string>
