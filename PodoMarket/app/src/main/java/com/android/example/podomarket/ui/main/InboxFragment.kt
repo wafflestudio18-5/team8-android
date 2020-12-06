@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentInboxBinding
 
@@ -37,6 +38,7 @@ class InboxFragment : Fragment() {
         when (item.itemId) {
             R.id.edit_button -> Toast.makeText(activity, "Edit", Toast.LENGTH_SHORT).show()
             R.id.delete_button -> Toast.makeText(activity, "Delete", Toast.LENGTH_SHORT).show()
+            android.R.id.home -> findNavController().navigateUp()
             else -> throw Error("Not valid menu item for in toolbar.")
         }
         return super.onOptionsItemSelected(item)

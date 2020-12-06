@@ -57,19 +57,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        binding.run {
-            return when (pager.currentItem) {
-                PRODUCT -> {
-                    val navController = findNavController(R.id.product_nav_host_fragment_container)
-                    navController.navigateUp()
-                }
-                else -> {
-                    super.onSupportNavigateUp()
-                }
-            }
-        }
-    }
 
     fun controlAddProductFab(toggle: Boolean) {
         binding.run {
