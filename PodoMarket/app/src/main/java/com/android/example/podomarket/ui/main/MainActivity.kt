@@ -57,14 +57,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    fun controlAddProductFab(toggle: Boolean) {
-        binding.run {
-            when (toggle) {
-
-                true -> addProductFab.show()
-                false -> addProductFab.hide()
-            }
-        }
-    }
 }

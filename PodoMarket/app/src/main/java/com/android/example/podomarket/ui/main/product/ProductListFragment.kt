@@ -9,18 +9,18 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentProductListBinding
-import com.android.example.podomarket.ui.main.MainActivity
 
 
 class ProductListFragment : Fragment() {
 
+    lateinit var binding: FragmentProductListBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding: FragmentProductListBinding by lazy {
+        binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_product_list, container, false)
-        }
+
         binding.run {
             (activity as AppCompatActivity).setSupportActionBar(toolBar)
             setHasOptionsMenu(true)
@@ -29,12 +29,12 @@ class ProductListFragment : Fragment() {
     }
 
     override fun onResume() {
-        (activity as MainActivity).controlAddProductFab(true)
+        controlAddProductFab(true)
         super.onResume()
     }
 
     override fun onPause() {
-        (activity as MainActivity).controlAddProductFab(false)
+        controlAddProductFab(false)
         super.onPause()
     }
 
@@ -51,5 +51,14 @@ class ProductListFragment : Fragment() {
             else -> throw Error("Not valid menu item for in toolbar.")
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun controlAddProductFab(toggle: Boolean) {
+        binding.run {
+            when (toggle) {
+                true -> addProductFab.show()
+                false -> addProductFab.hide()
+            }
+        }
     }
 }
