@@ -33,6 +33,7 @@
     <string name="chip_plants_text">식물</string>
     <string name="chip_extra_text">기타 중고물품</string>
     <string name="chip_buy_text">삽니다</string>
+    <string name="no_alert">알림이 없어요.</string>
     <string name="profile_actionbar_title">프로필</string>
     <string name="profile_manner">매너온도</string>
     <string name="profile_retransaction_hope_rate">재거래희망률 <b>-%</b></string>
