@@ -6,34 +6,256 @@
 
     <data />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tool_bar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/white"
-                android:id="@+id/tool_bar"
                 app:title="@{null}">
 
                 <TextView
+                    android:id="@+id/tool_bar_title"
                     style="@style/AppBarTitle"
                     android:layout_gravity="center"
-                    android:text="@string/appbar_product_category_fragment"
-                    android:id="@+id/tool_bar_title" />
+                    android:text="@string/appbar_product_category_fragment" />
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
         <TextView
+            android:id="@+id/product_catgory_title"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="ProductCategoryFragment" />
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:textSize="16sp"
+            android:text="@string/product_category_title"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/product_category_noti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:text="@string/product_category_noti"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/product_catgory_title" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_digital"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:checked="true"
+            android:text="@string/chip_digital_text"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/product_category_noti" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_furniture"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/chip_furniture_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/product_category_noti" />
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_digital2"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:checked="true"
+            android:text="@string/chip_for_child_text"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chip_digital" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_furniture2"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/chip_food_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/chip_furniture" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_digital3"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:checked="true"
+            android:text="@string/chip_sport_text"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chip_digital2" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_furniture3"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/chip_female_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/chip_furniture2" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_digital4"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:checked="true"
+            android:text="@string/chip_female_fashion_text"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chip_digital3" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_furniture4"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/chip_male_fashion_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/chip_furniture3" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_digital5"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:checked="true"
+            android:text="@string/chip_game_text"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chip_digital4" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_furniture5"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/chip_beauty_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/chip_furniture4" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_digital6"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:checked="true"
+            android:text="@string/chip_for_pet_text"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chip_digital5" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_furniture6"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/chip_book_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/chip_furniture5" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_digital7"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:checked="true"
+            android:text="@string/chip_plants_text"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chip_digital6" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_furniture7"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/chip_extra_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/chip_furniture6" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_digital8"
+            style="@style/ChipCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:checked="true"
+            android:text="@string/chip_buy_text"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chip_digital7" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_percent="0.5"
+            android:orientation="vertical" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
