@@ -44,11 +44,8 @@ class MainActivity : AppCompatActivity() {
             when (pager.currentItem) {
                 PRODUCT -> {
                     val navController = findNavController(R.id.product_nav_host_fragment_container)
-                    when {
-                        (navController.graph.startDestination != navController.currentDestination?.id)
-                        -> navController.popBackStack()
-                        else -> super.onBackPressed()
-                    }
+                    if (!navController.popBackStack())
+                        super.onBackPressed()
                 }
                 else -> {
                     super.onBackPressed()

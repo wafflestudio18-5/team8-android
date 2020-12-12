@@ -55,10 +55,10 @@ class ProductListFragment : Fragment() {
 
     private fun controlAddProductFab(toggle: Boolean) {
         binding.run {
-            when (toggle) {
-                true -> addProductFab.show()
-                false -> addProductFab.hide()
-            }
+            if (toggle)
+                addProductFab.show()
+            else
+                addProductFab.hide()
         }
     }
 }

@@ -21,13 +21,15 @@ class ProductCategoryFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_product_category, container, false)
         }
         binding.run {
-            toolBar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-            toolBar.setNavigationOnClickListener {
-                findNavController().navigateUp()
+            toolBar.apply {
+                setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+                setNavigationOnClickListener {
+                    findNavController().navigateUp()
+                }
             }
         }
         return binding.root
     }
 
-   
+
 }
