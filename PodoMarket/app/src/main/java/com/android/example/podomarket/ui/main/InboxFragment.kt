@@ -22,13 +22,13 @@ class InboxFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_inbox, container, false)
         }
         binding.run {
-            toolBar.apply {
-                setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-                setNavigationOnClickListener {
+            toolBar.also { tb ->
+                tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+                tb.setNavigationOnClickListener {
                     findNavController().navigateUp()
                 }
-                inflateMenu(R.menu.app_bar_fragment_inbox)
-                setOnMenuItemClickListener {
+                tb.inflateMenu(R.menu.app_bar_fragment_inbox)
+                tb.setOnMenuItemClickListener {
                     when (it.itemId) {
                         R.id.edit_button -> Toast.makeText(activity, "Edit", Toast.LENGTH_SHORT)
                             .show()
