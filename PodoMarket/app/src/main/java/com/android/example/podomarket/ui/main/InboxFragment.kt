@@ -30,18 +30,13 @@ class InboxFragment : Fragment() {
                 inflateMenu(R.menu.app_bar_fragment_inbox)
                 setOnMenuItemClickListener {
                     when (it.itemId) {
-                        R.id.edit_button -> {
-                            Toast.makeText(activity, "Edit", Toast.LENGTH_SHORT)
-                                .show()
-                            true
-                        }
-                        R.id.delete_button -> {
-                            Toast.makeText(activity, "Delete", Toast.LENGTH_SHORT)
-                                .show()
-                            true
-                        }
-                        else -> false
+                        R.id.edit_button -> Toast.makeText(activity, "Edit", Toast.LENGTH_SHORT)
+                            .show()
+                        R.id.delete_button -> Toast.makeText(activity, "Delete", Toast.LENGTH_SHORT)
+                            .show()
+                        else -> return@setOnMenuItemClickListener false
                     }
+                    return@setOnMenuItemClickListener true
                 }
             }
         }
