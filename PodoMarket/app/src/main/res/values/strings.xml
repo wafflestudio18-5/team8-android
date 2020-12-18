@@ -45,4 +45,5 @@
     <string name="profile_sale_product">판매상품 -개</string>
     <string name="profile_manner_evaluation">받은 매너 평가</string>
     <string name="profile_transaction_review">받은 거래 후기</string>
+    <string name="appbar_chat_room_list_fragment">채팅</string>
 </resources>
