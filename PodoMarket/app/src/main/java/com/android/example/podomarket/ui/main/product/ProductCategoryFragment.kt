@@ -21,9 +21,9 @@ class ProductCategoryFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_product_category, container, false)
         }
         binding.run {
-            toolBar.apply {
-                setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-                setNavigationOnClickListener {
+            toolBar.also { tb ->
+                tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+                tb.setNavigationOnClickListener {
                     findNavController().navigateUp()
                 }
             }

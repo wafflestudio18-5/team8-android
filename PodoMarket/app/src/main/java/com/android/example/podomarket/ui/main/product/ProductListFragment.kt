@@ -21,9 +21,9 @@ class ProductListFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_product_list, container, false)
 
         binding.run {
-            toolBar.apply {
-                inflateMenu(R.menu.app_bar_fragment_product_list)
-                setOnMenuItemClickListener {
+            toolBar.also { tb ->
+                tb.inflateMenu(R.menu.app_bar_fragment_product_list)
+                tb.setOnMenuItemClickListener {
                     when (it.itemId) {
                         R.id.search_button -> Toast.makeText(activity, "Search", Toast.LENGTH_SHORT)
                             .show()
