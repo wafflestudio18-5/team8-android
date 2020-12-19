@@ -13,7 +13,7 @@ class MainPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activi
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            PRODUCT -> ProductFragment()
+            PRODUCT -> ProductContainerFragment()
             ARTICLE -> ArticleFragment()
             CHAT -> ChatRoomListFragment()
             MYPAGE -> MyPageFragment()
