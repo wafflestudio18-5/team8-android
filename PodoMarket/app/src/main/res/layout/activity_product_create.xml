@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.product.ProductCreateActivity">
 
-    <data>
-    </data>
+    <data/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,6 +73,7 @@
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="@string/product_create_title"
                         android:layout_alignParentLeft="true"
                         android:layout_marginLeft="10dp"/>
@@ -119,6 +119,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/product_create_price"
+                        android:background="@android:color/transparent"
                         android:layout_alignParentLeft="true"
                         android:layout_marginLeft="10dp" />
                 </RelativeLayout>
@@ -134,7 +135,9 @@
                     android:id="@+id/et_productCreate_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/product_create_description"/>
+                    android:background="@android:color/transparent"
+                    android:hint="@string/product_create_description"
+                    android:layout_margin="10dp"/>
 
             </LinearLayout>
         </ScrollView>
