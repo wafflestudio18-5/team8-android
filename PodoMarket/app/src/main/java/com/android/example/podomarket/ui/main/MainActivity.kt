@@ -47,6 +47,11 @@ class MainActivity : AppCompatActivity() {
                     if (!navController.popBackStack())
                         super.onBackPressed()
                 }
+                MYPAGE -> {
+                    val navController = findNavController(R.id.my_page_nav_host_fragment_container)
+                    if (!navController.popBackStack())
+                        super.onBackPressed()
+                }
                 else -> {
                     super.onBackPressed()
                 }

@@ -49,4 +49,5 @@
     <string name="example_user_name">홍길동</string>
     <string name="example_chatting">채팅 예시입니다.</string>
     <string name="appbar_my_page_fragment">나의 당근</string>
+    <string name="appbar_setting_fragment">설정</string>
 </resources>
