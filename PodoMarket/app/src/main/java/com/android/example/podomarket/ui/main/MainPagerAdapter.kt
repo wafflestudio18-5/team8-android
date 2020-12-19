@@ -16,7 +16,7 @@ class MainPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activi
             PRODUCT -> ProductContainerFragment()
             ARTICLE -> ArticleFragment()
             CHAT -> ChatRoomListFragment()
-            MYPAGE -> MyPageFragment()
+            MYPAGE -> MyPageContainerFragment()
             else -> {
                 throw Error("Not valid fragment for designated page number.")
             }

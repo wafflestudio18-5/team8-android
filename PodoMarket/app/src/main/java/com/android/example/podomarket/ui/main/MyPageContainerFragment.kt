@@ -7,18 +7,17 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.android.example.podomarket.R
-import com.android.example.podomarket.databinding.FragmentMyPageBinding
+import com.android.example.podomarket.databinding.FragmentMyPageContainerBinding
 
+class MyPageContainerFragment : Fragment() {
 
-class MyPageFragment : Fragment() {
-
-
-    lateinit var binding: FragmentMyPageBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_page, container, false)
+        val binding: FragmentMyPageContainerBinding by lazy {
+            DataBindingUtil.inflate(inflater, R.layout.fragment_my_page_container, container, false)
+        }
         return binding.root
     }
 
