@@ -134,10 +134,15 @@
                 <EditText
                     android:id="@+id/et_productCreate_description"
                     android:layout_width="match_parent"
+<<<<<<< Updated upstream
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:hint="@string/product_create_description"
                     android:layout_margin="10dp"/>
+=======
+                    android:layout_height="match_parent"
+                    android:hint="@string/product_create_description"/>
+>>>>>>> Stashed changes
 
             </LinearLayout>
         </ScrollView>
