@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.android.example.podomarket.ui.main.mypage.MyPageItemClickListener" />
+
+        <variable
+            name="customText"
+            type="java.lang.String" />
+
+        <variable
+            name="customSrc"
+            type="android.graphics.drawable.Drawable" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:onClick="@{(view) -> clickListener.onClick(view)}"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/my_page_item_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:contentDescription="@string/my_page_item_icon"
+            android:src="@{customSrc}"
+            tools:src="@drawable/ic_baseline_place_24"
+            app:layout_constraintEnd_toStartOf="@id/my_page_item_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/my_page_item_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="@{customText}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:text="@string/set_current_place"
+            app:layout_constraintBottom_toBottomOf="@id/my_page_item_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/my_page_item_icon"
+            app:layout_constraintTop_toTopOf="@id/my_page_item_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

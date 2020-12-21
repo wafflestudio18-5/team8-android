@@ -55,4 +55,7 @@
     <string name="buy_list_icon">구매내역</string>
     <string name="like_list_icon">관심목록</string>
     <string name="set_current_place">내 동네 설정</string>
+    <string name="my_page_item_icon">Icon of the item of MyPage.</string>
+    <string name="key_word_alert">키워드 알림</string>
+    <string name="article_list">동네생활 글</string>
 </resources>

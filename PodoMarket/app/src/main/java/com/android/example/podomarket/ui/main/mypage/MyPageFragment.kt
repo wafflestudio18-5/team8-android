@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -31,8 +32,26 @@ class MyPageFragment : Fragment() {
                     return@setOnMenuItemClickListener true
                 }
             }
+            clickListener = MyPageItemClickListener {
+                when (it.id) {
+                    R.id.set_current_place_item -> Toast.makeText(
+                        activity,
+                        "SET CURRENT PLACE ITEM",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    R.id.key_word_alert_item -> Toast.makeText(
+                        activity,
+                        "KEY WORD ALERT ITEM",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
         }
         return binding.root
     }
 
+}
+
+class MyPageItemClickListener(val clickListener: (item: View) -> Unit) {
+    fun onClick(item: View) = clickListener(item)
 }
