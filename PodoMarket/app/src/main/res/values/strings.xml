@@ -50,4 +50,8 @@
     <string name="example_chatting">채팅 예시입니다.</string>
     <string name="appbar_my_page_fragment">나의 당근</string>
     <string name="appbar_setting_fragment">설정</string>
+    <string name="view_profile">프로필 보기</string>
+    <string name="sell_list_icon">판매내역</string>
+    <string name="buy_list_icon">구매내역</string>
+    <string name="like_list_icon">관심목록</string>
 </resources>
