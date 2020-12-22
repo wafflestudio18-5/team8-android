@@ -22,7 +22,8 @@
 
                 <TextView
                     style="@style/AppBarTitle"
-                    android:text="@string/appbar_profile_activity"/>
+                    android:text="@string/appbar_profile_activity"
+                    android:layout_gravity="center"/>
 
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
