@@ -11,264 +11,313 @@
             type="com.android.example.podomarket.ui.main.mypage.MyPageItemClickListener" />
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/light_gray">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/app_bar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/light_gray">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/tool_bar"
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/tool_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/tool_bar_title"
+                        style="@style/AppBarTitle"
+                        android:text="@string/appbar_my_page_fragment" />
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/my_page_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
                 android:background="@color/white">
 
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/profile_image_container"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <ImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/teal_700"
+                        android:contentDescription="@string/product_main_image"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_image_24" />
+                </androidx.cardview.widget.CardView>
+
+
                 <TextView
-                    android:id="@+id/tool_bar_title"
-                    style="@style/AppBarTitle"
-                    android:text="@string/appbar_my_page_fragment" />
-            </androidx.appcompat.widget.Toolbar>
-        </com.google.android.material.appbar.AppBarLayout>
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="18dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/example_user_name"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="normal|bold"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintStart_toEndOf="@id/profile_image_container"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/my_page_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:background="@color/white">
+                <TextView
+                    android:id="@+id/city_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/city_name"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/profile_image_container"
+                    app:layout_constraintTop_toBottomOf="@+id/user_name" />
 
+                <Button
+                    android:id="@+id/view_profile_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:text="@string/view_profile"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/profile_image_container"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="30dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profile_image_container" />
 
-                <ImageView
-                    android:id="@+id/profile_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/teal_700"
-                    android:contentDescription="@string/product_main_image"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_baseline_image_24" />
-            </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/sell_list_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="@color/purple_200"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintTop_toBottomOf="@id/view_profile_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/buy_list_icon_container">
 
-
-            <TextView
-                android:id="@+id/user_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="18dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="@string/example_user_name"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="normal|bold"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintStart_toEndOf="@id/profile_image_container"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/city_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/city_name"
-                android:textSize="14sp"
-                app:layout_constraintStart_toEndOf="@id/profile_image_container"
-                app:layout_constraintTop_toBottomOf="@+id/user_name" />
-
-            <Button
-                android:id="@+id/view_profile_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
-                android:text="@string/view_profile"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/profile_image_container" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/sell_list_icon_container"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="@color/purple_200"
-                app:cardCornerRadius="30dp"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintTop_toBottomOf="@id/view_profile_button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/buy_list_icon_container">
-
-                <ImageView
-                    android:id="@+id/sell_list_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:background="@color/purple_200"
-                    android:contentDescription="@string/sell_list_icon"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_baseline_receipt_24" />
-            </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:id="@+id/sell_list_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/purple_200"
+                        android:contentDescription="@string/sell_list_icon"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_receipt_24" />
+                </androidx.cardview.widget.CardView>
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/buy_list_icon_container"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="@color/purple_200"
-                app:cardCornerRadius="30dp"
-                app:layout_constraintTop_toBottomOf="@id/view_profile_button"
-                app:layout_constraintStart_toEndOf="@id/sell_list_icon_container"
-                app:layout_constraintEnd_toStartOf="@id/like_list_icon_container">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/buy_list_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="@color/purple_200"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintTop_toBottomOf="@id/view_profile_button"
+                    app:layout_constraintStart_toEndOf="@id/sell_list_icon_container"
+                    app:layout_constraintEnd_toStartOf="@id/like_list_icon_container">
 
-                <ImageView
-                    android:id="@+id/buy_list_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:background="@color/purple_200"
-                    android:contentDescription="@string/buy_list_icon"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_baseline_shopping_bag_24" />
-            </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:id="@+id/buy_list_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/purple_200"
+                        android:contentDescription="@string/buy_list_icon"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_shopping_bag_24" />
+                </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/like_list_icon_container"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="@color/purple_200"
-                app:cardCornerRadius="30dp"
-                app:layout_constraintTop_toBottomOf="@id/view_profile_button"
-                app:layout_constraintStart_toEndOf="@id/buy_list_icon_container"
-                app:layout_constraintEnd_toEndOf="parent">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/like_list_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="@color/purple_200"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintTop_toBottomOf="@id/view_profile_button"
+                    app:layout_constraintStart_toEndOf="@id/buy_list_icon_container"
+                    app:layout_constraintEnd_toEndOf="parent">
 
-                <ImageView
-                    android:id="@+id/like_list_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:background="@color/purple_200"
-                    android:contentDescription="@string/like_list_icon"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_baseline_heart_24" />
-            </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:id="@+id/like_list_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/purple_200"
+                        android:contentDescription="@string/like_list_icon"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_heart_24" />
+                </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/sell_list_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/sell_list_icon"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="@id/sell_list_icon_container"
-                app:layout_constraintStart_toStartOf="@id/sell_list_icon_container"
-                app:layout_constraintTop_toBottomOf="@id/sell_list_icon_container" />
+                <TextView
+                    android:id="@+id/sell_list_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/sell_list_icon"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="@id/sell_list_icon_container"
+                    app:layout_constraintStart_toStartOf="@id/sell_list_icon_container"
+                    app:layout_constraintTop_toBottomOf="@id/sell_list_icon_container" />
 
 
-            <TextView
-                android:id="@+id/buy_list_text"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/buy_list_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/buy_list_icon"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="@id/buy_list_icon_container"
+                    app:layout_constraintStart_toStartOf="@id/buy_list_icon_container"
+                    app:layout_constraintTop_toBottomOf="@id/buy_list_icon_container" />
+
+
+                <TextView
+                    android:id="@+id/like_list_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/like_list_icon"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="@id/like_list_icon_container"
+                    app:layout_constraintStart_toStartOf="@id/like_list_icon_container"
+                    app:layout_constraintTop_toBottomOf="@id/like_list_icon_container" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/my_page_header_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <include
+                android:id="@+id/set_current_place_item"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="@string/buy_list_icon"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="@id/buy_list_icon_container"
-                app:layout_constraintStart_toStartOf="@id/buy_list_icon_container"
-                app:layout_constraintTop_toBottomOf="@id/buy_list_icon_container" />
+                layout="@layout/item_my_page"
+                app:clickListener="@{clickListener}"
+                app:customText="@{@string/set_current_place}"
+                app:customSrc="@{@drawable/ic_baseline_place_24}" />
 
 
-            <TextView
-                android:id="@+id/like_list_text"
-                android:layout_width="wrap_content"
+            <include
+                android:id="@+id/key_word_alert_item"
+                layout="@layout/item_my_page"
+                app:clickListener="@{clickListener}"
+                app:customText="@{@string/key_word_alert}"
+                app:customSrc="@{@drawable/ic_baseline_local_offer_24}" />
+
+
+            <View
+                android:id="@+id/my_page_first_block_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <include
+                android:id="@+id/article_list_item"
+                layout="@layout/item_my_page"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="@string/like_list_icon"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="@id/like_list_icon_container"
-                app:layout_constraintStart_toStartOf="@id/like_list_icon_container"
-                app:layout_constraintTop_toBottomOf="@id/like_list_icon_container" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                app:clickListener="@{clickListener}"
+                app:customText="@{@string/article_list}"
+                app:customSrc="@{@drawable/ic_baseline_article_24}" />
 
-        <View
-            android:id="@+id/my_page_header_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider" />
+            <include
+                android:id="@+id/comment_list_item"
+                layout="@layout/item_my_page"
+                app:clickListener="@{clickListener}"
+                app:customText="@{@string/comment_list}"
+                app:customSrc="@{@drawable/ic_baseline_chat_24}" />
 
-        <include
-            android:id="@+id/set_current_place_item"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            layout="@layout/item_my_page"
-            app:clickListener="@{clickListener}"
-            app:customText="@{@string/set_current_place}"
-            app:customSrc="@{@drawable/ic_baseline_place_24}" />
+            <include
+                android:id="@+id/article_category_item"
+                layout="@layout/item_my_page"
+                app:clickListener="@{clickListener}"
+                app:customText="@{@string/category_list}"
+                app:customSrc="@{@drawable/ic_baseline_star_outline_24}" />
 
+            <View
+                android:id="@+id/my_page_second_block_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
 
-        <include
-            android:id="@+id/key_word_alert_item"
-            layout="@layout/item_my_page"
-            app:clickListener="@{clickListener}"
-            app:customText="@{@string/key_word_alert}"
-            app:customSrc="@{@drawable/ic_baseline_local_offer_24}" />
+            <include
+                android:id="@+id/share_link_item"
+                layout="@layout/item_my_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:clickListener="@{clickListener}"
+                app:customText="@{@string/share_link}"
+                app:customSrc="@{@drawable/ic_baseline_share_24}" />
 
+            <include
+                android:id="@+id/setting_item"
+                layout="@layout/item_my_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                app:clickListener="@{clickListener}"
+                app:customText="@{@string/setting}"
+                app:customSrc="@{@drawable/ic_baseline_settings_24}" />
 
-        <View
-            android:id="@+id/my_page_first_block_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider" />
-
-        <include
-            android:id="@+id/article_list_item"
-            layout="@layout/item_my_page"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            app:clickListener="@{clickListener}"
-            app:customText="@{@string/article_list}"
-            app:customSrc="@{@drawable/ic_baseline_article_24}" />
-
-
-    </LinearLayout>
+            <View
+                android:id="@+id/my_page_third_block_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+        </LinearLayout>
+    </ScrollView>
 </layout>

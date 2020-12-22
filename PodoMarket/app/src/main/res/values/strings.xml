@@ -58,4 +58,8 @@
     <string name="my_page_item_icon">Icon of the item of MyPage.</string>
     <string name="key_word_alert">키워드 알림</string>
     <string name="article_list">동네생활 글</string>
+    <string name="comment_list">동네생활 댓글</string>
+    <string name="category_list">동네생활 주제</string>
+    <string name="share_link">당근마켓 공유</string>
+    <string name="setting">앱 설정</string>
 </resources>

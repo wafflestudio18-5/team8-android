@@ -44,6 +44,7 @@ class MyPageFragment : Fragment() {
                         "KEY WORD ALERT ITEM",
                         Toast.LENGTH_SHORT
                     ).show()
+                    R.id.setting_item -> findNavController().navigate(R.id.action_myPageFragment_to_settingFragment)
                 }
             }
         }
