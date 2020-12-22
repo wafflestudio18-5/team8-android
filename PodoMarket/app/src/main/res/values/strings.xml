@@ -62,4 +62,7 @@
     <string name="category_list">동네생활 주제</string>
     <string name="share_link">당근마켓 공유</string>
     <string name="setting">앱 설정</string>
+    <string name="manage_profile">계정/정보 관리</string>
+    <string name="logout">로그아웃</string>
+    <string name="signout">탈퇴</string>
 </resources>
