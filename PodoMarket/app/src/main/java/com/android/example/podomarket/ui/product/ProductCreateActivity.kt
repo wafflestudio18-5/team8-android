@@ -1,5 +1,7 @@
 package com.android.example.podomarket.ui.product
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -7,8 +9,13 @@ import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityMainBinding
 import com.android.example.podomarket.databinding.ActivityProductCreateBinding
+import com.android.example.podomarket.ui.user.ProfileActivity
 
 class ProductCreateActivity : AppCompatActivity() {
+    companion object {
+        fun intent(context: Context): Intent = Intent(context, ProductCreateActivity::class.java)
+    }
+
     private val binding: ActivityProductCreateBinding by lazy {
         DataBindingUtil.setContentView(
             this,
