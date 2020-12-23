@@ -93,7 +93,6 @@
     <string name="all">전체</string>
     <string name="product_create_close">닫기</string>
     <string name="product_create_complete">완료</string>
-    <string name="product_create_location">중고거래 글쓰기</string>
     <string name="product_create_title">글 제목</string>
     <string name="product_create_category">카테고리 선택</string>
     <string name="product_create_price">￦ 가격입력(선택사항)</string>
