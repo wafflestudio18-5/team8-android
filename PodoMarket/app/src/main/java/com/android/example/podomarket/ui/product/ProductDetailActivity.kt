@@ -27,7 +27,7 @@ class ProductDetailActivity : AppCompatActivity() {
                     when(it.itemId) {
                         R.id.share_button -> Toast.makeText(applicationContext, "공 기능 미완성", Toast.LENGTH_SHORT)
                         R.id.more_button -> Toast.makeText(applicationContext, "추가 기능 미완성", Toast.LENGTH_SHORT)
-                        else -> return@setOnMenuItemClickListener false유
+                        else -> return@setOnMenuItemClickListener false
                     }
                     return@setOnMenuItemClickListener true
                 }
