@@ -17,7 +17,10 @@ class ProductUserBuyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.run {
-
+            toolBar.also { tb ->
+                tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+                tb.setNavigationOnClickListener { finish() }
+            }
         }
     }
 }
