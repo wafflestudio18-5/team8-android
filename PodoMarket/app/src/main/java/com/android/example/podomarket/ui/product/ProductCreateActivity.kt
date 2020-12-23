@@ -28,9 +28,10 @@ class ProductCreateActivity : AppCompatActivity() {
         binding.run {
             toolBar.also { tb ->
                 tb.inflateMenu(R.menu.app_bar_activity_product_create)
+                tb.setNavigationContentDescription(R.string.product_create_close)
+                tb.setNavigationOnClickListener { finish() }
                 tb.setOnMenuItemClickListener {
                     when(it.itemId) {
-                        R.id.close_button -> finish()
                         R.id.complete_button -> Toast.makeText(applicationContext, "상품 등록 완료(미완성)", Toast.LENGTH_SHORT)
                         else -> return@setOnMenuItemClickListener false
                     }
