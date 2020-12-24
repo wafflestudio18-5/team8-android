@@ -19,6 +19,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        debug {
+            storeFile rootProject.file('debug.jks')
+            keyAlias 'debug'
+            keyPassword 'debug_password'
+            storePassword 'podomarket'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
