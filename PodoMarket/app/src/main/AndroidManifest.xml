@@ -33,6 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="060207fa3b8cf68c8427a40c814f7643" /> <!-- Native App Key Setting -->
     </application>
 
 </manifest>

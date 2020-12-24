@@ -91,4 +91,7 @@ dependencies {
     // RxJava
     implementation 'io.reactivex.rxjava3:rxjava:3.0.3'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+
+    // kakao Login
+    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.30.4'
 }
