@@ -12,6 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PodoMarket">
+        <activity android:name=".ui.user.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ui.search.SearchActivity" />
         <activity android:name=".ui.chat.ChatRoomActivity" />
         <activity android:name=".ui.article.ArticleCategoryActivity" />
@@ -26,17 +33,24 @@
         <activity android:name=".ui.user.UserInterestedActivity" />
         <activity android:name=".ui.user.ProfileActivity" />
         <activity android:name=".ui.user.SignInActivity" />
-        <activity android:name=".ui.main.MainActivity">
+        <activity android:name=".ui.main.MainActivity" />
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
+                <data
+                    android:host="oauth"
+                    android:scheme="kakao060207fa3b8cf68c8427a40c814f7643" />
             </intent-filter>
         </activity>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
-            android:value="060207fa3b8cf68c8427a40c814f7643" /> <!-- Native App Key Setting -->
+            android:value="060207fa3b8cf68c8427a40c814f7643" />
     </application>
 
 </manifest>
