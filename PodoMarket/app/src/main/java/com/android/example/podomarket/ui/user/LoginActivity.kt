@@ -26,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ token ->
                         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        finish()
                     }, { error ->
                         Toast.makeText(this@LoginActivity, error.toString(), Toast.LENGTH_LONG)
                             .show()
