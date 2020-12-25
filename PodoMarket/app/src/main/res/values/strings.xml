@@ -90,4 +90,5 @@
     <string name="appbar_product_user_buy_activity">구매내역</string>
     <string name="appbar_product_user_sell_activity">판매내역</string>
     <string name="appbar_user_interested_activity">관심목록</string>
+    <string name="used_trading">중고거래</string>
 </resources>
