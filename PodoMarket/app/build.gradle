@@ -23,7 +23,7 @@ android {
         debug {
             storeFile rootProject.file('debug.jks')
             keyAlias 'debug'
-            keyPassword 'debug_password'
+            keyPassword 'debugpassword'
             storePassword 'podomarket'
         }
     }
