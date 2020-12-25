@@ -1,5 +1,7 @@
 package com.android.example.podomarket.ui.user
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -7,6 +9,10 @@ import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityUserInterestedBinding
 
 class UserInterestedActivity : AppCompatActivity() {
+    companion object {
+        fun intent(context: Context): Intent = Intent(context, UserInterestedActivity::class.java)
+    }
+
     private val binding: ActivityUserInterestedBinding by lazy {
         DataBindingUtil.setContentView(
             this,
