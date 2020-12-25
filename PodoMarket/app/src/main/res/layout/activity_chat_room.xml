@@ -67,7 +67,8 @@
             android:layout_height="2dp"
             android:background="@color/light_gray"
             app:layout_constraintTop_toBottomOf="@+id/app_bar"
-            app:layout_constraintBottom_toTopOf="@+id/product_image"/>
+            app:layout_constraintBottom_toTopOf="@+id/product_image"
+            android:layout_marginBottom="5dp"/>
 
         <ImageView
             android:id="@+id/product_image"
@@ -105,7 +106,8 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/light_gray"
-            app:layout_constraintTop_toBottomOf="@+id/product_image"/>
+            app:layout_constraintTop_toBottomOf="@+id/product_image"
+            android:layout_marginTop="5dp"/>
 
         <ListView
             android:id="@+id/list_view"
@@ -113,6 +115,7 @@
             android:layout_height="0dp"
             android:divider="#ffffff"
             android:dividerHeight="0dp"
+            tools:listitem="@layout/other_msgbox"
             app:layout_constraintTop_toBottomOf="@+id/line2"
             app:layout_constraintBottom_toTopOf="@+id/chatting_input_layout"/>
 
