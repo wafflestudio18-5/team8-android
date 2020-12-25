@@ -7,7 +7,7 @@ import com.android.example.podomarket.ui.user.UserInterestedPageConst.ARTICLE
 import com.android.example.podomarket.ui.user.UserInterestedPageConst.PRODUCT
 
 class UserInterestedPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
-    override fun getItemCount(): Int = 2
+    override fun getItemCount(): Int = 1
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
