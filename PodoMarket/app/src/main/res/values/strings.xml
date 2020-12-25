@@ -48,6 +48,8 @@
     <string name="appbar_chat_room_list_fragment">채팅</string>
     <string name="example_user_name">홍길동</string>
     <string name="example_chatting">채팅 예시입니다.</string>
+    <string name="example_temperature">36.5도</string>
+    <string name="example_response_time">보통 10분 이내 응답</string>
     <string name="appbar_my_page_fragment">나의 당근</string>
     <string name="appbar_setting_fragment">설정</string>
     <string name="view_profile">프로필 보기</string>
