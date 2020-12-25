@@ -15,4 +15,13 @@
         <item name="chipIcon">@drawable/ic_baseline_check_circle_24</item>
         <item name="chipBackgroundColor">@color/white</item>
     </style>
+
+    <style name="Temperature">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/royal_blue</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/border_round_royal_blue</item>
+        <item name="android:padding">1dp</item>
+    </style>
 </resources>
