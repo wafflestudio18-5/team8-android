@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityProductUserSellBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class ProductUserSellActivity : AppCompatActivity() {
     companion object {
@@ -22,7 +23,15 @@ class ProductUserSellActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val tabLayoutTextIdArray = arrayOf(R.string.selling, R.string.sold_out, R.string.hidden)
+
         binding.run {
+            pager.adapter = ProductUserSellPagerAdapter(this@ProductUserSellActivity)
+            pager.isUserInputEnabled = true
+            TabLayoutMediator(tabLayout, pager) { tab, position ->
+                tab.text = getString(tabLayoutTextIdArray[position])
+            }.attach()
             toolBar.also { tb ->
                 tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
                 tb.setNavigationOnClickListener { finish() }
