@@ -108,13 +108,50 @@
             app:layout_constraintTop_toBottomOf="@+id/product_image"/>
 
         <ListView
+            android:id="@+id/list_view"
             android:layout_width="match_parent"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp"
+            android:divider="#ffffff"
+            android:dividerHeight="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/line2"
+            app:layout_constraintBottom_toTopOf="@+id/chatting_input_layout"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:id="@+id/chatting_input_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:background="@color/light_gray"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/list_view"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_add_24"
+                android:background="@android:color/transparent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textMultiLine"
+                android:maxLines="3"
+                android:hint="@string/waiting_input_message"
+                android:background="@drawable/border_round_gray"
+                android:padding="10dp"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_send_24"
+                android:background="@android:color/transparent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

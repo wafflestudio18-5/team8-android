@@ -46,6 +46,7 @@
     <string name="profile_manner_evaluation">받은 매너 평가</string>
     <string name="profile_transaction_review">받은 거래 후기</string>
     <string name="appbar_chat_room_list_fragment">채팅</string>
+    <string name="waiting_input_message">메세지를 입력하세요.</string>
     <string name="example_user_name">홍길동</string>
     <string name="example_chatting">채팅 예시입니다.</string>
     <string name="example_temperature">36.5도</string>
