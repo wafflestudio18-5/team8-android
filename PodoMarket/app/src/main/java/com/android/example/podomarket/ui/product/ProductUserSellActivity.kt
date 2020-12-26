@@ -37,7 +37,6 @@ class ProductUserSellActivity : AppCompatActivity() {
             when (userId) {
                 0L -> pager.setCurrentItem(ProductUserSellPageConst.MY_SALES, false)
                 else -> pager.setCurrentItem(ProductUserSellPageConst.OTHER_SALES, false)
-                }
             }
         }
     }
