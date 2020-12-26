@@ -7,18 +7,20 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.android.example.podomarket.R
-import com.android.example.podomarket.databinding.FragmentAllProductBinding
+import com.android.example.podomarket.databinding.FragmentMySalesListBinding
 
-class AllProductFragment : Fragment() {
+class MySalesListFragment : Fragment() {
 
-    lateinit var binding: FragmentAllProductBinding
+    lateinit var binding: FragmentMySalesListBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_all_product, container, false)
+            DataBindingUtil.inflate(inflater, R.layout.fragment_my_sales_list, container, false)
+        binding.run {
 
+        }
         return binding.root
     }
 
