@@ -36,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         val gso: GoogleSignInOptions =
             GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.server_client_id))
                 .build()
         val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
@@ -73,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account: GoogleSignInAccount? = completedTask.getResult(ApiException::class.java)
-            Toast.makeText(this, "email : " + account?.email, Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "ID Token : " + account?.idToken, Toast.LENGTH_LONG).show()
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         } catch (e: ApiException) {
