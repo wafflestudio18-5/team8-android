@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivitySearchBinding
+import com.android.example.podomarket.ui.search.SearchPageConst.BEFORE_SEARCH
 import com.google.android.material.tabs.TabLayoutMediator
 
 class SearchActivity : AppCompatActivity() {
@@ -25,6 +26,7 @@ class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.run {
+            pager.setCurrentItem(BEFORE_SEARCH, false)
             toolBar.also { tb ->
                 tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
                 tb.setNavigationOnClickListener { finish() }
