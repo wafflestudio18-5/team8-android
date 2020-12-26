@@ -17,6 +17,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.kakao.sdk.auth.LoginClient
 import com.kakao.sdk.auth.rx
+import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 
 
@@ -46,9 +47,21 @@ class LoginActivity : AppCompatActivity() {
                 startActivityForResult(mGoogleSignInClient.signInIntent, RC_SIGN_IN)
             }
             testButton.setOnClickListener {
-                LoginClient.rx.loginWithKakaoAccount(this@LoginActivity)
+                // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
+                Single.just(LoginClient.instance.isKakaoTalkLoginAvailable(this@LoginActivity))
+                    .flatMap { available ->
+                        if (available)
+                            LoginClient.rx.loginWithKakaoTalk(this@LoginActivity)
+                        else
+                            LoginClient.rx.loginWithKakaoAccount(this@LoginActivity)
+                    }
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ token ->
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Access Token : ${token.accessToken}",
+                            Toast.LENGTH_LONG
+                        ).show()
                         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                         finish()
                     }, { error ->
