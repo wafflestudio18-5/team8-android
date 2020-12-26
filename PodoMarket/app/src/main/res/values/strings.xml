@@ -71,5 +71,9 @@
     <string name="logout">로그아웃</string>
     <string name="signout">탈퇴</string>
     <string name="server_client_id">432008798640-62el8tvmmc653c77gh8oq3qvtnv9aaf7.apps.googleusercontent.com</string>
+    <string name="kakao_login_button">Kakao Login Button</string>
+    <string name="sign_in_or_sign_up_with_social_service">Sign In/Up</string>
+    <string name="sign_in_or_sign_up">로그인/회원가입</string>
+    <string name="welcome_to_podomarket">포도마켓에 오신 것을 환영합니다.</string>
     <string name="appbar_profile_activity">프로필</string>
 </resources>

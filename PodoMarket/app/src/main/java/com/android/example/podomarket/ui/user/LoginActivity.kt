@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
             googleSignInButton.setOnClickListener {
                 startActivityForResult(mGoogleSignInClient.signInIntent, RC_SIGN_IN)
             }
-            testButton.setOnClickListener {
+            kakaoSignInButton.setOnClickListener {
                 // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
                 Single.just(LoginClient.instance.isKakaoTalkLoginAvailable(this@LoginActivity))
                     .flatMap { available ->
