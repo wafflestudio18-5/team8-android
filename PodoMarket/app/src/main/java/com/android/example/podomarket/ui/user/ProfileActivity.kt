@@ -25,10 +25,11 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding.run {
             toolBar.also { tb ->
+                tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+                tb.setNavigationOnClickListener { finish() }
                 tb.inflateMenu(R.menu.app_bar_activity_profile)
                 tb.setOnMenuItemClickListener {
                     when(it.itemId) {
-                        R.id.navigate_up_button -> finish()
                         R.id.share_button -> Toast.makeText(applicationContext, "공유하기 기능 미완성", Toast.LENGTH_SHORT)
                         else -> return@setOnMenuItemClickListener false
                     }

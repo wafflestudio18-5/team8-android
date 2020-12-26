@@ -2,11 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/navigate_up_button"
-        android:icon="@drawable/ic_baseline_arrow_back_24"
-        android:title="Navigate Up"
-        app:showAsAction="always"/>
-    <item
         android:id="@+id/share_button"
         android:icon="@drawable/ic_baseline_share_24"
         android:title="Share"
