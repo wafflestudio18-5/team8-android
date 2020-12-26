@@ -7,13 +7,16 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityProductUserSellBinding
+import com.android.example.podomarket.ui.main.MainPageConst
 import com.google.android.material.tabs.TabLayoutMediator
 
 class ProductUserSellActivity : AppCompatActivity() {
     companion object {
-        fun intent(context: Context): Intent = Intent(context, ProductUserBuyActivity::class.java)
+        fun intentWithUserId(userId: Long, context: Context): Intent
+            = Intent(context, ProductUserBuyActivity::class.java).apply { putExtra("user_id", userId) }
     }
 
+    private var userId: Long = 0L
     private val binding: ActivityProductUserSellBinding by lazy {
         DataBindingUtil.setContentView(
             this,
@@ -24,17 +27,17 @@ class ProductUserSellActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val tabLayoutTextIdArray = arrayOf(R.string.selling, R.string.sold_out, R.string.hidden)
+        if (intent.hasExtra("user_id")) {
+            userId = intent.getLongExtra("user_id", 0L)
+        }
 
         binding.run {
             pager.adapter = ProductUserSellPagerAdapter(this@ProductUserSellActivity)
-            pager.isUserInputEnabled = true
-            TabLayoutMediator(tabLayout, pager) { tab, position ->
-                tab.text = getString(tabLayoutTextIdArray[position])
-            }.attach()
-            toolBar.also { tb ->
-                tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-                tb.setNavigationOnClickListener { finish() }
+            pager.isUserInputEnabled = false
+            when (userId) {
+                0L -> pager.setCurrentItem(ProductUserSellPageConst.MY_SALES, false)
+                else -> pager.setCurrentItem(ProductUserSellPageConst.OTHER_SALES, false)
+                }
             }
         }
     }
