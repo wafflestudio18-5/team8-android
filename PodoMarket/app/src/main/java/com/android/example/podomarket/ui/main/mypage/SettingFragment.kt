@@ -1,6 +1,5 @@
 package com.android.example.podomarket.ui.main.mypage
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -43,14 +42,18 @@ class SettingFragment : Fragment() {
                 //Google Logout
                 GoogleSignIn.getLastSignedInAccount(activity)?.run {
                     mGoogleSignInClient?.signOut()
-                        ?.addOnCompleteListener { startLoginActivity() }
+                        ?.addOnCompleteListener {
+                            activity?.startActivity(LoginActivity.intent(requireActivity()))
+                            activity?.finish()
+                        }
                 }
                 //Kakao Logout
                 UserApiClient.instance.logout { error ->
                     error?.also {
                         Timber.e(error)
                     } ?: run {
-                        startLoginActivity()
+                        activity?.startActivity(LoginActivity.intent(requireActivity()))
+                        activity?.finish()
                     }
                 }
                 //TODO : REMOVE DRF Token
@@ -59,8 +62,4 @@ class SettingFragment : Fragment() {
         return binding.root
     }
 
-    private fun startLoginActivity() {
-        startActivity(Intent(activity, LoginActivity::class.java))
-        activity?.finish()
-    }
 }
