@@ -44,13 +44,13 @@
                 <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
                 <data
                     android:host="oauth"
-                    android:scheme="kakao060207fa3b8cf68c8427a40c814f7643" />
+                    android:scheme="kakao${KAKAO_APP_KEY}" />
             </intent-filter>
         </activity>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
-            android:value="060207fa3b8cf68c8427a40c814f7643" />
+            android:value="${KAKAO_APP_KEY}" />
     </application>
 
 </manifest>

@@ -11,6 +11,6 @@ class PodoMarketApplication : Application() {
         startKoin {
             androidContext(this@PodoMarketApplication)
         }
-        KakaoSdk.init(this, "060207fa3b8cf68c8427a40c814f7643")
+        KakaoSdk.init(this, getString(R.string.KAKAO_APP_KEY))
     }
 }
