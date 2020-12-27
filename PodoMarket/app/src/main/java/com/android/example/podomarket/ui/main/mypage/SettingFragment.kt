@@ -2,7 +2,6 @@ package com.android.example.podomarket.ui.main.mypage
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +14,7 @@ import com.android.example.podomarket.ui.user.LoginActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.kakao.sdk.user.UserApiClient
+import timber.log.Timber
 
 
 class SettingFragment : Fragment() {
@@ -48,7 +48,7 @@ class SettingFragment : Fragment() {
                 //Kakao Logout
                 UserApiClient.instance.logout { error ->
                     error?.run {
-                        Log.e("SettingFragment", error.toString())
+                        Timber.e(error)
                     } ?: kotlin.run {
                         startLoginActivity()
                     }
