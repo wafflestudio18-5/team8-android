@@ -47,9 +47,9 @@ class SettingFragment : Fragment() {
                 }
                 //Kakao Logout
                 UserApiClient.instance.logout { error ->
-                    error?.run {
+                    error?.also {
                         Timber.e(error)
-                    } ?: kotlin.run {
+                    } ?: run {
                         startLoginActivity()
                     }
                 }
