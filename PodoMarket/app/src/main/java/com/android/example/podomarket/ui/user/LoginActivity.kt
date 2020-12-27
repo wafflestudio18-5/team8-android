@@ -2,7 +2,6 @@ package com.android.example.podomarket.ui.user
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -19,6 +18,7 @@ import com.kakao.sdk.auth.LoginClient
 import com.kakao.sdk.auth.rx
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
+import timber.log.Timber
 
 
 class LoginActivity : AppCompatActivity() {
@@ -91,7 +91,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         } catch (e: ApiException) {
-            Log.i("LoginActivity", e.toString())
+            Timber.e(e)
         }
     }
 }
