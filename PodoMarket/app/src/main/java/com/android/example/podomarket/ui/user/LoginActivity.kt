@@ -24,7 +24,7 @@ import timber.log.Timber
 
 class LoginActivity : AppCompatActivity() {
 
-    val binding: ActivityLoginBinding by lazy {
+    private val binding: ActivityLoginBinding by lazy {
         DataBindingUtil.setContentView(this, R.layout.activity_login)
     }
 
@@ -59,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
                             "Access Token : ${token.accessToken}",
                             Toast.LENGTH_LONG
                         ).show()
-                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        startActivity(MainActivity.intent(this@LoginActivity))
                         finish()
                     }, { error ->
                         Toast.makeText(this@LoginActivity, error.toString(), Toast.LENGTH_LONG)
@@ -85,7 +85,7 @@ class LoginActivity : AppCompatActivity() {
         try {
             val account: GoogleSignInAccount? = completedTask.getResult(ApiException::class.java)
             Toast.makeText(this, "ID Token : " + account?.idToken, Toast.LENGTH_LONG).show()
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(MainActivity.intent(this))
             finish()
         } catch (e: ApiException) {
             Timber.e(e)
