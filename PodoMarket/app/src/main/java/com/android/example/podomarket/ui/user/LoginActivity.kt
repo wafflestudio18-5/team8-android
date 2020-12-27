@@ -1,5 +1,6 @@
 package com.android.example.podomarket.ui.user
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -25,10 +26,6 @@ class LoginActivity : AppCompatActivity() {
 
     val binding: ActivityLoginBinding by lazy {
         DataBindingUtil.setContentView(this, R.layout.activity_login)
-    }
-
-    companion object {
-        const val RC_SIGN_IN = 100
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,5 +90,11 @@ class LoginActivity : AppCompatActivity() {
         } catch (e: ApiException) {
             Timber.e(e)
         }
+    }
+
+    companion object {
+        const val RC_SIGN_IN = 100
+        fun intent(context: Context): Intent =
+            Intent(context, LoginActivity::class.java)
     }
 }
