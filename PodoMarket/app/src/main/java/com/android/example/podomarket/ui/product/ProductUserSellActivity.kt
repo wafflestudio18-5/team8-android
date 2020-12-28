@@ -11,10 +11,6 @@ import com.android.example.podomarket.ui.main.MainPageConst
 import com.google.android.material.tabs.TabLayoutMediator
 
 class ProductUserSellActivity : AppCompatActivity() {
-    companion object {
-        fun intentWithUserId(userId: Long, context: Context): Intent
-            = Intent(context, ProductUserBuyActivity::class.java).apply { putExtra("user_id", userId) }
-    }
 
     private var userId: Long = 0L
     private val binding: ActivityProductUserSellBinding by lazy {
@@ -39,5 +35,10 @@ class ProductUserSellActivity : AppCompatActivity() {
                 else -> pager.setCurrentItem(ProductUserSellPageConst.OTHER_SALES, false)
             }
         }
+    }
+
+    companion object {
+        fun intentWithUserId(userId: Long, context: Context): Intent
+                = Intent(context, ProductUserBuyActivity::class.java).apply { putExtra("user_id", userId) }
     }
 }
