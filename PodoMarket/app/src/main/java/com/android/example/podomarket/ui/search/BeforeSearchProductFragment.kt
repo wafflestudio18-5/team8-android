@@ -17,9 +17,6 @@ class BeforeSearchProductFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_before_search_product, container, false)
-        binding.run {
-
-        }
         return binding.root
     }
 
