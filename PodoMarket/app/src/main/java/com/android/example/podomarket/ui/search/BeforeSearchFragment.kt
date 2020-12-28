@@ -17,6 +17,7 @@ class BeforeSearchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         val tabLayoutTextIdArray = arrayOf(R.string.used_trading, R.string.human)
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_before_search, container, false)

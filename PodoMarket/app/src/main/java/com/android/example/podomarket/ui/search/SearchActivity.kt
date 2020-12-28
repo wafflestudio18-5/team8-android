@@ -32,6 +32,7 @@ class SearchActivity : AppCompatActivity() {
             }
 
             pager.adapter = SearchPagerAdapter(this@SearchActivity)
+            pager.isUserInputEnabled = false
             pager.setCurrentItem(BEFORE_SEARCH, false)
 
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
