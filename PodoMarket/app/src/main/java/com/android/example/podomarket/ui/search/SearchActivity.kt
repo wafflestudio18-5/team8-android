@@ -2,14 +2,16 @@ package com.android.example.podomarket.ui.search
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View.OnFocusChangeListener
 import android.widget.SearchView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivitySearchBinding
 import com.android.example.podomarket.ui.search.SearchPageConst.AFTER_SEARCH
 import com.android.example.podomarket.ui.search.SearchPageConst.BEFORE_SEARCH
+
 
 class SearchActivity : AppCompatActivity() {
     companion object {
@@ -35,15 +37,20 @@ class SearchActivity : AppCompatActivity() {
                 androidx.appcompat.widget.SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     pager.setCurrentItem(AFTER_SEARCH, false)
-                    // (미완) AfterSearchFragment에 현재 선택된 Fragment의 Position과 검색어를 넘기기
+                    // (미완) ViewModel의 LiveData를 이용해서 AfterSearchFragment에 현재 선택된 Fragment Position과 검색어 넘기기
                     return true
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    // (미완) 추천 검색어 기능을 추가할까?
+                    // (미완) 추천 검색어 기능 : RelatedSearchFragment
                     return true
                 }
             })
+            searchView.setOnFocusChangeListener { _, hasFocus ->
+                if (hasFocus && (searchView.query.isBlank()||searchView.query.isEmpty()) ) {
+                    // (미완) 최근 검색 기록 기능 : RecentSearchFragment
+                }
+            }
         }
     }
 }
