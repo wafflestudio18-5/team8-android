@@ -14,12 +14,12 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/tool_bar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/white">
-            </androidx.appcompat.widget.Toolbar>
+                android:background="@color/white"/>
         </com.google.android.material.appbar.AppBarLayout>
 
         <View
@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -39,10 +40,18 @@
                 <ImageView
                     android:id="@+id/img_productDetail_product"
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"/>
+                    android:layout_height="350dp"
+                    android:src="@drawable/ic_baseline_image_24"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/light_gray"/>
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="80dp">
+
                     <ImageView
                         android:id="@+id/img_productDetail_seller"
                         android:layout_width="50dp"
@@ -50,28 +59,33 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        android:layout_marginLeft="10dp"/>
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/ic_baseline_image_24"/>
+
                     <TextView
                         android:id="@+id/tv_productDetail_sellerName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="seller.name"
+                        android:text="@string/example_user_name"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toTopOf="@+id/tv_productDetail_sellerCity"
                         app:layout_constraintLeft_toRightOf="@+id/img_productDetail_seller"
-                        android:layout_marginLeft="10dp"/>
+                        android:layout_marginLeft="10dp"
+                        app:layout_constraintVertical_chainStyle="packed"/>
+
                     <TextView
                         android:id="@+id/tv_productDetail_sellerCity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="seller.city"
+                        android:text="@string/example_city"
                         android:textColor="@color/black"
                         app:layout_constraintTop_toBottomOf="@+id/tv_productDetail_sellerName"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toRightOf="@+id/img_productDetail_seller"
                         android:layout_marginLeft="10dp"/>
+
                     <ImageView
                         android:id="@+id/img_productDetail_sellerManner"
                         android:layout_width="30dp"
@@ -79,7 +93,9 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"/>
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_baseline_emoji_emotions_24"/>
+
                     <TextView
                         android:id="@+id/tv_productDetail_sellerManner"
                         android:layout_width="wrap_content"
@@ -89,16 +105,18 @@
                         app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="10dp"/>
+
                     <TextView
                         android:id="@+id/tv_productDetail_sellerMannerNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="seller.manner"
+                        android:text="@string/example_temperature"
                         android:textStyle="bold"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintRight_toLeftOf="@+id/img_productDetail_sellerManner"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"/>
+
                     <ProgressBar
                         android:id="@+id/progress_productDetail_sellerManner"
                         android:layout_width="50dp"
@@ -108,48 +126,61 @@
                         app:layout_constraintRight_toLeftOf="@+id/img_productDetail_sellerManner"
                         android:layout_marginRight="10dp"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:background="@color/light_gray"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginHorizontal="10dp">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="product.name"
+                        android:text="@string/example_product_name"
+                        android:textSize="20sp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
-                        android:layout_marginTop="20dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="product.category﹒product.created_at"
-                        android:layout_marginTop="20dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="product.description"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="20dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="product.chatNum﹒product.interestedNum﹒product.seeNum"
                         android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"/>
+                        android:layout_marginLeft="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/example_product_category"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/example_product_description"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/example_product_view_number"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="10dp"/>
                 </LinearLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:background="@color/light_gray"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
@@ -158,15 +189,18 @@
                     android:textStyle="bold"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"/>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:background="@color/light_gray"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"/>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="400dp">
+
                     <TextView
                         android:id="@+id/tv_productDetail_sellingList"
                         android:layout_width="wrap_content"
@@ -177,6 +211,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -185,6 +220,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"/>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
