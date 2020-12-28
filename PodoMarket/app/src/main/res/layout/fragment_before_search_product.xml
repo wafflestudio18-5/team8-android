@@ -10,5 +10,537 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/category_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/category"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:columnCount="4"
+            android:useDefaultMargins="true"
+            app:layout_constraintTop_toBottomOf="@+id/category_title">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/digital_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/digital_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_digital_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_computer_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_digital_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/furniture_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/furniture_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_furniture_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_weekend_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_furniture_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/for_child_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/for_child_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_for_child_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_baby_changing_station_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_for_child_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/food_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/food_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_food_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_food_bank_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_food_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/sport_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/sport_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_sport_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_sports_soccer_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_sport_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/female_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/female_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_female_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_shopping_bag_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_female_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/female_fashion_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/female_fashion_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_female_fashion_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_redeem_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_female_fashion_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/male_fashion_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/male_fashion_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_male_fashion_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_watch_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_male_fashion_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/game_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/game_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_game_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_videogame_asset_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_game_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/beauty_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/beauty_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_beauty_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_brush_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_beauty_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/for_pet_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/for_pet_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_for_pet_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_pets_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_for_pet_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/book_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/book_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_book_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_menu_book_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_book_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/plants_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/plants_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_plants_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_spa_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_plants_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/extra_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/extra_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_extra_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_add_location_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_extra_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/buy_icon_container"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="30dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/buy_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/light_gray"
+                        android:contentDescription="@string/chip_buy_text"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_volume_up_24"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_buy_text"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+        </GridLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
