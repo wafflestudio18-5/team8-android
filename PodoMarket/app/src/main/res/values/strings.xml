@@ -98,4 +98,6 @@
     <string name="search_user_description1">• 닉네임으로 검색해보세요.</string>
     <string name="search_user_description2">• 사용자 프로필의 닉네임 #숫자로도 검색할 수 있어요.</string>
     <string name="search_user_description3">(예: 포동이 #10000)</string>
+    <string name="example_city">관악구 봉천동</string>
+    <string name="example_user_hash_value">#10000</string>
 </resources>
