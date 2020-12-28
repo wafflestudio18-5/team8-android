@@ -10,9 +10,6 @@ import com.android.example.podomarket.databinding.ActivityUserInterestedBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
 class UserInterestedActivity : AppCompatActivity() {
-    companion object {
-        fun intent(context: Context): Intent = Intent(context, UserInterestedActivity::class.java)
-    }
 
     private val binding: ActivityUserInterestedBinding by lazy {
         DataBindingUtil.setContentView(
@@ -37,5 +34,9 @@ class UserInterestedActivity : AppCompatActivity() {
                 tb.setNavigationOnClickListener { finish() }
             }
         }
+    }
+
+    companion object {
+        fun intent(context: Context): Intent = Intent(context, UserInterestedActivity::class.java)
     }
 }
