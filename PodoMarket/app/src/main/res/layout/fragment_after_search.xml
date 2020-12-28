@@ -20,7 +20,8 @@
             app:tabIndicatorHeight="1.6dp"
             app:tabMode="fixed"
             app:tabSelectedTextColor="@color/black"
-            app:tabTextColor="@color/light_gray"
+            app:tabTextColor="@color/dark_gray"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/pager"/>
 
