@@ -9,9 +9,6 @@ import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityProductUserBuyBinding
 
 class ProductUserBuyActivity : AppCompatActivity() {
-    companion object {
-        fun intent(context: Context): Intent = Intent(context, ProductUserBuyActivity::class.java)
-    }
 
     private val binding: ActivityProductUserBuyBinding by lazy {
         DataBindingUtil.setContentView(
@@ -28,5 +25,9 @@ class ProductUserBuyActivity : AppCompatActivity() {
                 tb.setNavigationOnClickListener { finish() }
             }
         }
+    }
+
+    companion object {
+        fun intent(context: Context): Intent = Intent(context, ProductUserBuyActivity::class.java)
     }
 }
