@@ -12,9 +12,6 @@ import com.android.example.podomarket.databinding.ActivityProductCreateBinding
 import com.android.example.podomarket.ui.user.ProfileActivity
 
 class ProductCreateActivity : AppCompatActivity() {
-    companion object {
-        fun intent(context: Context): Intent = Intent(context, ProductCreateActivity::class.java)
-    }
 
     private val binding: ActivityProductCreateBinding by lazy {
         DataBindingUtil.setContentView(
@@ -39,5 +36,9 @@ class ProductCreateActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    companion object {
+        fun intent(context: Context): Intent = Intent(context, ProductCreateActivity::class.java)
     }
 }
