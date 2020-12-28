@@ -25,7 +25,7 @@ class ProductCreateActivity : AppCompatActivity() {
         binding.run {
             toolBar.also { tb ->
                 tb.inflateMenu(R.menu.app_bar_activity_product_create)
-                tb.setNavigationContentDescription(R.string.product_create_close)
+                tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
                 tb.setNavigationOnClickListener { finish() }
                 tb.setOnMenuItemClickListener {
                     when(it.itemId) {
