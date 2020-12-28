@@ -104,5 +104,10 @@
     <string name="product_detail_seller_manner">매너온도</string>
     <string name="product_detail_view_more">더보기</string>
     <string name="appbar_create_activity">중고거래 글쓰기</string>
+    <string name="example_city">관악구 봉동</string>
+    <string name="example_product_category">생활/가공식</string>
+    <string name="example_product_description">동아시에서 제일 맛있는 포도입니다. 한번 맛보면 잊을 수 없는 맛입니다. 사가시면 절대 후회하지 않습니다.</string>
+    <string name="example_product_view_number">채팅 10﹒관심 3﹒조회 2,139</string>
+
     <string name="first_photo_number">0/10</string>
 </resources>
