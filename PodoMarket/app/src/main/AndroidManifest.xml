@@ -32,7 +32,6 @@
         <activity android:name=".ui.product.ProductCreateActivity" />
         <activity android:name=".ui.user.UserInterestedActivity" />
         <activity android:name=".ui.user.ProfileActivity" />
-        <activity android:name=".ui.user.SignInActivity" />
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
