@@ -18,7 +18,7 @@ class SearchActivity : AppCompatActivity() {
         DataBindingUtil.setContentView(
             this,
             R.layout.activity_search
-        )
+        ) as ActivitySearchBinding
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
