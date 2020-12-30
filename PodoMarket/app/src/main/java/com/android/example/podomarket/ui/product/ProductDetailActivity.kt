@@ -28,8 +28,16 @@ class ProductDetailActivity : AppCompatActivity() {
                 tb.setNavigationOnClickListener { finish() }
                 tb.setOnMenuItemClickListener {
                     when(it.itemId) {
-                        R.id.share_button -> Toast.makeText(applicationContext, "공유 기능 미완성", Toast.LENGTH_SHORT)
-                        R.id.more_button -> Toast.makeText(applicationContext, "추가 기능 미완성", Toast.LENGTH_SHORT)
+                        R.id.share_button -> Toast.makeText(
+                            this@ProductDetailActivity,
+                            "공유 기능 미완성",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        R.id.more_button -> Toast.makeText(
+                            this@ProductDetailActivity,
+                            "추가 기능 미완성",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         else -> return@setOnMenuItemClickListener false
                     }
                     return@setOnMenuItemClickListener true
