@@ -110,4 +110,5 @@
     <string name="example_product_view_number">채팅 10﹒관심 3﹒조회 2,139</string>
     <string name="example_product_user_buy_title">홍길동님의 판매 상품</string>
     <string name="first_photo_number">0/10</string>
+    <string name="user_info_edit_description">프로필 사진과 닉네임을 입력해주세요.</string>
 </resources>
