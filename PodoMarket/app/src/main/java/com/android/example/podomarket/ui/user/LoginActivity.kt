@@ -24,7 +24,7 @@ import timber.log.Timber
 class LoginActivity : AppCompatActivity() {
 
     private val binding: ActivityLoginBinding by lazy {
-        DataBindingUtil.setContentView(this, R.layout.activity_login)
+        DataBindingUtil.setContentView(this, R.layout.activity_login) as ActivityLoginBinding
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
