@@ -14,7 +14,7 @@ class ProductUserBuyActivity : AppCompatActivity() {
         DataBindingUtil.setContentView(
             this,
             R.layout.activity_product_user_buy
-        )
+        ) as ActivityProductUserBuyBinding
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

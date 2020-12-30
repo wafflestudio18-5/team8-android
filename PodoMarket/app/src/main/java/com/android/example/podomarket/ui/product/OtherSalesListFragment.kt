@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentOtherSalesListBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -30,7 +29,7 @@ class OtherSalesListFragment : Fragment() {
             }.attach()
             toolBar.also { tb ->
                 tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-                tb.setNavigationOnClickListener { findNavController().navigateUp() }
+                tb.setNavigationOnClickListener { activity?.finish() }
             }
         }
         return binding.root
