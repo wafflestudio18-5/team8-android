@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         DataBindingUtil.setContentView(
             this,
             R.layout.activity_main
-        )
+        ) as ActivityMainBinding
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
