@@ -29,7 +29,11 @@ class ProductCreateActivity : AppCompatActivity() {
                 tb.setNavigationOnClickListener { finish() }
                 tb.setOnMenuItemClickListener {
                     when(it.itemId) {
-                        R.id.complete_button -> Toast.makeText(applicationContext, "상품 등록 완료(미완성)", Toast.LENGTH_SHORT)
+                        R.id.complete_button -> Toast.makeText(
+                            this@ProductCreateActivity,
+                            "상품 등록 완료(미완성)",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         else -> return@setOnMenuItemClickListener false
                     }
                     return@setOnMenuItemClickListener true

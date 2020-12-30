@@ -29,9 +29,9 @@ class ProfileActivity : AppCompatActivity() {
                 tb.setNavigationOnClickListener { finish() }
                 tb.inflateMenu(R.menu.app_bar_activity_profile)
                 tb.setOnMenuItemClickListener {
-                    when (it.itemId) {
+                    when(it.itemId) {
                         R.id.share_button -> Toast.makeText(
-                            applicationContext,
+                            this@ProfileActivity,
                             "공유하기 기능 미완성",
                             Toast.LENGTH_SHORT
                         ).show()
