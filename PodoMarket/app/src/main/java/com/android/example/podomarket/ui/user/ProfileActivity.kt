@@ -10,9 +10,6 @@ import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityProfileBinding
 
 class ProfileActivity : AppCompatActivity() {
-    companion object {
-        fun intent(context: Context): Intent = Intent(context, ProfileActivity::class.java)
-    }
 
     private val binding: ActivityProfileBinding by lazy {
         DataBindingUtil.setContentView(
@@ -43,4 +40,7 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
+    companion object {
+        fun intent(context: Context): Intent = Intent(context, ProfileActivity::class.java)
+    }
 }
