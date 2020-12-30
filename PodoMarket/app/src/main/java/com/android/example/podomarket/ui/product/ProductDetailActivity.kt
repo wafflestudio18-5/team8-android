@@ -16,7 +16,7 @@ class ProductDetailActivity : AppCompatActivity() {
         DataBindingUtil.setContentView(
             this,
             R.layout.activity_product_detail
-        )
+        ) as ActivityProductDetailBinding
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
