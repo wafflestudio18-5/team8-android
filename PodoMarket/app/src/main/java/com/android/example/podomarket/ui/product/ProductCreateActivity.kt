@@ -17,7 +17,7 @@ class ProductCreateActivity : AppCompatActivity() {
         DataBindingUtil.setContentView(
             this,
             R.layout.activity_product_create
-        )
+        ) as ActivityProductCreateBinding
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
