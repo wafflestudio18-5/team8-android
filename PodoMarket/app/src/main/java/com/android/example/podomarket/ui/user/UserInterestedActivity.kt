@@ -15,7 +15,7 @@ class UserInterestedActivity : AppCompatActivity() {
         DataBindingUtil.setContentView(
             this,
             R.layout.activity_user_interested
-        )
+        ) as ActivityUserInterestedBinding
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
