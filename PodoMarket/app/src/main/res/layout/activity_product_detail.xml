@@ -37,11 +37,24 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/img_productDetail_product"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"
-                    android:src="@drawable/ic_baseline_image_24"/>
+                    android:layout_height="wrap_content">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="370dp"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tabDots"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:tabBackground="@drawable/tab_selector"
+                        app:tabGravity="center"
+                        app:tabIndicatorHeight="0dp"/>
+                </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -188,7 +201,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
-                    android:paddingLeft="10dp"/>
+                    android:layout_marginLeft="20dp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -199,14 +212,16 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="400dp">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
 
                     <TextView
                         android:id="@+id/tv_productDetail_sellingList"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="seller.name의 판매 상품"
+                        android:text="@string/example_product_user_buy_title"
                         android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentLeft="true"
                         android:layout_marginTop="10dp"
@@ -216,16 +231,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/product_detail_view_more"
+                        android:textStyle="bold"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"/>
 
-                    <RelativeLayout
+                    <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_below="@+id/tv_productDetail_sellingList"
-                        android:layout_marginTop="10dp"/>
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        tools:listitem="@layout/item_product_simple"/>
                 </RelativeLayout>
             </LinearLayout>
         </ScrollView>
@@ -240,11 +257,12 @@
             android:layout_height="70dp"
             android:orientation="horizontal"
             android:gravity="center_vertical">
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_baseline_heart_24"/>
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
@@ -259,7 +277,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="product.price"
+                    android:text="@string/example_product_price"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
                 <TextView
@@ -274,7 +292,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/product_detail_call"
                 android:textColor="@color/black"
-                android:layout_marginLeft="50dp"/>
+                android:layout_marginLeft="60dp"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
