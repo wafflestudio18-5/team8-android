@@ -157,6 +157,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/product_create_price"
+                        android:inputType="number"
                         android:background="@android:color/transparent"
                         android:layout_alignParentLeft="true"
                         android:layout_marginLeft="10dp" />
