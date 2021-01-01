@@ -2,13 +2,11 @@ package com.android.example.podomarket.ui.product
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityProductUserSellBinding
-import com.android.example.podomarket.ui.main.MainPageConst
-import com.google.android.material.tabs.TabLayoutMediator
 
 class ProductUserSellActivity : AppCompatActivity() {
 
@@ -38,7 +36,14 @@ class ProductUserSellActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun intentWithUserId(userId: Long, context: Context): Intent
-                = Intent(context, ProductUserBuyActivity::class.java).apply { putExtra("user_id", userId) }
+        private const val USER_ID = "user_id"
+
+        fun intentWithUserId(userId: Long, context: Context): Intent =
+            Intent(context, ProductUserSellActivity::class.java).apply {
+                putExtra(
+                    USER_ID,
+                    userId
+                )
+            }
     }
 }
