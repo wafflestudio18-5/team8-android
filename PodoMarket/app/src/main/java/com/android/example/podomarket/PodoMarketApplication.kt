@@ -1,6 +1,7 @@
 package com.android.example.podomarket
 
 import android.app.Application
+import com.android.example.podomarket.di.networkModule
 import com.kakao.sdk.common.KakaoSdk
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -13,6 +14,7 @@ class PodoMarketApplication : Application() {
             Timber.plant(Timber.DebugTree())
         startKoin {
             androidContext(this@PodoMarketApplication)
+            modules(networkModule)
         }
         KakaoSdk.init(this, getString(R.string.KAKAO_APP_KEY))
     }
