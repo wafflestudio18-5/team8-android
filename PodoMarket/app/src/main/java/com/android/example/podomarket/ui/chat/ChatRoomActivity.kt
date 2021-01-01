@@ -10,10 +10,6 @@ import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityChatRoomBinding
 
 class ChatRoomActivity : AppCompatActivity() {
-    companion object {
-        fun intentWithChatRoomId(chatRoomId: Long, context: Context): Intent =
-            Intent(context, ChatRoomActivity::class.java)
-    }
 
     private val binding: ActivityChatRoomBinding by lazy {
         DataBindingUtil.setContentView(
@@ -42,5 +38,17 @@ class ChatRoomActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    companion object {
+        private const val CHAT_ROOM_ID = "chat_room_id"
+
+        fun intentWithChatRoomId(chat_room_id: Long, context: Context): Intent =
+            Intent(context, ChatRoomActivity::class.java).apply {
+                putExtra(
+                    CHAT_ROOM_ID,
+                    chat_room_id
+                )
+            }
     }
 }

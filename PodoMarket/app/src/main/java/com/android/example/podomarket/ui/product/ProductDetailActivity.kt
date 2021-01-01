@@ -2,12 +2,11 @@ package com.android.example.podomarket.ui.product
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
-import com.android.example.podomarket.databinding.ActivityMainBinding
 import com.android.example.podomarket.databinding.ActivityProductDetailBinding
 
 class ProductDetailActivity : AppCompatActivity() {
@@ -27,7 +26,7 @@ class ProductDetailActivity : AppCompatActivity() {
                 tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
                 tb.setNavigationOnClickListener { finish() }
                 tb.setOnMenuItemClickListener {
-                    when(it.itemId) {
+                    when (it.itemId) {
                         R.id.share_button -> Toast.makeText(
                             this@ProductDetailActivity,
                             "공유 기능 미완성",
@@ -47,6 +46,6 @@ class ProductDetailActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun intent(context: Context): Intent = Intent(context, ProductCreateActivity::class.java)
+        fun intent(context: Context): Intent = Intent(context, ProductDetailActivity::class.java)
     }
 }
