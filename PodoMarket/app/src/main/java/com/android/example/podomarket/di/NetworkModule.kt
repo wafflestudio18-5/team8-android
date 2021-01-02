@@ -25,7 +25,6 @@ object NetworkConst {
 
 val networkModule = module {
     single { provideSharedPreference(androidApplication()) }
-    single<SharedPreferences.Editor> { provideSharedPrefereceEditor(get()) }
     single { provideOkHttpClient(get()) }
     single { provideRetrofit(get(), BASE_URL) }
     single { provideUserService(get()) }
@@ -36,9 +35,6 @@ private fun provideSharedPreference(androidApplication: Application): SharedPref
         PREFS_FILENAME,
         android.content.Context.MODE_PRIVATE
     )
-
-private fun provideSharedPrefereceEditor(sharedPreferences: SharedPreferences) =
-    sharedPreferences.edit()
 
 private fun provideOkHttpClient(prefs: SharedPreferences): OkHttpClient {
     var okHttpClient = OkHttpClient.Builder()
