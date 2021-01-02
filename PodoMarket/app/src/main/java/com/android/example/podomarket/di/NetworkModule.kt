@@ -17,7 +17,7 @@ import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkConst {
-    const val BASE_URL = "https://api.podomarket.shop"
+    const val BASE_URL = "https://api.podomarket.shop/"
     const val PREFS_FILENAME = "prefs"
     const val TOKEN_KEY = "token"
 }
