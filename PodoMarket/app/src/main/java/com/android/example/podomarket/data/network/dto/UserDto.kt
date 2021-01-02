@@ -10,8 +10,3 @@ data class UserDto(
     val temperature: Double,
     val token: String
 )
-
-data class UserCityDto(
-    val nickname: String,
-    val city: List<String>
-)

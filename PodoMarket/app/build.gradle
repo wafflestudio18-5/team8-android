@@ -19,6 +19,8 @@ android {
         versionName "1.0"
         multiDexEnabled true
 
+        buildConfigField "String", "PODO_SERVER_BASE_URL", '"https://api.podomarket.shop/"'
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
