@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.SharedPreferences
 import com.android.example.podomarket.BuildConfig
 import com.android.example.podomarket.data.network.service.UserService
-import com.android.example.podomarket.di.NetworkConst.BASE_URL
 import com.android.example.podomarket.di.NetworkConst.PREFS_FILENAME
 import com.android.example.podomarket.di.NetworkConst.TOKEN_KEY
 import okhttp3.Interceptor
@@ -18,7 +17,6 @@ import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkConst {
-    const val BASE_URL = "https://api.podomarket.shop/"
     const val PREFS_FILENAME = "prefs"
     const val TOKEN_KEY = "token"
 }
@@ -26,7 +24,7 @@ object NetworkConst {
 val networkModule = module {
     single { provideSharedPreference(androidApplication()) }
     single { provideOkHttpClient(get()) }
-    single { provideRetrofit(get(), BASE_URL) }
+    single { provideRetrofit(get(), BuildConfig.PODO_SERVER_BASE_URL) }
     single { provideUserService(get()) }
 }
 
