@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityProductDetailBinding
+import com.android.example.podomarket.ui.chat.ChatRoomActivity
 
 class ProductDetailActivity : AppCompatActivity() {
 
@@ -46,6 +47,14 @@ class ProductDetailActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun intent(context: Context): Intent = Intent(context, ProductDetailActivity::class.java)
+        private const val PRODUCT_ID = "product_id"
+
+        fun intentWithProductId(product_id: Long, context: Context): Intent =
+            Intent(context, ProductDetailActivity::class.java).apply {
+                putExtra(
+                    PRODUCT_ID,
+                    product_id
+                )
+            }
     }
 }
