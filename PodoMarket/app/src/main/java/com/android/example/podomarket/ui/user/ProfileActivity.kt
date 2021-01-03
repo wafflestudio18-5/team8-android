@@ -7,10 +7,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.android.example.podomarket.AppConstants
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityProfileBinding
-import com.android.example.podomarket.ui.product.ProductUserSellActivity
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -74,7 +72,7 @@ class ProfileActivity : AppCompatActivity() {
             }
 
             myProfileEditButton.setOnClickListener {
-                startActivityForResult(UserInfoEditActivity.intent(this@ProfileActivity), AppConstants.USER_INFO_EDIT_ACTIVITY)
+                startActivity(UserInfoEditActivity.intent(this@ProfileActivity))
             }
             otherProfileFollowButton.setOnClickListener {
                 Toast.makeText(

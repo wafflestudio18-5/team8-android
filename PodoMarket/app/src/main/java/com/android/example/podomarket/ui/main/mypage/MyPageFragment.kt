@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.android.example.podomarket.AppConstants
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentMyPageBinding
 import com.android.example.podomarket.ui.product.ProductUserBuyActivity
@@ -54,7 +53,7 @@ class MyPageFragment : Fragment() {
                 }
             }
             profileImage.setOnClickListener {
-                startActivityForResult(UserInfoEditActivity.intent(requireContext()), AppConstants.USER_INFO_EDIT_ACTIVITY)
+                startActivity(UserInfoEditActivity.intent(requireContext()))
             }
             viewProfileButton.setOnClickListener {
                 startActivity(ProfileActivity.intentWithUserId(ProfileActivity.ME, requireContext()))

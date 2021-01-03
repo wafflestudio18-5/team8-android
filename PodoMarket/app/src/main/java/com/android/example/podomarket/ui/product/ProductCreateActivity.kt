@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.android.example.podomarket.AppConstants
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityMainBinding
 import com.android.example.podomarket.databinding.ActivityProductCreateBinding
@@ -48,7 +47,7 @@ class ProductCreateActivity : AppCompatActivity() {
                 ).show()
             }
             selectCategoryButton.setOnClickListener {
-                startActivityForResult(SelectCategoryActivity.intent(this@ProductCreateActivity), AppConstants.SELECT_CATEGORY_ACTIVITY)
+                startActivity(SelectCategoryActivity.intent(this@ProductCreateActivity))
             }
             priceOfferButton.setOnClickListener {
                 /*
@@ -62,7 +61,7 @@ class ProductCreateActivity : AppCompatActivity() {
                 */
             }
             selectCityButton.setOnClickListener {
-                startActivityForResult(SelectCityActivity.intent(this@ProductCreateActivity), AppConstants.SELECT_CITY_ACTIVITY)
+                startActivity(SelectCityActivity.intent(this@ProductCreateActivity))
             }
         }
     }
