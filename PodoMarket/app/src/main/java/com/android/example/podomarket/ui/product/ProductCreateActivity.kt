@@ -59,7 +59,7 @@ class ProductCreateActivity : AppCompatActivity() {
                 } else {
                     imgPriceOffer.setImageResource(R.drawable.ic_baseline_check_circle_outline_24)
                 }
-                 */
+                */
 
                 Toast.makeText(
                     this@ProductCreateActivity,
