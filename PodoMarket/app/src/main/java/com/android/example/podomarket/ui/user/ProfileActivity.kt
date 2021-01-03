@@ -7,8 +7,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.android.example.podomarket.AppConstants
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityProfileBinding
+import com.android.example.podomarket.ui.product.ProductUserSellActivity
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -47,8 +49,8 @@ class ProfileActivity : AppCompatActivity() {
 
                 } else { // other profile
 
-                    myProfileEditBtn.visibility = View.GONE
-                    otherProfileFollowBtn.visibility = View.VISIBLE
+                    myProfileEditButton.visibility = View.GONE
+                    otherProfileFollowButton.visibility = View.VISIBLE
 
                     tb.inflateMenu(R.menu.app_bar_activity_profile_other)
                     tb.setOnMenuItemClickListener {
@@ -60,7 +62,7 @@ class ProfileActivity : AppCompatActivity() {
                             ).show()
                             R.id.more_button -> Toast.makeText(
                                 this@ProfileActivity,
-                                "추 기능 미완성",
+                                "추가 기능 미완성",
                                 Toast.LENGTH_SHORT
                             ).show()
                             else -> return@setOnMenuItemClickListener false
@@ -71,6 +73,26 @@ class ProfileActivity : AppCompatActivity() {
                 }
             }
 
+            myProfileEditButton.setOnClickListener {
+                startActivityForResult(UserInfoEditActivity.intent(this@ProfileActivity), AppConstants.USER_INFO_EDIT_ACTIVITY)
+            }
+            otherProfileFollowButton.setOnClickListener {
+                Toast.makeText(
+                    this@ProfileActivity,
+                    "모아보기 기능 미완성",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            temperatureInfoButton.setOnClickListener {
+                Toast.makeText(
+                    this@ProfileActivity,
+                    R.string.temperature_description,
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            productUserSellButton.setOnClickListener {
+                //startActivity(ProductUserSellActivity.intentWithUserId(profileViewModel.userId))
+            }
         }
     }
 
@@ -79,6 +101,5 @@ class ProfileActivity : AppCompatActivity() {
 
         fun intentWithUserId(user_id: Long, context: Context): Intent // 자기 자신이면 user_id로 0을 전달
                 = Intent(context, ProfileActivity::class.java).apply { putExtra(USER_ID, user_id) }
-
     }
 }

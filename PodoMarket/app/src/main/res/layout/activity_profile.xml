@@ -99,7 +99,7 @@
                     android:layout_height="wrap_content">
 
                     <Button
-                        android:id="@+id/my_profile_edit_btn"
+                        android:id="@+id/my_profile_edit_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/profile_edit"
@@ -113,7 +113,7 @@
                         android:visibility="visible"/>
 
                     <Button
-                        android:id="@+id/other_profile_follow_btn"
+                        android:id="@+id/other_profile_follow_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/follow"
@@ -145,6 +145,7 @@
                         android:layout_marginTop="5dp"/>
 
                     <ImageView
+                        android:id="@+id/temperature_info_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_baseline_info_24"
@@ -290,6 +291,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>>
 
                 <RelativeLayout
+                    android:id="@+id/product_user_sell_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
