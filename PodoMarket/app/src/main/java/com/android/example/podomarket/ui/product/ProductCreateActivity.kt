@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.android.example.podomarket.AppConstants
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityMainBinding
 import com.android.example.podomarket.databinding.ActivityProductCreateBinding
@@ -38,6 +39,36 @@ class ProductCreateActivity : AppCompatActivity() {
                     }
                     return@setOnMenuItemClickListener true
                 }
+            }
+            cameraButton.setOnClickListener {
+                Toast.makeText(
+                    this@ProductCreateActivity,
+                    "사진 추가 기능(미완성)",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            selectCategoryButton.setOnClickListener {
+                startActivityForResult(SelectCategoryActivity.intent(this@ProductCreateActivity), AppConstants.SELECT_CATEGORY_ACTIVITY)
+            }
+            priceOfferButton.setOnClickListener {
+                /*
+                productCreateViewModel.isPriceOfferOn = !productCreateViewModel.isPriceOfferOn
+
+                if (productCreateViewModel.isPriceOfferOn) {
+                    imgPriceOffer.setImageResource(R.drawable.ic_baseline_check_circle_24)
+                } else {
+                    imgPriceOffer.setImageResource(R.drawable.ic_baseline_check_circle_outline_24)
+                }
+                 */
+
+                Toast.makeText(
+                    this@ProductCreateActivity,
+                    "가격 제안 기능(미완성)",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            selectCityButton.setOnClickListener {
+                startActivityForResult(SelectCityActivity.intent(this@ProductCreateActivity), AppConstants.SELECT_CITY_ACTIVITY)
             }
         }
     }

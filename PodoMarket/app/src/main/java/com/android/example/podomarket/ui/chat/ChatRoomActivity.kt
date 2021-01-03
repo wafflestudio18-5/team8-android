@@ -40,10 +40,10 @@ class ChatRoomActivity : AppCompatActivity() {
                 }
             }
             userInfoLayout.setOnClickListener {
-                //ProfileActivity.intentWithUserId(chatRoomViewModel.userId, this@ChatRoomActivity)
+                //startActivity(ProfileActivity.intentWithUserId(chatRoomViewModel.userId, this@ChatRoomActivity))
             }
             productInfoLayout.setOnClickListener {
-                //ProductDetailActivity.intentWithProductId(chatRoomViewModel.productId, this@ChatRoomActivity)
+                //startActivity(ProductDetailActivity.intentWithProductId(chatRoomViewModel.productId, this@ChatRoomActivity))
             }
         }
     }
