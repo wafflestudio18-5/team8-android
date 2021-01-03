@@ -25,9 +25,9 @@ class ProductDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding.run {
             toolBar.also { tb ->
-                tb.inflateMenu(R.menu.app_bar_activity_product_detail)
                 tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
                 tb.setNavigationOnClickListener { finish() }
+                tb.inflateMenu(R.menu.app_bar_activity_product_detail)
                 tb.setOnMenuItemClickListener {
                     when (it.itemId) {
                         R.id.share_button -> Toast.makeText(
