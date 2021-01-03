@@ -60,12 +60,6 @@ class ProductCreateActivity : AppCompatActivity() {
                     imgPriceOffer.setImageResource(R.drawable.ic_baseline_check_circle_outline_24)
                 }
                 */
-
-                Toast.makeText(
-                    this@ProductCreateActivity,
-                    "가격 제안 기능(미완성)",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
             selectCityButton.setOnClickListener {
                 startActivityForResult(SelectCityActivity.intent(this@ProductCreateActivity), AppConstants.SELECT_CITY_ACTIVITY)
