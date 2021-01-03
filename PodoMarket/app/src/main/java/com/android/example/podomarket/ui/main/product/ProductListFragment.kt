@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentProductListBinding
+import com.android.example.podomarket.ui.product.ProductCreateActivity
 
 
 class ProductListFragment : Fragment() {
@@ -33,6 +34,9 @@ class ProductListFragment : Fragment() {
                     }
                     return@setOnMenuItemClickListener true
                 }
+            }
+            addProductFab.setOnClickListener {
+                startActivity(ProductCreateActivity.intent(requireContext()))
             }
         }
         return binding.root
