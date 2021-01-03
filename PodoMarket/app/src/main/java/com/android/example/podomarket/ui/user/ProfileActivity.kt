@@ -98,8 +98,9 @@ class ProfileActivity : AppCompatActivity() {
 
     companion object {
         private const val USER_ID = "user_id"
+        const val ME: Long = 0
 
-        fun intentWithUserId(user_id: Long, context: Context): Intent // 자기 자신이면 user_id로 0을 전달
+        fun intentWithUserId(user_id: Long, context: Context): Intent
                 = Intent(context, ProfileActivity::class.java).apply { putExtra(USER_ID, user_id) }
     }
 }

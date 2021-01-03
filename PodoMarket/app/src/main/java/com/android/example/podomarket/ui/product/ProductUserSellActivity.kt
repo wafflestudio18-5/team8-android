@@ -37,6 +37,7 @@ class ProductUserSellActivity : AppCompatActivity() {
 
     companion object {
         private const val USER_ID = "user_id"
+        const val ME: Long = 0
 
         fun intentWithUserId(userId: Long, context: Context): Intent =
             Intent(context, ProductUserSellActivity::class.java).apply {

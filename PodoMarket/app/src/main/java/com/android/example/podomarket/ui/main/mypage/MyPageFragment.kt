@@ -8,8 +8,14 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.android.example.podomarket.AppConstants
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentMyPageBinding
+import com.android.example.podomarket.ui.product.ProductUserBuyActivity
+import com.android.example.podomarket.ui.product.ProductUserSellActivity
+import com.android.example.podomarket.ui.user.ProfileActivity
+import com.android.example.podomarket.ui.user.UserInfoEditActivity
+import com.android.example.podomarket.ui.user.UserInterestedActivity
 
 
 class MyPageFragment : Fragment() {
@@ -46,6 +52,21 @@ class MyPageFragment : Fragment() {
                     ).show()
                     R.id.setting_item -> findNavController().navigate(R.id.action_myPageFragment_to_settingFragment)
                 }
+            }
+            profileImage.setOnClickListener {
+                startActivityForResult(UserInfoEditActivity.intent(requireContext()), AppConstants.USER_INFO_EDIT_ACTIVITY)
+            }
+            viewProfileButton.setOnClickListener {
+                startActivity(ProfileActivity.intentWithUserId(ProfileActivity.ME, requireContext()))
+            }
+            sellListIcon.setOnClickListener {
+                startActivity(ProductUserSellActivity.intentWithUserId(ProductUserSellActivity.ME, requireContext()))
+            }
+            buyListIcon.setOnClickListener {
+                startActivity(ProductUserBuyActivity.intent(requireContext()))
+            }
+            likeListIcon.setOnClickListener {
+                startActivity(UserInterestedActivity.intent(requireContext()))
             }
         }
         return binding.root
