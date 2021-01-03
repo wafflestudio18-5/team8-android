@@ -114,4 +114,5 @@
     <string name="profile_edit">프로필 수정</string>
     <string name="follow">모아보기</string>
     <string name="get_price_offer">가격제안 받기</string>
+    <string name="temperature_description">매너온도는 당근마켓 사용자로부터 받은 칭찬, 후기, 비매너 평가, 운영자 징계 등을 종합하여 만든 매너 지표입니다.</string>
 </resources>
