@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.chat.ChatRoomActivity">
 
-    <data/>
+    <data />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/temperature"
                             app:layout_constraintHorizontal_chainStyle="packed"
-                            android:layout_marginRight="5dp"/>
+                            android:layout_marginRight="5dp" />
 
                         <TextView
                             android:id="@+id/temperature"
@@ -55,7 +55,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toTopOf="@+id/response_time"
                             app:layout_constraintStart_toEndOf="@+id/user_name"
-                            app:layout_constraintEnd_toEndOf="parent"/>
+                            app:layout_constraintEnd_toEndOf="parent" />
 
                         <TextView
                             android:id="@+id/response_time"
@@ -65,7 +65,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/user_name"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"/>
+                            app:layout_constraintEnd_toEndOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.appcompat.widget.Toolbar>
@@ -78,7 +78,7 @@
             android:background="@color/light_gray"
             app:layout_constraintTop_toBottomOf="@+id/app_bar"
             app:layout_constraintBottom_toTopOf="@+id/product_info_layout"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/product_info_layout"
@@ -105,7 +105,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/product_price"
                 app:layout_constraintLeft_toRightOf="@+id/product_image"
-                app:layout_constraintVertical_chainStyle="packed"/>
+                app:layout_constraintVertical_chainStyle="packed" />
 
             <TextView
                 android:id="@+id/product_price"
@@ -116,7 +116,7 @@
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@+id/product_name"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/product_image"/>
+                app:layout_constraintLeft_toRightOf="@+id/product_image" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
@@ -125,7 +125,7 @@
             android:layout_height="2dp"
             android:background="@color/light_gray"
             app:layout_constraintTop_toBottomOf="@+id/product_info_layout"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="5dp" />
 
         <ListView
             android:id="@+id/list_view"
@@ -133,9 +133,9 @@
             android:layout_height="0dp"
             android:divider="#ffffff"
             android:dividerHeight="0dp"
-            tools:listitem="@layout/other_msgbox"
+            tools:listitem="@layout/item_other_msgbox"
             app:layout_constraintTop_toBottomOf="@+id/line2"
-            app:layout_constraintBottom_toTopOf="@+id/chatting_input_layout"/>
+            app:layout_constraintBottom_toTopOf="@+id/chatting_input_layout" />
 
         <LinearLayout
             android:id="@+id/chatting_input_layout"
@@ -154,7 +154,7 @@
                 android:src="@drawable/ic_baseline_add_24"
                 android:background="@android:color/transparent"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -164,7 +164,7 @@
                 android:maxLines="3"
                 android:hint="@string/waiting_input_message"
                 android:background="@drawable/border_round_gray"
-                android:padding="10dp"/>
+                android:padding="10dp" />
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -172,7 +172,7 @@
                 android:src="@drawable/ic_baseline_send_24"
                 android:background="@android:color/transparent"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

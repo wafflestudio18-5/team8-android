@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.product.ProductCreateActivity">
 
-    <data/>
+    <data />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,14 +25,14 @@
                     android:id="@+id/tool_bar_title"
                     style="@style/AppBarTitle"
                     android:text="@string/appbar_create_activity"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center" />
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/light_gray"/>
+            android:background="@color/light_gray" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                                     app:layout_constraintBottom_toTopOf="@id/tv_photo_number"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintVertical_chainStyle="packed"/>
+                                    app:layout_constraintVertical_chainStyle="packed" />
 
                                 <TextView
                                     android:id="@+id/tv_photo_number"
@@ -85,7 +85,7 @@
                                     app:layout_constraintTop_toBottomOf="@id/img_camera"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"/>
+                                    app:layout_constraintEnd_toEndOf="parent" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -93,7 +93,7 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:orientation="horizontal"/>
+                            android:orientation="horizontal" />
                     </LinearLayout>
                 </HorizontalScrollView>
 
@@ -102,19 +102,20 @@
                     android:layout_height="2dp"
                     android:background="@color/light_gray"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:gravity="center_vertical">
+
                     <EditText
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:hint="@string/product_create_title"
                         android:layout_alignParentLeft="true"
-                        android:layout_marginLeft="10dp"/>
+                        android:layout_marginLeft="10dp" />
                 </RelativeLayout>
 
                 <View
@@ -122,26 +123,28 @@
                     android:layout_height="2dp"
                     android:background="@color/light_gray"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp" />
 
                 <RelativeLayout
                     android:id="@+id/select_category_button"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:gravity="center_vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/product_create_category"
                         android:textColor="@color/black"
                         android:layout_alignParentLeft="true"
-                        android:layout_marginLeft="10dp"/>
+                        android:layout_marginLeft="10dp" />
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="10dp"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24"/>
+                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
                 </RelativeLayout>
 
                 <View
@@ -149,7 +152,7 @@
                     android:layout_height="2dp"
                     android:background="@color/light_gray"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -164,7 +167,7 @@
                         android:textSize="18sp"
                         android:background="@android:color/transparent"
                         android:layout_alignParentStart="true"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp" />
 
                     <LinearLayout
                         android:id="@+id/price_offer_button"
@@ -178,7 +181,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_baseline_check_circle_outline_24"
-                            android:layout_marginEnd="5dp"/>
+                            android:layout_marginEnd="5dp" />
 
                         <TextView
                             android:id="@+id/tv_price_offer"
@@ -187,7 +190,7 @@
                             android:text="@string/get_price_offer"
                             android:textSize="16dp"
                             android:textColor="@color/black"
-                            android:layout_marginEnd="10dp"/>
+                            android:layout_marginEnd="10dp" />
                     </LinearLayout>
                 </RelativeLayout>
 
@@ -196,7 +199,7 @@
                     android:layout_height="2dp"
                     android:background="@color/light_gray"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp" />
 
                 <EditText
                     android:id="@+id/et_productCreate_description"
@@ -204,7 +207,7 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:hint="@string/product_create_description"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp" />
 
             </LinearLayout>
         </ScrollView>
@@ -212,12 +215,13 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/light_gray"/>
+            android:background="@color/light_gray" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_vertical">
+
             <TextView
                 android:id="@+id/select_city_button"
                 android:layout_width="wrap_content"
@@ -225,12 +229,13 @@
                 android:text="@string/product_create_near_city_number"
                 android:textColor="@color/black"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
-                android:layout_toRightOf="@+id/select_city_button"/>
+                android:layout_toRightOf="@+id/select_city_button" />
         </RelativeLayout>
 
     </LinearLayout>

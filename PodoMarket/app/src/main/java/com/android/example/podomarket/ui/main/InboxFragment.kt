@@ -20,6 +20,7 @@ class InboxFragment : Fragment() {
     ): View {
         val binding: FragmentInboxBinding by lazy {
             DataBindingUtil.inflate(inflater, R.layout.fragment_inbox, container, false)
+                    as FragmentInboxBinding
         }
         binding.run {
             toolBar.also { tb ->

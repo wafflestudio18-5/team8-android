@@ -17,6 +17,7 @@ class MyPageContainerFragment : Fragment() {
     ): View {
         val binding: FragmentMyPageContainerBinding by lazy {
             DataBindingUtil.inflate(inflater, R.layout.fragment_my_page_container, container, false)
+                    as FragmentMyPageContainerBinding
         }
         return binding.root
     }
