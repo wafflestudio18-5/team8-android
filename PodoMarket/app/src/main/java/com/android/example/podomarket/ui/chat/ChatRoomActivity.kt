@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityChatRoomBinding
+import com.android.example.podomarket.ui.product.ProductDetailActivity
+import com.android.example.podomarket.ui.user.ProfileActivity
 
 class ChatRoomActivity : AppCompatActivity() {
 
@@ -36,6 +38,12 @@ class ChatRoomActivity : AppCompatActivity() {
                     }
                     return@setOnMenuItemClickListener true
                 }
+            }
+            userInfoLayout.setOnClickListener {
+                //ProfileActivity.intentWithUserId(chatRoomViewModel.userId, this@ChatRoomActivity)
+            }
+            productInfoLayout.setOnClickListener {
+                //ProductDetailActivity.intentWithProductId(chatRoomViewModel.productId, this@ChatRoomActivity)
             }
         }
     }
