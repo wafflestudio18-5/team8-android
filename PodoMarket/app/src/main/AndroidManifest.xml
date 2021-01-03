@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PodoMarket">
-        <activity android:name=".ui.product.SelectCityActivity"></activity>
+        <activity android:name=".ui.product.SelectCityActivity" />
         <activity android:name=".ui.product.SelectCategoryActivity" />
         <activity android:name=".ui.user.UserInfoEditActivity" />
         <activity android:name=".ui.user.LoginActivity">
