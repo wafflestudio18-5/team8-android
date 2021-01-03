@@ -56,10 +56,12 @@ class MyPageFragment : Fragment() {
                 startActivity(UserInfoEditActivity.intent(requireContext()))
             }
             viewProfileButton.setOnClickListener {
-                startActivity(ProfileActivity.intentWithUserId(ProfileActivity.ME, requireContext()))
+                // Get User ID using SharedPreference
+                //startActivity(ProfileActivity.intentWithUserId(userId, requireContext()))
             }
             sellListIcon.setOnClickListener {
-                startActivity(ProductUserSellActivity.intentWithUserId(ProductUserSellActivity.ME, requireContext()))
+                // Get User ID using SharedPreference
+                //startActivity(ProductUserSellActivity.intentWithUserId(userId, requireContext()))
             }
             buyListIcon.setOnClickListener {
                 startActivity(ProductUserBuyActivity.intent(requireContext()))
