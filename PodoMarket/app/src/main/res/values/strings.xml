@@ -98,7 +98,7 @@
     <string name="product_create_category">카테고리 선택</string>
     <string name="product_create_price">￦ 가격입력(선택사항)</string>
     <string name="product_create_description">xx동에 올릴 게시글 내용을 작성해주세요.(가품 및 판매 금지품목은 게시가 제한될 수 있어요.)</string>
-    <string name="product_create_near_city_number">게시글 보여줄 동네 고르기  v</string>
+    <string name="product_create_near_city_number">게시글 보여줄 동네 고르기</string>
     <string name="product_detail_price_proposal">가격 제안하기</string>
     <string name="product_detail_call">전화</string>
     <string name="product_detail_chat">채팅</string>
