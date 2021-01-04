@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentProductListBinding
-import com.android.example.podomarket.ui.product.ProductCreateActivity
+import com.android.example.podomarket.ui.product.create.ProductCreateActivity
 
 
 class ProductListFragment : Fragment() {

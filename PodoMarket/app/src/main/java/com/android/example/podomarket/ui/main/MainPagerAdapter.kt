@@ -7,6 +7,9 @@ import com.android.example.podomarket.ui.main.MainPageConst.ARTICLE
 import com.android.example.podomarket.ui.main.MainPageConst.CHAT
 import com.android.example.podomarket.ui.main.MainPageConst.MYPAGE
 import com.android.example.podomarket.ui.main.MainPageConst.PRODUCT
+import com.android.example.podomarket.ui.main.chat.ChatRoomListFragment
+import com.android.example.podomarket.ui.main.mypage.MyPageContainerFragment
+import com.android.example.podomarket.ui.main.product.ProductContainerFragment
 
 class MainPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
     override fun getItemCount(): Int = 4

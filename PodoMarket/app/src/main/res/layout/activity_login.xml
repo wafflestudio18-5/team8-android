@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/light_gray"
-        tools:context=".ui.user.LoginActivity">
+        tools:context=".ui.user.login.LoginActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"

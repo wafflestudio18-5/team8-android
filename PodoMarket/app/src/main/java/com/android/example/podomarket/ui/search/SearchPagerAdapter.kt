@@ -5,7 +5,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.android.example.podomarket.ui.search.SearchPageConst.AFTER_SEARCH
 import com.android.example.podomarket.ui.search.SearchPageConst.BEFORE_SEARCH
-import org.koin.experimental.builder.getArguments
+import com.android.example.podomarket.ui.search.after.AfterSearchFragment
+import com.android.example.podomarket.ui.search.before.BeforeSearchFragment
 
 class SearchPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
     override fun getItemCount(): Int = 2
