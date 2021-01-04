@@ -12,10 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PodoMarket">
-        <activity android:name=".ui.product.SelectCityActivity" />
-        <activity android:name=".ui.product.SelectCategoryActivity" />
-        <activity android:name=".ui.user.UserInfoEditActivity" />
-        <activity android:name=".ui.user.LoginActivity">
+        <activity android:name=".ui.product.create.SelectCityActivity" />
+        <activity android:name=".ui.product.create.SelectCategoryActivity" />
+        <activity android:name=".ui.user.profile.UserInfoEditActivity" />
+        <activity android:name=".ui.user.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,12 +29,12 @@
         <activity android:name=".ui.article.ArticleCategorizedActivity" />
         <activity android:name=".ui.article.ArticleDetailActivity" />
         <activity android:name=".ui.article.ArticleCreateActivity" />
-        <activity android:name=".ui.product.ProductUserBuyActivity" />
-        <activity android:name=".ui.product.ProductUserSellActivity" />
-        <activity android:name=".ui.product.ProductDetailActivity" />
-        <activity android:name=".ui.product.ProductCreateActivity" />
-        <activity android:name=".ui.user.UserInterestedActivity" />
-        <activity android:name=".ui.user.ProfileActivity" />
+        <activity android:name=".ui.product.buy.ProductUserBuyActivity" />
+        <activity android:name=".ui.product.sell.ProductUserSellActivity" />
+        <activity android:name=".ui.product.detail.ProductDetailActivity" />
+        <activity android:name=".ui.product.create.ProductCreateActivity" />
+        <activity android:name=".ui.user.interested.UserInterestedActivity" />
+        <activity android:name=".ui.user.profile.ProfileActivity" />
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
