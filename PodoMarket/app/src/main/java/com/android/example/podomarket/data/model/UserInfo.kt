@@ -15,11 +15,11 @@ class UserInfo(val userDto: UserDto) {
     var full_name: String = ""
     var nickname: String = ""
     var image: String = ""
-    var temperature: Float = 0F
+    var temperature: Double = 0.0
     var token: String = ""
 
     fun save(context: Context) {
-        val sp = context.getSharedPreferences(PREF_NAME, 0)
+        val sp = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         val editor = sp.edit()
 
         if (userDto != null) {
@@ -34,12 +34,13 @@ class UserInfo(val userDto: UserDto) {
     }
 
     fun load(context: Context) {
-        val sp = context.getSharedPreferences(PREF_NAME, 0)
+        val sp = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+
         user_id = sp.getInt(USER_ID, 0)
         full_name = sp.getString(FULL_NAME, "")!!
         nickname = sp.getString(NICKNAME, "")!!
         image = sp.getString(IMAGE, "")!!
-        temperature = sp.getFloat(TEMPERATURE, 0F)
+        temperature = sp.getFloat(TEMPERATURE, 0F).toDouble()
         token = sp.getString(TOKEN, "")!!
     }
 
