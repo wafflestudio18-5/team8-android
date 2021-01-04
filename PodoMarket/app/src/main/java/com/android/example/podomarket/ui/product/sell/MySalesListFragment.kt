@@ -8,7 +8,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentMySalesListBinding
-import com.android.example.podomarket.ui.product.MySalesListPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MySalesListFragment : Fragment() {

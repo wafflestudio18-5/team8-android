@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityProductUserSellBinding
-import com.android.example.podomarket.ui.product.ProductUserSellPageConst
-import com.android.example.podomarket.ui.product.ProductUserSellPagerAdapter
 
 class ProductUserSellActivity : AppCompatActivity() {
 
