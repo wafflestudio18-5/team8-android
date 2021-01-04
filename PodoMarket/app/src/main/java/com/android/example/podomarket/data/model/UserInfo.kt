@@ -10,16 +10,10 @@ import com.android.example.podomarket.data.model.UserInfoConstants.TOKEN
 import com.android.example.podomarket.data.model.UserInfoConstants.USER_ID
 import com.android.example.podomarket.data.network.dto.UserDto
 
-class UserInfo(val userDto: UserDto) {
-    var user_id: Int = 0
-    var full_name: String = ""
-    var nickname: String = ""
-    var image: String = ""
-    var temperature: Double = 0.0
-    var token: String = ""
+class UserInfo(context: Context) {
+    val sp = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
-    fun save(context: Context) {
-        val sp = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+    fun save(userDto: UserDto) {
         val editor = sp.edit()
 
         if (userDto != null) {
@@ -33,22 +27,23 @@ class UserInfo(val userDto: UserDto) {
         }
     }
 
-    fun load(context: Context) {
-        val sp = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+    fun load(): UserDto {
+        val user_id = sp.getInt(USER_ID, 0)
+        val full_name = sp.getString(FULL_NAME, "")!!
+        val nickname = sp.getString(NICKNAME, "")!!
+        val image = sp.getString(IMAGE, "")!!
+        val temperature = sp.getFloat(TEMPERATURE, 0F).toDouble()
+        val token = sp.getString(TOKEN, "")!!
 
-        user_id = sp.getInt(USER_ID, 0)
-        full_name = sp.getString(FULL_NAME, "")!!
-        nickname = sp.getString(NICKNAME, "")!!
-        image = sp.getString(IMAGE, "")!!
-        temperature = sp.getFloat(TEMPERATURE, 0F).toDouble()
-        token = sp.getString(TOKEN, "")!!
+        return UserDto(user_id, full_name, nickname, image, temperature, token)
     }
 
 }
 
 object UserInfoConstants {
+    // SharedPreferences Name
     const val PREF_NAME = "user_info_pref"
-
+    // Value Key
     const val USER_ID = "user_id"
     const val FULL_NAME = "full_name"
     const val NICKNAME = "nickname"
