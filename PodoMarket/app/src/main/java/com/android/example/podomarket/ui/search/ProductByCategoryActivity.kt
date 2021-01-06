@@ -1,5 +1,7 @@
 package com.android.example.podomarket.ui.search
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -23,5 +25,17 @@ class ProductByCategoryActivity : AppCompatActivity() {
                 tb.setNavigationOnClickListener { finish() }
             }
         }
+    }
+
+    companion object {
+        private const val CATEGORY_ID = "category_id"
+
+        fun intentWithCategoryId(category_id: Long, context: Context): Intent =
+            Intent(context, ProductByCategoryActivity::class.java).apply {
+                putExtra(
+                    CATEGORY_ID,
+                    category_id
+                )
+            }
     }
 }
