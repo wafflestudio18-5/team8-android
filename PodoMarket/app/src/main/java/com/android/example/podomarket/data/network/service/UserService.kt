@@ -1,6 +1,7 @@
 package com.android.example.podomarket.data.network.service
 
 import com.android.example.podomarket.data.network.dto.CityDto
+import com.android.example.podomarket.data.network.dto.PutCityResponse
 import com.android.example.podomarket.data.network.dto.UserDto
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Response
@@ -26,6 +27,12 @@ interface UserService {
 
     @DELETE("api/v1/user/me")
     fun deleteUserMe(): Single<Response<Void>>
+
+    @PUT("api/v1/user/city")
+    fun putCity(
+        @Field("city_id_1") city_id_1: Int,
+        @Field("city_id_2") city_id_2: Int
+    ) : Single<Response<PutCityResponse>>
 
     @GET("api/v1/user/city")
     fun getCityList(): Single<Response<List<CityDto>>>
