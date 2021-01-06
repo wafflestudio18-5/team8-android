@@ -1,5 +1,6 @@
 package com.android.example.podomarket.data.network.service
 
+import com.android.example.podomarket.data.network.dto.CityDto
 import com.android.example.podomarket.data.network.dto.UserDto
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Response
@@ -26,4 +27,6 @@ interface UserService {
     @DELETE("api/v1/user/me")
     fun deleteUserMe(): Single<Response<Void>>
 
+    @GET("api/v1/user/city")
+    fun getCityList(): Single<Response<List<CityDto>>>
 }
