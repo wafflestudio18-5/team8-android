@@ -1,4 +1,4 @@
-package com.android.example.podomarket.ui.search
+package com.android.example.podomarket.ui.search.category
 
 import android.content.Context
 import android.content.Intent
