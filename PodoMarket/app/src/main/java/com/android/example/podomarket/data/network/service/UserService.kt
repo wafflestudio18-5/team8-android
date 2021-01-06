@@ -55,7 +55,7 @@ interface UserService {
     ): Single<Response<ProductDto>>
 
     @DELETE("api/v1/user/me/{product_id}")
-    fun deleteUserMe(
+    fun deleteMyProduct(
         @Path("product_id") product_id: Int
     ): Single<Response<Void>>
 
