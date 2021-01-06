@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -18,7 +19,9 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@mipmap/ic_launcher"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            app:setPersonImageUrl="@{chatMessage.sender.imageUrl}" />
+
 
         <TextView
             android:id="@+id/tv_name"
