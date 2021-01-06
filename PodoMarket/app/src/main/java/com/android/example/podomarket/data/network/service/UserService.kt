@@ -18,6 +18,9 @@ interface UserService {
         @Field("nickname") nickname: String?
     ): Single<Response<UserDto>>
 
+    @GET("api/v1/user/me")
+    fun getUserMe(): Single<Response<UserDto>>
+
     @GET("api/v1/user/{user_id}")
     fun getUserById(
         @Path("user_id") user_id: Int
