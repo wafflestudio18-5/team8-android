@@ -35,6 +35,9 @@ interface UserService {
     @DELETE("api/v1/user/me/")
     fun deleteUserMe(): Single<Response<Void>>
 
+    @POST("api/v1/user/logout")
+    fun logout(): Single<Response<Void>>
+
     @GET("api/v1/user/me/product")
     fun getMyProductList(): Single<Response<List<ProductDto>>>
 
