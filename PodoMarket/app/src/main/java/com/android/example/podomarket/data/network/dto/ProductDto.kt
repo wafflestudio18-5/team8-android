@@ -1,6 +1,6 @@
 package com.android.example.podomarket.data.network.dto
 
-data class Product(
+data class ProductDto(
     val id: Int,
     val name: String,
     val category: Int,
@@ -24,7 +24,7 @@ data class DistanceRange(
 
 data class PaginationResponse(
     val page: Page,
-    val products: List<Product>
+    val products: List<ProductDto>
 )
 
 data class Page(

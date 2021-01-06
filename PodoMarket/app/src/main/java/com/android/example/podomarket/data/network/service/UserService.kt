@@ -3,7 +3,7 @@ package com.android.example.podomarket.data.network.service
 import com.android.example.podomarket.data.network.dto.CityDto
 import com.android.example.podomarket.data.network.dto.PutCityResponse
 import com.android.example.podomarket.data.network.dto.DistanceRange
-import com.android.example.podomarket.data.network.dto.Product
+import com.android.example.podomarket.data.network.dto.ProductDto
 import com.android.example.podomarket.data.network.dto.UserDto
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Response
@@ -36,7 +36,7 @@ interface UserService {
     fun deleteUserMe(): Single<Response<Void>>
 
     @GET("api/v1/user/me/product")
-    fun getMyProductList(): Single<Response<List<Product>>>
+    fun getMyProductList(): Single<Response<List<ProductDto>>>
 
     @PUT("api/v1/user/me/{product_id}")
     fun putMyProduct(
@@ -52,7 +52,7 @@ interface UserService {
     @GET("api/v1/user/me/{product_id}")
     fun getMyProduct(
         @Path("product_id") product_id: Int
-    ): Single<Response<Product>>
+    ): Single<Response<ProductDto>>
 
     @DELETE("api/v1/user/me/{product_id}")
     fun deleteUserMe(
