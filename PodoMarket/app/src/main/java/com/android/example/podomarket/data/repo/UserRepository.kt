@@ -22,8 +22,8 @@ class UserRepository(private val sp: SharedPreferences, private val service: Use
                 .subscribeOn(Schedulers.io())
                 .subscribe { response ->
                     userDto = response.body()
-                    val json = Gson().toJson(userDto)
-                    sp.edit().putString("user_info", json).apply() // save to memory
+                    val newJson = Gson().toJson(userDto)
+                    sp.edit().putString(USER_INFO, newJson).apply() // save to memory
                 }
         }
         return userDto
