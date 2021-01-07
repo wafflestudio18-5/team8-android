@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityChatRoomBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class ChatRoomActivity : AppCompatActivity() {
 
@@ -16,6 +19,10 @@ class ChatRoomActivity : AppCompatActivity() {
             this,
             R.layout.activity_chat_room
         ) as ActivityChatRoomBinding
+    }
+
+    private val database: DatabaseReference by lazy {
+        Firebase.database.reference
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

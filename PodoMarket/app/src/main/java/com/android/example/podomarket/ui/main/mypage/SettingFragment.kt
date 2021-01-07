@@ -13,12 +13,13 @@ import com.android.example.podomarket.ui.user.login.LoginActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.kakao.sdk.user.UserApiClient
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 import timber.log.Timber
 
 
 class SettingFragment : Fragment() {
 
-
+    private val myPageViewModel: MyPageViewModel by sharedViewModel()
     lateinit var binding: FragmentSettingBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +40,7 @@ class SettingFragment : Fragment() {
                 }
             }
             signOutButton.setOnClickListener {
+                myPageViewModel.logout()
                 //Google Logout
                 GoogleSignIn.getLastSignedInAccount(activity)?.run {
                     mGoogleSignInClient?.signOut()
@@ -56,7 +58,6 @@ class SettingFragment : Fragment() {
                         activity?.finish()
                     }
                 }
-                //TODO : REMOVE DRF Token
             }
         }
         return binding.root

@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task
 import com.kakao.sdk.auth.LoginClient
 import com.kakao.sdk.auth.rx
 import io.reactivex.android.schedulers.AndroidSchedulers
+import org.koin.android.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
 
@@ -26,9 +27,15 @@ class LoginActivity : AppCompatActivity() {
     private val binding: ActivityLoginBinding by lazy {
         DataBindingUtil.setContentView(this, R.layout.activity_login) as ActivityLoginBinding
     }
+    private val loginViewModel: LoginViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (loginViewModel.isLoggedIn()) {
+            startActivity(MainActivity.intent(this@LoginActivity))
+            finish()
+        }
+
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         val gso: GoogleSignInOptions =
@@ -50,11 +57,7 @@ class LoginActivity : AppCompatActivity() {
                     LoginClient.rx.loginWithKakaoAccount(this@LoginActivity)
                 }.observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ token ->
-                        Toast.makeText(
-                            this@LoginActivity,
-                            "Access Token : ${token.accessToken}",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        loginViewModel.signInUser(token.accessToken, "Kakao")
                         startActivity(MainActivity.intent(this@LoginActivity))
                         finish()
                     }, { error ->
@@ -80,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account: GoogleSignInAccount? = completedTask.getResult(ApiException::class.java)
-            Toast.makeText(this, "ID Token : " + account?.idToken, Toast.LENGTH_LONG).show()
+            loginViewModel.signInUser(account?.idToken!!, "Google")
             startActivity(MainActivity.intent(this))
             finish()
         } catch (e: ApiException) {

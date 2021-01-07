@@ -127,15 +127,17 @@
             app:layout_constraintTop_toBottomOf="@+id/product_info_layout"
             android:layout_marginTop="5dp" />
 
-        <ListView
-            android:id="@+id/list_view"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chat_list_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:divider="#ffffff"
             android:dividerHeight="0dp"
-            tools:listitem="@layout/item_other_msgbox"
+            app:layout_constraintBottom_toTopOf="@+id/chatting_input_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/line2"
-            app:layout_constraintBottom_toTopOf="@+id/chatting_input_layout" />
+            tools:listitem="@layout/item_other_msgbox" />
 
         <LinearLayout
             android:id="@+id/chatting_input_layout"
@@ -145,7 +147,7 @@
             android:padding="8dp"
             android:background="@color/light_gray"
             android:gravity="center_vertical"
-            app:layout_constraintTop_toBottomOf="@+id/list_view"
+            app:layout_constraintTop_toBottomOf="@+id/chat_list_view"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <ImageButton
@@ -167,6 +169,7 @@
                 android:padding="10dp" />
 
             <ImageButton
+                android:id="@+id/send_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_send_24"
