@@ -2,13 +2,16 @@ package com.android.example.podomarket.data.model
 
 data class ChatRoomDto(
     val id: Int,
-    val members: List<ChatUserDto>,
+    val otherUser: ChatUserDto,
+    val meUser: ChatUserDto,
+    val productImageUrl: String?,
     val lastMessageSent: ChatMessageDto
 )
 
 data class ChatUserDto(
     val id: Int,
     val nickname: String = "Anonymous",
+    val city: String?,
     val imageUrl: String?,
 )
 
