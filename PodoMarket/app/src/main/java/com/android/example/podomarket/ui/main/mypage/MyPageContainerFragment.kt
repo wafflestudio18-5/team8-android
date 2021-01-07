@@ -8,8 +8,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentMyPageContainerBinding
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MyPageContainerFragment : Fragment() {
+
+    val myPageViewModel: MyPageViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

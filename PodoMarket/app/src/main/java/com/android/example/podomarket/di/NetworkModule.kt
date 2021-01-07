@@ -19,6 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object NetworkConst {
     const val PREFS_FILENAME = "prefs"
     const val TOKEN_KEY = "token"
+    const val USER_INFO_KEY = "user_info"
 }
 
 val networkModule = module {
