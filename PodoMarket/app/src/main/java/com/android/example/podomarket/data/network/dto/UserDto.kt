@@ -1,11 +1,11 @@
 package com.android.example.podomarket.data.network.dto
 
 data class UserDto(
-    val user_id: Int,
+    val id: Int,
     val full_name: String,
     val nickname: String,
     val image: String,
-    val temperature: Double,
+    val temperature: Float,
     val badges: String,
     val products_bought: Int,
     val products_sold: Int,
@@ -13,7 +13,7 @@ data class UserDto(
 )
 
 data class CityDto(
-    val city_id: Int,
+    val id: Int,
     val name: String,
     val location: String
 )
