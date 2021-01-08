@@ -7,12 +7,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
+import com.android.example.podomarket.data.repo.UserRepository
 import com.android.example.podomarket.databinding.ActivityChatRoomBinding
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class ChatRoomActivity : AppCompatActivity() {
+
+    private val chatRoomViewModel: ChatRoomViewModel by viewModel()
+    private val userRepository: UserRepository by inject()
 
     private val binding: ActivityChatRoomBinding by lazy {
         DataBindingUtil.setContentView(
@@ -21,13 +24,16 @@ class ChatRoomActivity : AppCompatActivity() {
         ) as ActivityChatRoomBinding
     }
 
-    private val database: DatabaseReference by lazy {
-        Firebase.database.reference
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        chatRoomViewModel.apply {
+            chatRoomId = intent.getIntExtra(CHAT_ROOM_ID, -1)
+            getUsersInfo(intent.getIntExtra(USER_ID, -1))
+        }
         binding.run {
+            viewModel = chatRoomViewModel
+            lifecycleOwner = this@ChatRoomActivity
             toolBar.also { tb ->
                 tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
                 tb.setNavigationOnClickListener { finish() }
@@ -50,17 +56,28 @@ class ChatRoomActivity : AppCompatActivity() {
             productInfoLayout.setOnClickListener {
                 //startActivity(ProductDetailActivity.intentWithProductId(chatRoomViewModel.productId, this@ChatRoomActivity))
             }
+            chatListView.adapter = ChatListAdapter(userRepository.getMyInfo()!!.id)
         }
     }
 
+    //Need product info too
     companion object {
         private const val CHAT_ROOM_ID = "chat_room_id"
+        private const val USER_ID = "user_id"
 
-        fun intentWithChatRoomId(chat_room_id: Long, context: Context): Intent =
+        fun intentWithChatRoomIdAndUserId(
+            chat_room_id: Long,
+            user_id: Int,
+            context: Context
+        ): Intent =
             Intent(context, ChatRoomActivity::class.java).apply {
                 putExtra(
                     CHAT_ROOM_ID,
                     chat_room_id
+                )
+                putExtra(
+                    USER_ID,
+                    user_id
                 )
             }
     }

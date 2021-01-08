@@ -6,11 +6,14 @@ import com.android.example.podomarket.data.network.service.UserService
 import com.android.example.podomarket.di.NetworkConst.TOKEN_KEY
 import com.android.example.podomarket.di.NetworkConst.USER_INFO_KEY
 import com.google.gson.Gson
+import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
+import retrofit2.Response
 
 class UserRepository(private val sp: SharedPreferences, private val service: UserService) {
 
-    fun getUserInfo(user_id: Int) = service.getUserById(user_id)
+    fun getUserInfo(id: Int): Single<Response<UserDto>> =
+        service.getUserById(id).subscribeOn(Schedulers.io())
 
     fun postMyInfo(accessToken: String, social: String): UserDto? {
         var userDto: UserDto? = null

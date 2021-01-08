@@ -9,7 +9,7 @@ import com.android.example.podomarket.data.model.ChatMessageDto
 import com.android.example.podomarket.databinding.ItemMyMsgboxBinding
 import com.android.example.podomarket.databinding.ItemOtherMsgboxBinding
 
-class ChatListAdapter() :
+class ChatListAdapter(private val userMyId: Int) :
     ListAdapter<ChatMessageDto, RecyclerView.ViewHolder>(ChatMessageDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         when (viewType) {
@@ -31,7 +31,7 @@ class ChatListAdapter() :
                 )
             else -> throw IllegalStateException("View type error")
         }
-   
+
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
@@ -41,8 +41,7 @@ class ChatListAdapter() :
     }
 
     override fun getItemViewType(position: Int): Int {
-        // TODO replace 0 with user id from preference
-        return if (getItem(position).sender.id == 0)
+        return if (getItem(position).sender.id == userMyId)
             MY_MESSAGE_VIEW_TYPE
         else
             OTHER_MESSAGE_VIEW_TYPE

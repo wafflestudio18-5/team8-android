@@ -30,9 +30,9 @@ interface UserService {
     @DELETE("api/v1/user/me/")
     fun deleteUserMe(): Single<Response<Void>>
 
-    @GET("api/v1/user/{user_id}/")
+    @GET("api/v1/user/{id}/")
     fun getUserById(
-        @Path("user_id") user_id: Int
+        @Path("id") id: Int
     ): Single<Response<UserDto>>
 
     @POST("api/v1/user/logout/")
