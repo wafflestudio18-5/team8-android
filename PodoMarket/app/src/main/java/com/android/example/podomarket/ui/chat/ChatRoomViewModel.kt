@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android.example.podomarket.data.model.ChatMessageDto
 import com.android.example.podomarket.data.model.ChatUserDto
+import com.android.example.podomarket.data.repo.ProductRepository
 import com.android.example.podomarket.data.repo.UserRepository
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -16,7 +17,10 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ChatRoomViewModel(private val userRepository: UserRepository) : ViewModel() {
+class ChatRoomViewModel(
+    private val userRepository: UserRepository,
+    private val productRepository: ProductRepository
+) : ViewModel() {
 
 
     private val firebaseDatabase = FirebaseDatabase.getInstance()

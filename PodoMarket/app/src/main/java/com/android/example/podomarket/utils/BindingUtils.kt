@@ -16,6 +16,14 @@ import com.android.example.podomarket.ui.main.chat.ChatRoomListAdapter
 import com.android.example.podomarket.ui.main.product.ProductListAdapter
 import com.bumptech.glide.Glide
 
+@BindingAdapter("existNewMessage")
+fun bindAlertItem(view: CardView, bool: Boolean) {
+    if (bool)
+        view.visibility = View.VISIBLE
+    else
+        view.visibility = View.INVISIBLE
+}
+
 @BindingAdapter("messages")
 fun bindChatMessageItems(view: RecyclerView, items: List<ChatMessageDto>?) {
     val adapter = view.adapter as ChatListAdapter

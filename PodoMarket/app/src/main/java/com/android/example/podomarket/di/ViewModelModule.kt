@@ -12,5 +12,5 @@ val viewModelModule = module {
     single { MainViewModel() }
     single { ProductViewModel(get()) }
     single { MyPageViewModel(get()) }
-    single { ChatRoomViewModel(get()) }
+    single { ChatRoomViewModel(get(), get()) }
 }

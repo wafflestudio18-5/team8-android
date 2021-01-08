@@ -1,11 +1,12 @@
 package com.android.example.podomarket.data.model
 
 data class ChatRoomDto(
-    val id: Int,
-    val otherUser: ChatUserDto,
-    val meUser: ChatUserDto,
-    val productImageUrl: String?,
-    val lastMessageSent: ChatMessageDto
+    val id: Int = -1,
+    val otherUserNickname: String = "Anonymous",
+    val otherUserImageUrl: String? = null,
+    val productImageUrl: String? = null,
+    val lastMessageSent: String = "",
+    val existNewMessage: Boolean = false
 )
 
 data class ChatUserDto(

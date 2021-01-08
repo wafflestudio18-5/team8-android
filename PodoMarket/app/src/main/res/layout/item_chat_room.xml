@@ -33,7 +33,30 @@
                 android:background="@color/teal_700"
                 android:contentDescription="@string/product_main_image"
                 android:scaleType="centerCrop"
-                app:setPersonImageUrl="@{chatRoom.otherUser.imageUrl}" />
+                app:setPersonImageUrl="@{chatRoom.otherUserImageUrl}" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/exist_new_message"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:existNewMessage="@{chatRoom.existNewMessage}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/background_color"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/purple_700"
+                android:contentDescription="@string/product_main_image"
+                android:scaleType="centerCrop" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -68,7 +91,7 @@
             android:layout_marginEnd="6dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@{chatRoom.otherUser.nickname}"
+            android:text="@{chatRoom.otherUserNickname}"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="normal|bold"
@@ -114,7 +137,7 @@
             android:layout_marginEnd="12dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@{chatRoom.lastMessageSent.message}"
+            android:text="@{chatRoom.lastMessageSent}"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constrainedWidth="true"
