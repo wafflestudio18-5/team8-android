@@ -3,23 +3,34 @@ package com.android.example.podomarket.data.network.dto
 data class ProductDto(
     val id: Int,
     val name: String,
-    val category: Int,
+    val category: String,
     val price: Int,
     val allow_suggest: Boolean,
     val status: String,
-    val distance_range: DistanceRange,
+    val distance_range: Int,
     val city_id: Int,
     val seller: Int,
     val buyer: Int,
     val count_comments: Int,
     val count_likes: Int,
-    val count_views: Int
+    val count_views: Int,
+    val images: List<String>?,
+    val like_product: List<LikeProduct>?
 )
 
-data class DistanceRange(
-    val x: Int,
-    val y: Int,
-    val z: Int
+data class LikeProduct(
+    val id: Int,
+    val profile: Int,
+    val product: Int,
+    val active: Boolean
+)
+
+data class SuggestPrice(
+    val id: Int,
+    val will_buyer: Int,
+    val confirm: Boolean,
+    val product: Int,
+    val suggest_price: Int
 )
 
 data class PaginationResponse(

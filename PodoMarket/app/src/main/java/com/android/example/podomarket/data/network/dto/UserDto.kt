@@ -4,7 +4,7 @@ data class UserDto(
     val id: Int,
     val full_name: String,
     val nickname: String,
-    val image_url: String,
+    val image: String,
     val temperature: Float,
     val badges: String,
     val products_bought: Int,
