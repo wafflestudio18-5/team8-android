@@ -14,7 +14,6 @@ class ProductViewModel(private val productRepository: ProductRepository) : ViewM
 
     fun getProductList() {
         productRepository.getProductList()
-            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response ->
                 val paginationResponse = response.body()

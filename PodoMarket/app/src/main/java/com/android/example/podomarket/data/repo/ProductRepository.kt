@@ -7,6 +7,6 @@ class ProductRepository(private val productService: ProductService) {
 
     fun getProductList() = productService.getProductList(1, null, null, null, null, null).subscribeOn(Schedulers.io())
 
-    fun getProductById(product_id: Int) = productService.getProductById(product_id)
+    fun getProductById(product_id: Int) = productService.getProductById(product_id).subscribeOn(Schedulers.io())
 
 }
