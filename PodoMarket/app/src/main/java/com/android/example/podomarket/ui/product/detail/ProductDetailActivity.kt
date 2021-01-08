@@ -48,7 +48,7 @@ class ProductDetailActivity : AppCompatActivity() {
             moreButton.setOnClickListener {
                 Toast.makeText(
                     this@ProductDetailActivity,
-                    "더보 기능(미완성)",
+                    "더보기 기능(미완성)",
                     Toast.LENGTH_SHORT
                 ).show()
             }

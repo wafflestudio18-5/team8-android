@@ -2,7 +2,11 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data />
+    <data>
+        <variable
+            name="item"
+            type="com.android.example.podomarket.data.network.dto.ProductDto" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,7 +32,7 @@
                 android:background="@color/teal_700"
                 android:contentDescription="@string/product_main_image"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_baseline_image_24" />
+                android:src="@drawable/ic_baseline_image_24"/>
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -36,7 +40,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:text="@string/product_name_long"
+            android:text="@{item.name}"
             android:textStyle="normal"
             android:ellipsize="end"
             android:maxLines="2"
@@ -108,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
-            android:text="@string/price_placeholder"
+            android:text="@{item.price}"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -160,7 +164,7 @@
                 android:layout_marginBottom="4dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginEnd="4dp"
-                android:text="16" />
+                android:text="@{item.count_comments}" />
 
             <ImageView
                 android:id="@+id/like_count_image"
@@ -181,7 +185,7 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginEnd="4dp"
                 android:layout_gravity="center_vertical"
-                android:text="8" />
+                android:text="@{item.count_likes}" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

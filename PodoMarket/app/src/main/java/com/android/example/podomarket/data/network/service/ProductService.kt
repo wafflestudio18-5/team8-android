@@ -20,7 +20,7 @@ interface ProductService {
         @Query("max_price") max_price: Int?,
         @Query("city") city: Int?,
         @Query("category") category: Int?
-    ): Single<Response<List<ProductDto>>>
+    ): Single<Response<PaginationResponse>>
 
     @FormUrlEncoded
     @POST("api/v1/product/")

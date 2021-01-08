@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.example.podomarket.R
 import com.android.example.podomarket.data.model.ChatMessageDto
 import com.android.example.podomarket.data.model.ChatRoomDto
+import com.android.example.podomarket.data.network.dto.ProductDto
 import com.android.example.podomarket.ui.chat.ChatListAdapter
 import com.android.example.podomarket.ui.main.chat.ChatRoomListAdapter
+import com.android.example.podomarket.ui.main.product.ProductListAdapter
 import com.bumptech.glide.Glide
 
 @BindingAdapter("messages")
@@ -36,4 +38,15 @@ fun bindProductImageUrl(view: ImageView, url: String?) {
         .load(url)
         .placeholder(R.drawable.ic_baseline_image_24)
         .into(view)
+}
+
+@BindingAdapter("adapter")
+fun bindAdapter(view: RecyclerView, adapter: RecyclerView.Adapter<*>) {
+    view.adapter = adapter
+}
+
+@BindingAdapter("bindProductListItems")
+fun bindProductListItems(view: RecyclerView, items: List<ProductDto>) {
+    val adapter = view.adapter as ProductListAdapter
+    adapter.setItems(items)
 }

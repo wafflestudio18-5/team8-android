@@ -1,5 +1,6 @@
 package com.android.example.podomarket.ui.main.product
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,27 +10,31 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.example.podomarket.R
+import com.android.example.podomarket.databinding.FragmentProductCategoryBinding
 import com.android.example.podomarket.databinding.FragmentProductListBinding
 import com.android.example.podomarket.ui.product.create.ProductCreateActivity
+import com.android.example.podomarket.ui.product.detail.ProductDetailActivity
+import com.android.example.podomarket.ui.search.SearchActivity
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 
 class ProductListFragment : Fragment() {
 
-    lateinit var binding: FragmentProductListBinding
+    private val productViewModel: ProductViewModel by sharedViewModel()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding =
+        val binding: FragmentProductListBinding by lazy {
             DataBindingUtil.inflate(inflater, R.layout.fragment_product_list, container, false)
-
+        }
         binding.run {
             toolBar.also { tb ->
                 tb.inflateMenu(R.menu.app_bar_fragment_product_list)
                 tb.setOnMenuItemClickListener {
                     when (it.itemId) {
-                        R.id.search_button -> Toast.makeText(activity, "Search", Toast.LENGTH_SHORT)
-                            .show()
+                        R.id.search_button -> startActivity(SearchActivity.intent(requireContext()))
                         R.id.category_button -> findNavController().navigate(R.id.action_productListFragment_to_productCategoryFragment)
                         R.id.alert_button -> findNavController().navigate(R.id.action_productListFragment_to_inboxFragment)
                         else -> return@setOnMenuItemClickListener false
@@ -39,6 +44,10 @@ class ProductListFragment : Fragment() {
             }
             addProductFab.setOnClickListener {
                 startActivity(ProductCreateActivity.intent(requireContext()))
+            }
+            viewModel = productViewModel
+            adapter = ProductListAdapter {
+                startActivity(ProductDetailActivity.intentWithProductId(it.id, requireContext()))
             }
         }
         return binding.root

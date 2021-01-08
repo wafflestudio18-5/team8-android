@@ -9,9 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentProductCategoryBinding
-
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class ProductCategoryFragment : Fragment() {
+
+    private val productViewModel: ProductViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

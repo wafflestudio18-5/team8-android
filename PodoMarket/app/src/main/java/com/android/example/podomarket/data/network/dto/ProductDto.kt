@@ -10,7 +10,7 @@ data class ProductDto(
     val distance_range: Int,
     val city_id: Int,
     val seller: Int,
-    val buyer: Int,
+    val buyer: Int?,
     val count_comments: Int,
     val count_likes: Int,
     val count_views: Int,

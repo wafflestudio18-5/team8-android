@@ -8,18 +8,20 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityMainBinding
-import com.android.example.podomarket.ui.main.MainPageConst.ARTICLE
 import com.android.example.podomarket.ui.main.MainPageConst.CHAT
 import com.android.example.podomarket.ui.main.MainPageConst.MYPAGE
 import com.android.example.podomarket.ui.main.MainPageConst.PRODUCT
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
+
     private val binding: ActivityMainBinding by lazy {
         DataBindingUtil.setContentView(
             this,
             R.layout.activity_main
         ) as ActivityMainBinding
     }
+    private val mainViewModel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +31,6 @@ class MainActivity : AppCompatActivity() {
             bottomNavigation.setOnNavigationItemSelectedListener {
                 when (it.itemId) {
                     R.id.product_fragment -> pager.setCurrentItem(PRODUCT, false)
-                    R.id.article_fragment -> pager.setCurrentItem(ARTICLE, false)
                     R.id.chat_room_list_fragment -> pager.setCurrentItem(CHAT, false)
                     R.id.my_page_fragment -> pager.setCurrentItem(MYPAGE, false)
                     else -> {

@@ -6,11 +6,6 @@
         android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/bottom_navigation_product" />
     <item
-        android:id="@+id/article_fragment"
-        android:enabled="true"
-        android:icon="@drawable/ic_baseline_article_24"
-        android:title="@string/bottom_navigation_article" />
-    <item
         android:id="@+id/chat_room_list_fragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_chat_bubble_outline_24"
