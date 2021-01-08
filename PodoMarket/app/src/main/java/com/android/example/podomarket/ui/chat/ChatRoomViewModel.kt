@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android.example.podomarket.data.model.ChatMessageDto
+import com.android.example.podomarket.data.model.ChatRoomDto
 import com.android.example.podomarket.data.model.ChatUserDto
 import com.android.example.podomarket.data.repo.ProductRepository
 import com.android.example.podomarket.data.repo.UserRepository
@@ -27,6 +28,7 @@ class ChatRoomViewModel(
     private val databaseReference = firebaseDatabase.reference
     private var chatRoomId: String = ""
     private val df: DateFormat = SimpleDateFormat("MM.dd 'at' HH:mm", Locale.KOREA)
+    private var messageNum: Int = 0
 
     private val _productImageUrl = MutableLiveData<String>()
     val productImageUrl: LiveData<String>
@@ -79,8 +81,30 @@ class ChatRoomViewModel(
         try {
             message.value?.let {
                 databaseReference.child("message").child(chatRoomId).push().setValue(
-                    ChatMessageDto(0, chatUserMe.value!!, it, getCurrentTimeAsString())
+                    ChatMessageDto(messageNum, chatUserMe.value!!, it, getCurrentTimeAsString())
                 )
+                databaseReference.child("chats").child(chatUserMe.value!!.id.toString())
+                    .child(chatRoomId).setValue(
+                        ChatRoomDto(
+                            messageNum,
+                            chatUserOther.value!!.nickname,
+                            chatUserOther.value!!.imageUrl,
+                            productImageUrl.value,
+                            it,
+                            false
+                        )
+                    )
+                databaseReference.child("chats").child(chatUserOther.value!!.id.toString())
+                    .child(chatRoomId).setValue(
+                        ChatRoomDto(
+                            messageNum,
+                            chatUserMe.value!!.nickname,
+                            chatUserMe.value!!.imageUrl,
+                            productImageUrl.value,
+                            it,
+                            true
+                        )
+                    )
             }
             message.value = null
         } catch (e: NullPointerException) {
@@ -110,7 +134,7 @@ class ChatRoomViewModel(
                         tmpList?.add(snapshot.getValue(ChatMessageDto::class.java)!!)
                         _messages.value = tmpList
                     }
-
+                    messageNum++
                 }
 
                 override fun onChildRemoved(snapshot: DataSnapshot) {
@@ -118,10 +142,13 @@ class ChatRoomViewModel(
 
             }
         )
+        databaseReference.child("chats").child(chatUserMe.value!!.id.toString())
+            .child(chatRoomId).child("existNewMessage").setValue(false)
     }
 
     fun clearMessages() {
         _messages.value = null
+        messageNum = 0
     }
 
     fun generateChatRoomId(otherUserId: Int, productId: Int) {
