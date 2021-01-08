@@ -34,6 +34,7 @@ class ChatRoomActivity : AppCompatActivity() {
         val otherUserId = intent.getIntExtra(USER_ID, -1)
         chatRoomViewModel.apply {
             getUsersInfo(otherUserId)
+            getProductInfo(productId)
             generateChatRoomId(otherUserId, productId)
             getMessage()
         }

@@ -28,6 +28,15 @@ class ChatRoomViewModel(
     private var chatRoomId: String = ""
     private val df: DateFormat = SimpleDateFormat("MM.dd 'at' HH:mm", Locale.KOREA)
 
+    private val _productImageUrl = MutableLiveData<String>()
+    val productImageUrl: LiveData<String>
+        get() = _productImageUrl
+    private val _productName = MutableLiveData<String>()
+    val productName: LiveData<String>
+        get() = _productName
+    private val _productPrice = MutableLiveData<String>()
+    val productPrice: LiveData<String>
+        get() = _productPrice
     private val _chatUserMe = MutableLiveData<ChatUserDto>()
     private val chatUserMe: LiveData<ChatUserDto>
         get() = _chatUserMe
@@ -54,13 +63,29 @@ class ChatRoomViewModel(
         _chatUserMe.value = ChatUserDto(userMe!!.id, userMe.nickname, null, userMe.image)
     }
 
+    fun getProductInfo(productId: Int) {
+        productRepository.getProductById(productId)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ response ->
+                _productImageUrl.value = response.body()?.images?.first()?.url
+                _productName.value = response.body()?.name
+                _productPrice.value = response.body()?.price.toString()
+            }, {
+                Timber.e(it)
+            })
+    }
+
     fun sendMessage() {
-        message.value?.let {
-            databaseReference.child("message").child(chatRoomId).push().setValue(
-                ChatMessageDto(0, chatUserMe.value!!, it, getCurrentTimeAsString())
-            )
+        try {
+            message.value?.let {
+                databaseReference.child("message").child(chatRoomId).push().setValue(
+                    ChatMessageDto(0, chatUserMe.value!!, it, getCurrentTimeAsString())
+                )
+            }
+            message.value = null
+        } catch (e: NullPointerException) {
+            Timber.e(e)
         }
-        message.value = null
     }
 
     fun getMessage() {
