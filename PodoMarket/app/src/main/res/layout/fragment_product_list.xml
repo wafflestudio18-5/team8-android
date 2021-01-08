@@ -45,7 +45,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/app_bar"
             app:adapter="@{adapter}"
-            app:items="@{viewModel.allProduct}"
+            app:bindProductListItems="@{viewModel.allProduct}"
             tools:listitem="@layout/item_product"/>
 
 
