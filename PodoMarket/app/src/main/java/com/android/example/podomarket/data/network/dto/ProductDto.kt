@@ -15,17 +15,17 @@ data class ProductDto(
     val count_likes: Int,
     val count_views: Int,
     val images: List<String>?,
-    val like_product: List<LikeProduct>?
+    val like_product: List<LikeProductDto>?
 )
 
-data class LikeProduct(
+data class LikeProductDto(
     val id: Int,
     val profile: Int,
     val product: Int,
     val active: Boolean
 )
 
-data class SuggestPrice(
+data class SuggestPriceDto(
     val id: Int,
     val will_buyer: Int,
     val confirm: Boolean,
@@ -34,12 +34,26 @@ data class SuggestPrice(
 )
 
 data class PaginationResponse(
-    val page: Page,
+    val page: PageDto,
     val products: List<ProductDto>
 )
 
-data class Page(
+data class PageDto(
     val product_count: Int,
     val page_count: Int,
     val current_page: Int
+)
+
+data class ChatRoomDto(
+    val id: Int,
+    val will_buyer: Int,
+    val is_active: Boolean,
+    val product: Int
+)
+
+data class TransactionDto(
+    val id: Int,
+    val chatroom: Int,
+    val buyer_review: Int,
+    val seller_review: Int
 )

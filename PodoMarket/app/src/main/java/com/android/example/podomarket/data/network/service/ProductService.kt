@@ -1,9 +1,6 @@
 package com.android.example.podomarket.data.network.service
 
-import com.android.example.podomarket.data.network.dto.LikeProduct
-import com.android.example.podomarket.data.network.dto.PaginationResponse
-import com.android.example.podomarket.data.network.dto.ProductDto
-import com.android.example.podomarket.data.network.dto.SuggestPrice
+import com.android.example.podomarket.data.network.dto.*
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Response
 import retrofit2.http.*
@@ -37,7 +34,7 @@ interface ProductService {
     ): Single<Response<ProductDto>>
 
     @GET("api/v1/product/{product_id}/")
-    fun getProduct(
+    fun getProductById(
         @Path("product_id") product_id: Int
     ) : Single<Response<ProductDto>>
 
@@ -50,10 +47,10 @@ interface ProductService {
     @PUT("api/v1/user/likeproduct/")
     fun putLikeProduct(
         @Field("product") product_id: Int
-    ): Single<Response<LikeProduct>>
+    ): Single<Response<LikeProductDto>>
 
     @GET("api/v1/user/likeproduct/")
-    fun getMyLikeProductList(): Single<Response<List<LikeProduct>>>
+    fun getMyLikeProductList(): Single<Response<List<LikeProductDto>>>
 
     @FormUrlEncoded
     @POST("api/v1/product/{product_id}/suggestprice/")
@@ -61,16 +58,48 @@ interface ProductService {
         @Path("product_id") product_id: Int,
         @Field("suggest_price") suggest_price: Int,
         @Field("will_buyer") will_buyer: Int
-    ): Single<Response<SuggestPrice>>
+    ): Single<Response<SuggestPriceDto>>
 
     @PUT("api/v1/product/{product_id}/suggestprice/")
     fun putSuggestPrice(
         @Path("product_id") product_id: Int
-    ): Single<Response<SuggestPrice>>
+    ): Single<Response<SuggestPriceDto>>
 
     @DELETE("api/v1/product/{product_id}/suggestprice/")
     fun deleteSuggestPrice(
         @Path("product_id") product_id: Int
-    ): Single<Response<SuggestPrice>>
-    
+    ): Single<Response<SuggestPriceDto>>
+
+    @FormUrlEncoded
+    @POST("api/v1/chatroom")
+    fun postChatRoom(
+        @Field("product") product_id: Int,
+        @Field("will_buyer") will_buyer: Int
+    ): Single<Response<ChatRoomDto>>
+
+    @GET("api/v1/chatroom")
+    fun getChatRoomList(): Single<Response<List<ChatRoomDto>>>
+
+    @GET("api/v1/chatroom/{chatroom_id}")
+    fun getChatRoomById(
+        @Path("chatroom_id") chatroom_id: Int
+    ): Single<Response<ChatRoomDto>>
+
+    @DELETE("api/v1/chatroom/{chatroom_id}")
+    fun deleteChatRoom(
+        @Path("chatroom_id") chatroom_id: Int
+    ): Single<Response<ChatRoomDto>>
+
+    @POST("api/v1/chatroom/{chatroom_id}/transaction")
+    fun postTransaction(
+        @Path("chatroom_id") chatroom_id: Int
+    ): Single<Response<TransactionDto>>
+
+    @FormUrlEncoded
+    @PUT("api/v1/chatroom/{chatroom_id}/transaction")
+    fun putTransaction(
+        @Path("chatroom_id") chatroom_id: Int,
+        @Field("review") review: Int
+    ): Single<Response<TransactionDto>>
+
 }
