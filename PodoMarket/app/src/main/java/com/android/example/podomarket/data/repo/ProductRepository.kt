@@ -1,26 +1,12 @@
 package com.android.example.podomarket.data.repo
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.android.example.podomarket.data.network.dto.ProductDto
 import com.android.example.podomarket.data.network.service.ProductService
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class ProductRepository(private val service: ProductService) {
+class ProductRepository(private val productService: ProductService) {
 
-    fun getProductList(): LiveData<List<ProductDto>> {
-        val result: MutableLiveData<List<ProductDto>> = MutableLiveData()
-        val singleResponse = service.getProductList(1, null, null, null, null, null)
+    fun getProductList() = productService.getProductList(1, null, null, null, null, null).subscribeOn(Schedulers.io())
 
-        singleResponse
-            .subscribeOn(Schedulers.io())
-            .subscribe { response ->
-                val paginationResponse = response.body()
-                val productList = paginationResponse?.products
-                result.postValue(productList)
-            }
-
-        return result
-    }
+    fun getProductById(product_id: Int) = productService.getProductById(product_id)
 
 }
