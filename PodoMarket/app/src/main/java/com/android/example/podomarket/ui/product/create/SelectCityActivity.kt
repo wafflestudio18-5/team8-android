@@ -29,7 +29,7 @@ class SelectCityActivity : AppCompatActivity() {
             viewModel = selectCityViewModel
             adapter = SelectCityAdapter {
                 val intent = Intent().apply {
-                    putExtra("city_id", it.city_id)
+                    putExtra("city_id", it.id)
                 }
                 setResult(RESULT_OK, intent)
                 finish()
