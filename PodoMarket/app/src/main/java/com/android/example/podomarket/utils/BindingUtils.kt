@@ -37,3 +37,8 @@ fun bindProductImageUrl(view: ImageView, url: String?) {
         .placeholder(R.drawable.ic_baseline_image_24)
         .into(view)
 }
+
+@BindingAdapter("adapter")
+fun bindAdapter(view: RecyclerView, adapter: RecyclerView.Adapter<*>) {
+    view.adapter = adapter
+}
