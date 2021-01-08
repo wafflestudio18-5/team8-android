@@ -51,8 +51,10 @@ interface UserService {
     @GET("api/v1/user/city")
     fun getCityList(): Single<Response<List<CityDto>>>
 
-    @GET("api/v1/user/me/product")
-    fun getMyProductList(): Single<Response<List<ProductDto>>>
+    @GET("api/v1/user/product")
+    fun getMyProductList(
+        
+    ): Single<Response<List<ProductDto>>>
 
     @PUT("api/v1/user/me/{product_id}")
     fun putMyProduct(
