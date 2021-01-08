@@ -1,13 +1,14 @@
 package com.android.example.podomarket.data.network.service
 
-import com.android.example.podomarket.data.network.dto.CityDto
-import com.android.example.podomarket.data.network.dto.PutCityResponse
-import com.android.example.podomarket.data.network.dto.UserDto
+import com.android.example.podomarket.data.network.dto.*
 import io.reactivex.rxjava3.core.Single
+import okhttp3.MultipartBody
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
 interface UserService {
+
     @FormUrlEncoded
     @POST("api/v1/user/")
     fun postUser(
@@ -15,29 +16,36 @@ interface UserService {
         @Field("social") social: String
     ): Single<Response<UserDto>>
 
+    @Multipart
     @PUT("api/v1/user/me/")
     fun putUserMe(
-        @Field("full_name") full_name: String?,
-        @Field("nickname") nickname: String?
+        @Part("full_name") full_name: String?,
+        @Part("nickname") nickname: String?,
+        @Part image: MultipartBody.Part
     ): Single<Response<UserDto>>
 
     @GET("api/v1/user/me/")
     fun getUserMe(): Single<Response<UserDto>>
+
+    @DELETE("api/v1/user/me/")
+    fun deleteUserMe(): Single<Response<Void>>
 
     @GET("api/v1/user/{user_id}/")
     fun getUserById(
         @Path("user_id") user_id: Int
     ): Single<Response<UserDto>>
 
-    @DELETE("api/v1/user/me/")
-    fun deleteUserMe(): Single<Response<Void>>
+    @POST("api/v1/user/logout/")
+    fun logout(): Single<Response<Void>>
 
-    @PUT("api/v1/user/city")
+    @FormUrlEncoded
+    @PUT("api/v1/user/city/")
     fun putCity(
         @Field("city_id_1") city_id_1: Int,
         @Field("city_id_2") city_id_2: Int
     ) : Single<Response<PutCityResponse>>
 
-    @GET("api/v1/user/city")
+    @GET("api/v1/user/city/")
     fun getCityList(): Single<Response<List<CityDto>>>
+
 }
