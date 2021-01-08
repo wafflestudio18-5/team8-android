@@ -9,15 +9,15 @@ data class ChatRoomDto(
 )
 
 data class ChatUserDto(
-    val id: Int,
+    val id: Int = -1,
     val nickname: String = "Anonymous",
-    val city: String?,
-    val imageUrl: String?,
+    val city: String? = null,
+    val imageUrl: String? = null,
 )
 
 data class ChatMessageDto(
-    val id: Int,
-    val sender: ChatUserDto,
-    val message: String,
-    val timestamp: String
+    val id: Int = -1,
+    val sender: ChatUserDto = ChatUserDto(),
+    val message: String = "",
+    val timestamp: String = ""
 )

@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel
 import com.android.example.podomarket.data.model.ChatMessageDto
 import com.android.example.podomarket.data.model.ChatUserDto
 import com.android.example.podomarket.data.repo.UserRepository
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import timber.log.Timber
@@ -45,24 +48,42 @@ class ChatRoomViewModel(private val userRepository: UserRepository) : ViewModel(
 
     fun sendMessage() {
         message.value?.let {
-            if (_messages.value == null)
-                _messages.value = listOf<ChatMessageDto>(
-                    ChatMessageDto(
-                        0,
-                        chatUserMe.value!!,
-                        it,
-                        "11:47"
-                    )
-                )
-            else {
-                val tmpList = _messages.value?.toMutableList()
-                val num = tmpList!!.size
-                tmpList.add(ChatMessageDto(num, chatUserMe.value!!, it, "11:47"))
-                _messages.value = tmpList
-            }
-
+            databaseReference.child("message").push().setValue(
+                ChatMessageDto(0, chatUserMe.value!!, it, "11:47")
+            )
         }
         message.value = null
     }
 
+    fun getMessage() {
+        databaseReference.child("message").addChildEventListener(
+            object : ChildEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                }
+
+                override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+                }
+
+                override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+                }
+
+                override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+                    if (_messages.value == null)
+                        _messages.value = listOf<ChatMessageDto>(
+                            snapshot.getValue(ChatMessageDto::class.java)!!
+                        )
+                    else {
+                        val tmpList = _messages.value?.toMutableList()
+                        tmpList?.add(snapshot.getValue(ChatMessageDto::class.java)!!)
+                        _messages.value = tmpList
+                    }
+
+                }
+
+                override fun onChildRemoved(snapshot: DataSnapshot) {
+                }
+
+            }
+        )
+    }
 }

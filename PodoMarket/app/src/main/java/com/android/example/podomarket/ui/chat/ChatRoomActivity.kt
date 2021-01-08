@@ -31,6 +31,7 @@ class ChatRoomActivity : AppCompatActivity() {
         chatRoomViewModel.apply {
             chatRoomId = intent.getIntExtra(CHAT_ROOM_ID, -1)
             getUsersInfo(intent.getIntExtra(USER_ID, -1))
+            getMessage()
         }
         val chatListAdapter = ChatListAdapter(userRepository.getMyInfo()!!.id)
         val linearLayoutManager = LinearLayoutManager(this)
