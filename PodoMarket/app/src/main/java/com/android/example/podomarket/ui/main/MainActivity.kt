@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             bottomNavigation.setOnNavigationItemSelectedListener {
                 when (it.itemId) {
                     R.id.product_fragment -> pager.setCurrentItem(PRODUCT, false)
-                    R.id.article_fragment -> pager.setCurrentItem(ARTICLE, false)
                     R.id.chat_room_list_fragment -> pager.setCurrentItem(CHAT, false)
                     R.id.my_page_fragment -> pager.setCurrentItem(MYPAGE, false)
                     else -> {
