@@ -28,9 +28,9 @@ class ProfileActivity : AppCompatActivity() {
                 tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
                 tb.setNavigationOnClickListener { finish() }
 
-                val userId: Long = intent.getLongExtra("user_id", 0L)
+                val userId: Int = intent.getIntExtra("user_id", 0)
 
-                if (userId == 0L) { // my profile
+                if (userId == 0) { // my profile
 
                     tb.inflateMenu(R.menu.app_bar_activity_profile)
                     tb.setOnMenuItemClickListener {
@@ -97,7 +97,7 @@ class ProfileActivity : AppCompatActivity() {
     companion object {
         private const val USER_ID = "user_id"
 
-        fun intentWithUserId(user_id: Long, context: Context): Intent
-                = Intent(context, ProfileActivity::class.java).apply { putExtra(USER_ID, user_id) }
+        fun intentWithUserId(user_id: Int, context: Context): Intent =
+            Intent(context, ProfileActivity::class.java).apply { putExtra(USER_ID, user_id) }
     }
 }

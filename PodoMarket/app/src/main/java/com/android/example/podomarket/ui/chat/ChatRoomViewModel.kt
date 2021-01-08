@@ -12,16 +12,20 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import timber.log.Timber
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ChatRoomViewModel(private val userRepository: UserRepository) : ViewModel() {
 
 
     private val firebaseDatabase = FirebaseDatabase.getInstance()
     private val databaseReference = firebaseDatabase.reference
-    var chatRoomId: Int = -1
+    private var chatRoomId: String = ""
+    private val df: DateFormat = SimpleDateFormat("MM.dd 'at' HH:mm", Locale.KOREA)
 
     private val _chatUserMe = MutableLiveData<ChatUserDto>()
-    val chatUserMe: LiveData<ChatUserDto>
+    private val chatUserMe: LiveData<ChatUserDto>
         get() = _chatUserMe
     private val _chatUserOther = MutableLiveData<ChatUserDto>()
     val chatUserOther: LiveData<ChatUserDto>
@@ -48,15 +52,15 @@ class ChatRoomViewModel(private val userRepository: UserRepository) : ViewModel(
 
     fun sendMessage() {
         message.value?.let {
-            databaseReference.child("message").push().setValue(
-                ChatMessageDto(0, chatUserMe.value!!, it, "11:47")
+            databaseReference.child("message").child(chatRoomId).push().setValue(
+                ChatMessageDto(0, chatUserMe.value!!, it, getCurrentTimeAsString())
             )
         }
         message.value = null
     }
 
     fun getMessage() {
-        databaseReference.child("message").addChildEventListener(
+        databaseReference.child("message").child(chatRoomId).addChildEventListener(
             object : ChildEventListener {
                 override fun onCancelled(error: DatabaseError) {
                 }
@@ -86,4 +90,18 @@ class ChatRoomViewModel(private val userRepository: UserRepository) : ViewModel(
             }
         )
     }
+
+    fun clearMessages() {
+        _messages.value = null
+    }
+
+    fun generateChatRoomId(otherUserId: Int, productId: Int) {
+        val myUserId = chatUserMe.value!!.id
+        val tmp: String = if (myUserId < otherUserId) myUserId.toString() + "_" + otherUserId
+        else otherUserId.toString() + "_" + myUserId.toString()
+        chatRoomId = tmp + "_" + productId.toString()
+    }
+
+    private fun getCurrentTimeAsString(): String = df.format(Calendar.getInstance().time)
+
 }

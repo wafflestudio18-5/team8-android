@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.example.podomarket.R
 import com.android.example.podomarket.data.repo.UserRepository
 import com.android.example.podomarket.databinding.ActivityChatRoomBinding
+import com.android.example.podomarket.ui.product.detail.ProductDetailActivity
+import com.android.example.podomarket.ui.user.profile.ProfileActivity
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -28,9 +30,11 @@ class ChatRoomActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val productId = intent.getIntExtra(PRODUCT_ID, -1)
+        val otherUserId = intent.getIntExtra(USER_ID, -1)
         chatRoomViewModel.apply {
-            chatRoomId = intent.getIntExtra(CHAT_ROOM_ID, -1)
-            getUsersInfo(intent.getIntExtra(USER_ID, -1))
+            getUsersInfo(otherUserId)
+            generateChatRoomId(otherUserId, productId)
             getMessage()
         }
         val chatListAdapter = ChatListAdapter(userRepository.getMyInfo()!!.id)
@@ -57,10 +61,15 @@ class ChatRoomActivity : AppCompatActivity() {
                 }
             }
             userInfoLayout.setOnClickListener {
-                //startActivity(ProfileActivity.intentWithUserId(chatRoomViewModel.userId, this@ChatRoomActivity))
+                startActivity(ProfileActivity.intentWithUserId(otherUserId, this@ChatRoomActivity))
             }
             productInfoLayout.setOnClickListener {
-                //startActivity(ProductDetailActivity.intentWithProductId(chatRoomViewModel.productId, this@ChatRoomActivity))
+                startActivity(
+                    ProductDetailActivity.intentWithProductId(
+                        productId,
+                        this@ChatRoomActivity
+                    )
+                )
             }
             sendButton.setOnClickListener {
                 chatRoomViewModel.sendMessage()
@@ -68,20 +77,24 @@ class ChatRoomActivity : AppCompatActivity() {
         }
     }
 
-    //Need product info too
+    override fun onDestroy() {
+        chatRoomViewModel.clearMessages()
+        super.onDestroy()
+    }
+
     companion object {
-        private const val CHAT_ROOM_ID = "chat_room_id"
+        private const val PRODUCT_ID = "product_id"
         private const val USER_ID = "user_id"
 
-        fun intentWithChatRoomIdAndUserId(
-            chat_room_id: Long,
+        fun intentWithProductIdAndUserId(
+            product_id: Int,
             user_id: Int,
             context: Context
         ): Intent =
             Intent(context, ChatRoomActivity::class.java).apply {
                 putExtra(
-                    CHAT_ROOM_ID,
-                    chat_room_id
+                    PRODUCT_ID,
+                    product_id
                 )
                 putExtra(
                     USER_ID,

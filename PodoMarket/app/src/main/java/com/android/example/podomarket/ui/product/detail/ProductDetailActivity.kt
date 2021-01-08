@@ -79,7 +79,7 @@ class ProductDetailActivity : AppCompatActivity() {
     companion object {
         private const val PRODUCT_ID = "product_id"
 
-        fun intentWithProductId(product_id: Long, context: Context): Intent =
+        fun intentWithProductId(product_id: Int, context: Context): Intent =
             Intent(context, ProductDetailActivity::class.java).apply {
                 putExtra(
                     PRODUCT_ID,

@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentProductListBinding
-import com.android.example.podomarket.ui.chat.ChatRoomActivity
+import com.android.example.podomarket.ui.product.create.ProductCreateActivity
 
 
 class ProductListFragment : Fragment() {
@@ -38,9 +38,7 @@ class ProductListFragment : Fragment() {
                 }
             }
             addProductFab.setOnClickListener {
-                startActivity(
-                    ChatRoomActivity.intentWithChatRoomIdAndUserId(0, 3, requireContext())
-                )
+                startActivity(ProductCreateActivity.intent(requireContext()))
             }
         }
         return binding.root
