@@ -3,6 +3,7 @@ package com.android.example.podomarket.di
 import android.app.Application
 import android.content.SharedPreferences
 import com.android.example.podomarket.BuildConfig
+import com.android.example.podomarket.data.network.service.ProductService
 import com.android.example.podomarket.data.network.service.UserService
 import com.android.example.podomarket.di.NetworkConst.PREFS_FILENAME
 import com.android.example.podomarket.di.NetworkConst.TOKEN_KEY
@@ -27,6 +28,7 @@ val networkModule = module {
     single { provideOkHttpClient(get()) }
     single { provideRetrofit(get(), BuildConfig.PODO_SERVER_BASE_URL) }
     single { provideUserService(get()) }
+    single { provideProductService(get()) }
 }
 
 private fun provideSharedPreference(androidApplication: Application): SharedPreferences =
@@ -79,3 +81,6 @@ private fun provideRetrofit(
 
 private fun provideUserService(retrofit: Retrofit): UserService =
     retrofit.create(UserService::class.java)
+
+private fun provideProductService(retrofit: Retrofit): ProductService =
+    retrofit.create(ProductService::class.java)

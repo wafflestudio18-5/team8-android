@@ -46,7 +46,7 @@ fun bindAdapter(view: RecyclerView, adapter: RecyclerView.Adapter<*>) {
 }
 
 @BindingAdapter("bindProductListItems")
-fun bindProductListItems(view: RecyclerView, items: List<ProductDto>) {
+fun bindProductListItems(view: RecyclerView, items: List<ProductDto>?) {
     val adapter = view.adapter as ProductListAdapter
-    adapter.setItems(items)
+    items?.let { adapter.setItems(it) }
 }
