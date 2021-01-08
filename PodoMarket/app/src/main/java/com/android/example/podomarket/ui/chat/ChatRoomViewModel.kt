@@ -26,6 +26,7 @@ class ChatRoomViewModel(private val userRepository: UserRepository) : ViewModel(
     private val _messages = MutableLiveData<List<ChatMessageDto>>()
     val messages: LiveData<List<ChatMessageDto>>
         get() = _messages
+    val message = MutableLiveData<String>()
 
     fun getUsersInfo(userOtherId: Int) {
         userRepository.getUserInfo(userOtherId)
@@ -42,5 +43,26 @@ class ChatRoomViewModel(private val userRepository: UserRepository) : ViewModel(
         _chatUserMe.value = ChatUserDto(userMe!!.id, userMe.nickname, null, userMe.image)
     }
 
+    fun sendMessage() {
+        message.value?.let {
+            if (_messages.value == null)
+                _messages.value = listOf<ChatMessageDto>(
+                    ChatMessageDto(
+                        0,
+                        chatUserMe.value!!,
+                        it,
+                        "11:47"
+                    )
+                )
+            else {
+                val tmpList = _messages.value?.toMutableList()
+                val num = tmpList!!.size
+                tmpList.add(ChatMessageDto(num, chatUserMe.value!!, it, "11:47"))
+                _messages.value = tmpList
+            }
+
+        }
+        message.value = null
+    }
 
 }

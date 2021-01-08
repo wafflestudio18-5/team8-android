@@ -1,14 +1,16 @@
 package com.android.example.podomarket.ui.main.product
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentProductListBinding
-import com.android.example.podomarket.ui.product.create.ProductCreateActivity
+import com.android.example.podomarket.ui.chat.ChatRoomActivity
 
 
 class ProductListFragment : Fragment() {
@@ -36,7 +38,9 @@ class ProductListFragment : Fragment() {
                 }
             }
             addProductFab.setOnClickListener {
-                startActivity(ProductCreateActivity.intent(requireContext()))
+                startActivity(
+                    ChatRoomActivity.intentWithChatRoomIdAndUserId(0, 3, requireContext())
+                )
             }
         }
         return binding.root

@@ -170,6 +170,7 @@
                 android:layout_weight="1"
                 android:inputType="textMultiLine"
                 android:maxLines="3"
+                android:text="@={viewModel.message}"
                 android:hint="@string/waiting_input_message"
                 android:background="@drawable/border_round_gray"
                 android:padding="10dp" />

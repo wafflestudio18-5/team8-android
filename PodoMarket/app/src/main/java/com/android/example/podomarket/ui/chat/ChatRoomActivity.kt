@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.example.podomarket.R
 import com.android.example.podomarket.data.repo.UserRepository
 import com.android.example.podomarket.databinding.ActivityChatRoomBinding
@@ -31,9 +32,13 @@ class ChatRoomActivity : AppCompatActivity() {
             chatRoomId = intent.getIntExtra(CHAT_ROOM_ID, -1)
             getUsersInfo(intent.getIntExtra(USER_ID, -1))
         }
+        val chatListAdapter = ChatListAdapter(userRepository.getMyInfo()!!.id)
+        val linearLayoutManager = LinearLayoutManager(this)
         binding.run {
             viewModel = chatRoomViewModel
             lifecycleOwner = this@ChatRoomActivity
+            chatListView.adapter = chatListAdapter
+            chatListView.layoutManager = linearLayoutManager
             toolBar.also { tb ->
                 tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
                 tb.setNavigationOnClickListener { finish() }
@@ -56,7 +61,9 @@ class ChatRoomActivity : AppCompatActivity() {
             productInfoLayout.setOnClickListener {
                 //startActivity(ProductDetailActivity.intentWithProductId(chatRoomViewModel.productId, this@ChatRoomActivity))
             }
-            chatListView.adapter = ChatListAdapter(userRepository.getMyInfo()!!.id)
+            sendButton.setOnClickListener {
+                chatRoomViewModel.sendMessage()
+            }
         }
     }
 
