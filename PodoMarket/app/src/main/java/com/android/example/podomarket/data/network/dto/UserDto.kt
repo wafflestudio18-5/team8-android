@@ -10,3 +10,15 @@ data class UserDto(
     val temperature: Double,
     val token: String
 )
+
+data class CityDto(
+    val city_id: Int,
+    val name: String,
+    val location: String
+)
+
+data class PutCityResponse(
+    val user_id: Int,
+    val nickname: String,
+    val city: List<CityDto>
+)
