@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.chat.ChatRoomActivity">
 
-    <data />
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.android.example.podomarket.ui.chat.ChatRoomViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -40,7 +45,7 @@
                         <TextView
                             android:id="@+id/user_name"
                             style="@style/AppBarTitle"
-                            android:text="@string/example_user_name"
+                            android:text="@{viewModel.chatUserOther.nickname}"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toTopOf="@+id/response_time"
                             app:layout_constraintStart_toStartOf="parent"
@@ -137,6 +142,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/line2"
+            app:messages="@{viewModel.messages}"
             tools:listitem="@layout/item_other_msgbox" />
 
         <LinearLayout
@@ -164,6 +170,7 @@
                 android:layout_weight="1"
                 android:inputType="textMultiLine"
                 android:maxLines="3"
+                android:text="@={viewModel.message}"
                 android:hint="@string/waiting_input_message"
                 android:background="@drawable/border_round_gray"
                 android:padding="10dp" />
