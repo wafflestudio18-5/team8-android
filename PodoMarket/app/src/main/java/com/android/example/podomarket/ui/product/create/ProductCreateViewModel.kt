@@ -12,6 +12,7 @@ class ProductCreateViewModel(private val productRepository: ProductRepository, p
 
     val isAllowSuggest = MutableLiveData<Boolean>(false)
     val selectedImageFile = MutableLiveData<MultipartBody.Part>()
+    val currentImageNumber = MutableLiveData<Int>(0)
     val selectedCategory = MutableLiveData<String>("DIGITAL")
     val selectedCity = MutableLiveData<Int>(1)
 
