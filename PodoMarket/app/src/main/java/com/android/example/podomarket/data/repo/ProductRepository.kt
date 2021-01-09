@@ -9,4 +9,6 @@ class ProductRepository(private val productService: ProductService) {
 
     fun getProductById(product_id: Int) = productService.getProductById(product_id).subscribeOn(Schedulers.io())
 
+    fun putLikeProduct(product_id: Int) = productService.putLikeProduct(product_id).subscribeOn(Schedulers.io())
+
 }

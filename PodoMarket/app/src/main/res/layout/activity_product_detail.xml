@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.product.detail.ProductDetailActivity">
 
-    <data />
+    <data>
+        <variable
+            name="viewModel"
+            type="com.android.example.podomarket.ui.product.detail.ProductDetailViewModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,6 +45,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <!--
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/pager"
                         android:layout_width="match_parent"
@@ -54,6 +59,13 @@
                         app:tabBackground="@drawable/tab_selector"
                         app:tabGravity="center"
                         app:tabIndicatorHeight="0dp" />
+                    -->
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"
+                        android:src="@drawable/ic_baseline_image_24"
+                        app:setProductImageUrl="@{viewModel.theProduct.images.get(0)}"/>
                 </RelativeLayout>
 
                 <View
@@ -74,13 +86,14 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/ic_baseline_image_24" />
+                        android:src="@drawable/ic_baseline_image_24"
+                        app:setPersonImageUrl="@{viewModel.theSeller.image}"/>
 
                     <TextView
                         android:id="@+id/tv_productDetail_sellerName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/example_user_name"
+                        android:text="@{viewModel.theSeller.nickname}"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         app:layout_constraintTop_toTopOf="parent"
@@ -93,7 +106,7 @@
                         android:id="@+id/tv_productDetail_sellerCity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/example_city"
+                        android:text="@string/city_name"
                         android:textColor="@color/black"
                         app:layout_constraintTop_toBottomOf="@+id/tv_productDetail_sellerName"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -108,7 +121,8 @@
                         app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
-                        android:src="@drawable/ic_baseline_emoji_emotions_24" />
+                        android:src="@drawable/ic_baseline_emoji_emotions_24"
+                        app:tint="@color/royal_blue"/>
 
                     <TextView
                         android:id="@+id/tv_productDetail_sellerManner"
@@ -125,6 +139,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/example_temperature"
+                        android:textColor="@color/royal_blue"
                         android:textStyle="bold"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintRight_toLeftOf="@+id/img_productDetail_sellerManner"
@@ -138,7 +153,7 @@
                         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                         app:layout_constraintTop_toBottomOf="@+id/tv_productDetail_sellerMannerNumber"
                         app:layout_constraintRight_toLeftOf="@+id/img_productDetail_sellerManner"
-                        android:layout_marginRight="10dp" />
+                        android:layout_marginRight="10dp"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <View
@@ -157,7 +172,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/example_product_name"
+                        android:text="@{viewModel.theProduct.name}"
                         android:textSize="20sp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -167,7 +182,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/example_product_category"
+                        android:text="@{viewModel.theProduct.category}"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp" />
 
@@ -282,20 +297,14 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/call_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/product_detail_call"
-                android:textColor="@color/black"
-                android:layout_marginLeft="60dp" />
-
-            <Button
                 android:id="@+id/chat_button"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/product_detail_chat"
                 android:textColor="@color/white"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="20dp"/>
         </LinearLayout>
 
     </LinearLayout>

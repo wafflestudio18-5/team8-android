@@ -101,7 +101,7 @@
     <string name="product_create_near_city_number">게시글 보여줄 동네 고르기</string>
     <string name="product_detail_price_proposal">가격 제안하기</string>
     <string name="product_detail_call">전화</string>
-    <string name="product_detail_chat">채팅</string>
+    <string name="product_detail_chat">채팅으로 거래하기</string>
     <string name="product_detail_seller_manner">매너온도</string>
     <string name="product_detail_view_more">더보기</string>
     <string name="appbar_create_activity">중고거래 글쓰기</string>
