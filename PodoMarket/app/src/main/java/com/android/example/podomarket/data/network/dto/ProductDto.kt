@@ -14,8 +14,13 @@ data class ProductDto(
     val count_comments: Int,
     val count_likes: Int,
     val count_views: Int,
-    val images: List<String>?,
+    val images: List<ImageDto>?,
     val like_product: List<LikeProductDto>?
+)
+
+data class ImageDto(
+    val id: Int,
+    val image_url: String
 )
 
 data class LikeProductDto(

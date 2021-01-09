@@ -25,6 +25,7 @@ class ProductListFragment : Fragment() {
     ): View {
         val binding: FragmentProductListBinding by lazy {
             DataBindingUtil.inflate(inflater, R.layout.fragment_product_list, container, false)
+                    as FragmentProductListBinding
         }
         binding.run {
             toolBar.also { tb ->
@@ -41,6 +42,7 @@ class ProductListFragment : Fragment() {
             }
             addProductFab.setOnClickListener {
                 startActivity(ProductCreateActivity.intent(requireContext()))
+//                startActivity(ChatRoomActivity.intentWithProductIdAndUserId(1, 3, requireContext()))
             }
             lifecycleOwner = this@ProductListFragment
             viewModel = productViewModel

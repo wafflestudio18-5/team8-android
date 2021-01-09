@@ -4,7 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android.example.podomarket.data.model.ChatMessageDto
+import com.android.example.podomarket.data.model.ChatRoomDto
 import com.android.example.podomarket.data.model.ChatUserDto
+import com.android.example.podomarket.data.repo.ProductRepository
 import com.android.example.podomarket.data.repo.UserRepository
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -16,14 +18,30 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ChatRoomViewModel(private val userRepository: UserRepository) : ViewModel() {
+class ChatRoomViewModel(
+    private val userRepository: UserRepository,
+    private val productRepository: ProductRepository
+) : ViewModel() {
 
 
     private val firebaseDatabase = FirebaseDatabase.getInstance()
     private val databaseReference = firebaseDatabase.reference
     private var chatRoomId: String = ""
     private val df: DateFormat = SimpleDateFormat("MM.dd 'at' HH:mm", Locale.KOREA)
+    private val dfid: DateFormat = SimpleDateFormat("ddHHmmss", Locale.KOREA)
+    private val dfid2: DateFormat = SimpleDateFormat("ddHHmmss", Locale.ITALY)
+    private val dfid3: DateFormat = SimpleDateFormat("ddHHmmss", Locale.CANADA)
+    private var productId = -1
 
+    private val _productImageUrl = MutableLiveData<String>()
+    val productImageUrl: LiveData<String>
+        get() = _productImageUrl
+    private val _productName = MutableLiveData<String>()
+    val productName: LiveData<String>
+        get() = _productName
+    private val _productPrice = MutableLiveData<String>()
+    val productPrice: LiveData<String>
+        get() = _productPrice
     private val _chatUserMe = MutableLiveData<ChatUserDto>()
     private val chatUserMe: LiveData<ChatUserDto>
         get() = _chatUserMe
@@ -50,13 +68,62 @@ class ChatRoomViewModel(private val userRepository: UserRepository) : ViewModel(
         _chatUserMe.value = ChatUserDto(userMe!!.id, userMe.nickname, null, userMe.image)
     }
 
+    fun getProductInfo(productId: Int) {
+        productRepository.getProductById(productId)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ response ->
+                if (response.body()?.images?.size != 0)
+                    _productImageUrl.value = response.body()?.images?.first()?.image_url
+                _productName.value = response.body()?.name
+                _productPrice.value = response.body()?.price.toString()
+                this.productId = response.body()?.id!!
+            }, {
+                Timber.e(it)
+            })
+    }
+
     fun sendMessage() {
-        message.value?.let {
-            databaseReference.child("message").child(chatRoomId).push().setValue(
-                ChatMessageDto(0, chatUserMe.value!!, it, getCurrentTimeAsString())
-            )
+        try {
+            message.value?.let {
+                databaseReference.child("message").child(chatRoomId).push().setValue(
+                    ChatMessageDto(
+                        getCurrentTimeAsInt(),
+                        chatUserMe.value!!,
+                        it,
+                        getCurrentTimeAsString()
+                    )
+                )
+                databaseReference.child("chats").child(chatUserMe.value!!.id.toString())
+                    .child(chatRoomId).setValue(
+                        ChatRoomDto(
+                            getCurrentTimeAsInt2(),
+                            chatUserOther.value!!.nickname,
+                            chatUserOther.value!!.imageUrl,
+                            productImageUrl.value,
+                            it,
+                            false,
+                            productId,
+                            chatUserOther.value!!.id
+                        )
+                    )
+                databaseReference.child("chats").child(chatUserOther.value!!.id.toString())
+                    .child(chatRoomId).setValue(
+                        ChatRoomDto(
+                            getCurrentTimeAsInt3(),
+                            chatUserMe.value!!.nickname,
+                            chatUserMe.value!!.imageUrl,
+                            productImageUrl.value,
+                            it,
+                            true,
+                            productId,
+                            chatUserOther.value!!.id
+                        )
+                    )
+            }
+            message.value = null
+        } catch (e: NullPointerException) {
+            Timber.e(e)
         }
-        message.value = null
     }
 
     fun getMessage() {
@@ -81,7 +148,6 @@ class ChatRoomViewModel(private val userRepository: UserRepository) : ViewModel(
                         tmpList?.add(snapshot.getValue(ChatMessageDto::class.java)!!)
                         _messages.value = tmpList
                     }
-
                 }
 
                 override fun onChildRemoved(snapshot: DataSnapshot) {
@@ -89,6 +155,30 @@ class ChatRoomViewModel(private val userRepository: UserRepository) : ViewModel(
 
             }
         )
+    }
+
+    fun readUnreadMessages() {
+        val ref = databaseReference.child("chats").child(chatUserMe.value!!.id.toString())
+            .child(chatRoomId)
+        ref.addChildEventListener(object : ChildEventListener {
+            override fun onCancelled(error: DatabaseError) {
+            }
+
+            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+            }
+
+            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+            }
+
+            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+                if (snapshot.hasChild("existNewMessage"))
+                    ref.setValue(false)
+            }
+
+            override fun onChildRemoved(snapshot: DataSnapshot) {
+            }
+
+        })
     }
 
     fun clearMessages() {
@@ -103,5 +193,8 @@ class ChatRoomViewModel(private val userRepository: UserRepository) : ViewModel(
     }
 
     private fun getCurrentTimeAsString(): String = df.format(Calendar.getInstance().time)
+    private fun getCurrentTimeAsInt(): Int = dfid.format(Calendar.getInstance().time).toInt()
+    private fun getCurrentTimeAsInt2(): Int = dfid2.format(Calendar.getInstance().time).toInt()
+    private fun getCurrentTimeAsInt3(): Int = dfid3.format(Calendar.getInstance().time).toInt()
 
 }
