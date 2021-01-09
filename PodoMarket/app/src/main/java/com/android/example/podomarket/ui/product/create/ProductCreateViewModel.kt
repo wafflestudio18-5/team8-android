@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.android.example.podomarket.R
 import com.android.example.podomarket.data.repo.ProductRepository
 import com.android.example.podomarket.data.repo.UserRepository
+import io.reactivex.android.schedulers.AndroidSchedulers
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
