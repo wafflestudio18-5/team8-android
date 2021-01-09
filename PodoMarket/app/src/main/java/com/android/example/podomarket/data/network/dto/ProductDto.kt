@@ -6,7 +6,7 @@ data class ProductDto(
     val category: String,
     val price: Int,
     val allow_suggest: Boolean,
-    val status: String,
+    val status: Int,
     val distance_range: Int,
     val city_id: Int,
     val seller: Int,

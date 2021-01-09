@@ -10,7 +10,7 @@ import com.android.example.podomarket.databinding.ActivityProductUserSellBinding
 
 class ProductUserSellActivity : AppCompatActivity() {
 
-    private var userId: Long = 0L
+    private var userId: Int = 0
     private val binding: ActivityProductUserSellBinding by lazy {
         DataBindingUtil.setContentView(
             this,
@@ -22,14 +22,14 @@ class ProductUserSellActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         if (intent.hasExtra("user_id")) {
-            userId = intent.getLongExtra("user_id", 0L)
+            userId = intent.getIntExtra("user_id", 0)
         }
 
         binding.run {
             pager.adapter = ProductUserSellPagerAdapter(this@ProductUserSellActivity)
             pager.isUserInputEnabled = false
             when (userId) {
-                0L -> pager.setCurrentItem(ProductUserSellPageConst.MY_SALES, false)
+                0 -> pager.setCurrentItem(ProductUserSellPageConst.MY_SALES, false)
                 else -> pager.setCurrentItem(ProductUserSellPageConst.OTHER_SALES, false)
             }
         }
@@ -38,7 +38,7 @@ class ProductUserSellActivity : AppCompatActivity() {
     companion object {
         private const val USER_ID = "user_id"
 
-        fun intentWithUserId(userId: Long, context: Context): Intent =
+        fun intentWithUserId(userId: Int, context: Context): Intent =
             Intent(context, ProductUserSellActivity::class.java).apply {
                 putExtra(
                     USER_ID,

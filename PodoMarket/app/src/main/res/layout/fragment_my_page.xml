@@ -5,7 +5,9 @@
     tools:context=".ui.main.mypage.MyPageFragment">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.android.example.podomarket.ui.main.mypage.MyPageViewModel" />
         <variable
             name="clickListener"
             type="com.android.example.podomarket.ui.main.mypage.MyPageItemClickListener" />
@@ -47,7 +49,6 @@
                 android:paddingBottom="16dp"
                 android:background="@color/white">
 
-
                 <androidx.cardview.widget.CardView
                     android:id="@+id/profile_image_container"
                     android:layout_width="60dp"
@@ -71,7 +72,8 @@
                         android:background="@color/teal_700"
                         android:contentDescription="@string/product_main_image"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/ic_baseline_image_24" />
+                        android:src="@drawable/ic_baseline_image_24"
+                        app:setPersonImageUrl="@{viewModel.myInfo.image}"/>
                 </androidx.cardview.widget.CardView>
 
 
@@ -83,7 +85,7 @@
                     android:layout_marginTop="18dp"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:text="@string/example_user_name"
+                    android:text="@{viewModel.myInfo.nickname}"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="normal|bold"

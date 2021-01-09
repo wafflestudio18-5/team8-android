@@ -32,7 +32,8 @@
                 android:background="@color/teal_700"
                 android:contentDescription="@string/product_main_image"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_baseline_image_24"/>
+                android:src="@drawable/ic_baseline_image_24"
+                app:setProductImageUrl="@{item.images.get(0)}"/>
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -63,7 +64,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:tint="@color/purple_500" />
+            app:tint="@color/dark_gray"/>
 
         <TextView
             android:id="@+id/city_name"
@@ -79,7 +80,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toBottomOf="@+id/product_name"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
@@ -92,7 +93,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/cardView"
-            app:layout_constraintTop_toBottomOf="@+id/city_name">
+            app:layout_constraintTop_toBottomOf="@+id/city_name"
+            app:bindSoldOutText="@{item.status}">
 
             <TextView
                 android:id="@+id/sold_out"

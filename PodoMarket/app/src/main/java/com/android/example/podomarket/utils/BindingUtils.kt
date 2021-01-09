@@ -1,11 +1,15 @@
 package com.android.example.podomarket.utils
 
+import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.example.podomarket.R
 import com.android.example.podomarket.data.model.ChatMessageDto
 import com.android.example.podomarket.data.model.ChatRoomDto
+import com.android.example.podomarket.data.network.dto.LikeProductDto
 import com.android.example.podomarket.data.network.dto.ProductDto
 import com.android.example.podomarket.ui.chat.ChatListAdapter
 import com.android.example.podomarket.ui.main.chat.ChatRoomListAdapter
@@ -49,4 +53,12 @@ fun bindAdapter(view: RecyclerView, adapter: RecyclerView.Adapter<*>) {
 fun bindProductListItems(view: RecyclerView, items: List<ProductDto>?) {
     val adapter = view.adapter as ProductListAdapter
     items?.let { adapter.setItems(it) }
+}
+
+@BindingAdapter("bindSoldOutText")
+fun bindSoldOutText(view: CardView, status: Int) {
+    when (status) {
+        0 -> view.visibility = View.VISIBLE // SOLD_OUT
+        else -> view.visibility = View.GONE
+    }
 }
