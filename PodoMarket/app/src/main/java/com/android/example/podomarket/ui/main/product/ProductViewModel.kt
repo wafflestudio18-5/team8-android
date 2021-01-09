@@ -17,7 +17,7 @@ class ProductViewModel(private val productRepository: ProductRepository) : ViewM
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response ->
                 val paginationResponse = response.body()
-                val productList = paginationResponse?.products
+                val productList = paginationResponse?.product
                 allProduct.postValue(productList)
             }, {
                 Timber.e(it)
