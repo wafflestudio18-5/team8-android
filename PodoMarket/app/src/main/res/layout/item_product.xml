@@ -32,8 +32,8 @@
                 android:background="@color/teal_700"
                 android:contentDescription="@string/product_main_image"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_baseline_image_24"/>
-<!--                app:setProductImageUrl="@{item.images.get(0).image_url}"/>-->
+                android:src="@drawable/ic_baseline_image_24"
+                app:setProductImageUrl2="@{item.images}"/>
         </androidx.cardview.widget.CardView>
 
         <TextView

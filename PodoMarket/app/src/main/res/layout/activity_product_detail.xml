@@ -65,7 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="350dp"
                         android:src="@drawable/ic_baseline_image_24"
-                        app:setProductImageUrl="@{viewModel.theProduct.images.get(0).image_url}"/>
+                        app:setProductImageUrl2="@{viewModel.theProduct.images}"/>
                 </RelativeLayout>
 
                 <View

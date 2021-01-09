@@ -26,13 +26,15 @@ class ProductDetailViewModel(private val productRepository: ProductRepository,
             }, {
                 Timber.e(it)
             })
-        userRepository.getUserInfo(theProduct.value!!.seller)
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ response ->
-                theSeller.postValue(response.body())
-            }, {
-                Timber.e(it)
-            })
+        theProduct.value?.seller?.let {
+            userRepository.getUserInfo(it)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                    theSeller.postValue(response.body())
+                }, {
+                    Timber.e(it)
+                })
+        }
     }
 
     fun putLikeProduct(productId: Int, imageView: ImageView) {

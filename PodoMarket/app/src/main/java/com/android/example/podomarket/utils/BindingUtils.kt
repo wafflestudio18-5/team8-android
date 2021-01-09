@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.example.podomarket.R
 import com.android.example.podomarket.data.model.ChatMessageDto
 import com.android.example.podomarket.data.model.ChatRoomDto
+import com.android.example.podomarket.data.network.dto.ImageDto
 import com.android.example.podomarket.data.network.dto.LikeProductDto
 import com.android.example.podomarket.data.network.dto.ProductDto
 import com.android.example.podomarket.ui.chat.ChatListAdapter
@@ -56,6 +57,16 @@ fun bindProductImageUrl(view: ImageView, url: String?) {
     if (url != null) {
         Glide.with(view.context)
             .load(url)
+            .placeholder(R.drawable.ic_baseline_image_24)
+            .into(view)
+    }
+}
+
+@BindingAdapter("setProductImageUrl2")
+fun bindProductImageUrl2(view: ImageView, image: List<ImageDto>?) {
+    if (image != null && image.isNotEmpty()) {
+        Glide.with(view.context)
+            .load(image[0].image_url)
             .placeholder(R.drawable.ic_baseline_image_24)
             .into(view)
     }
