@@ -18,5 +18,5 @@ val viewModelModule = module {
     single { ChatRoomViewModel(get(), get()) }
     single { ChatRoomListViewModel(get()) }
     single { ProductDetailViewModel(get(), get()) }
-    single { ProductCreateViewModel() }
+    single { ProductCreateViewModel(get(), get()) }
 }

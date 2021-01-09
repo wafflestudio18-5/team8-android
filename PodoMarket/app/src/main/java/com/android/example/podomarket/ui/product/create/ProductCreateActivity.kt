@@ -4,10 +4,13 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.android.example.podomarket.AppConstants
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityProductCreateBinding
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class ProductCreateActivity : AppCompatActivity() {
 
@@ -17,6 +20,7 @@ class ProductCreateActivity : AppCompatActivity() {
             R.layout.activity_product_create
         ) as ActivityProductCreateBinding
     }
+    private val productCreateViewModel: ProductCreateViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,11 +31,9 @@ class ProductCreateActivity : AppCompatActivity() {
                 tb.setNavigationOnClickListener { finish() }
                 tb.setOnMenuItemClickListener {
                     when(it.itemId) {
-                        R.id.complete_button -> Toast.makeText(
-                            this@ProductCreateActivity,
-                            "상품 등록 완료(미완성)",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        R.id.complete_button ->
+                            productCreateViewModel
+                                .postProduct(productName.text.toString(),productPrice.text.toString().toInt())
                         else -> return@setOnMenuItemClickListener false
                     }
                     return@setOnMenuItemClickListener true
@@ -45,21 +47,13 @@ class ProductCreateActivity : AppCompatActivity() {
                 ).show()
             }
             selectCategoryButton.setOnClickListener {
-                startActivity(SelectCategoryActivity.intent(this@ProductCreateActivity))
+                startActivityForResult(SelectCategoryActivity.intent(this@ProductCreateActivity), AppConstants.SELECT_CATEGORY_ACTIVITY)
             }
             priceOfferButton.setOnClickListener {
-                /*
-                productCreateViewModel.isPriceOfferOn = !productCreateViewModel.isPriceOfferOn
-
-                if (productCreateViewModel.isPriceOfferOn) {
-                    imgPriceOffer.setImageResource(R.drawable.ic_baseline_check_circle_24)
-                } else {
-                    imgPriceOffer.setImageResource(R.drawable.ic_baseline_check_circle_outline_24)
-                }
-                */
+                productCreateViewModel.toggleAllowSuggest(it as ImageView)
             }
             selectCityButton.setOnClickListener {
-                startActivity(SelectCityActivity.intent(this@ProductCreateActivity))
+                startActivityForResult(SelectCityActivity.intent(this@ProductCreateActivity), AppConstants.SELECT_CITY_ACTIVITY)
             }
         }
     }

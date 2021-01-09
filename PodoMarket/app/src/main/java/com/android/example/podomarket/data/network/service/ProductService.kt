@@ -2,6 +2,7 @@ package com.android.example.podomarket.data.network.service
 
 import com.android.example.podomarket.data.network.dto.*
 import io.reactivex.rxjava3.core.Single
+import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -22,15 +23,16 @@ interface ProductService {
         @Query("category") category: Int?
     ): Single<Response<PaginationResponse>>
 
-    @FormUrlEncoded
+    @Multipart
     @POST("api/v1/product/")
     fun postProduct(
-        @Field("name") name: String,
-        @Field("category") category: String,
-        @Field("price") price: Int,
-        @Field("allow_suggest") allow_suggest: Boolean,
-        @Field("city") city: Int,
-        @Field("seller") seller: Int
+        @Part("name") name: String,
+        @Part("category") category: String,
+        @Part("price") price: Int,
+        @Part("allow_suggest") allow_suggest: Boolean,
+        @Part("city") city: Int,
+        @Part("seller") seller: Int,
+        @Part("img-file") image: MultipartBody.Part
     ): Single<Response<ProductDto>>
 
     @GET("api/v1/product/{product_id}/")
