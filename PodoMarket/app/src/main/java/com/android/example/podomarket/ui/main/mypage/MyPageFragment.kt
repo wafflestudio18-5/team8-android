@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.android.example.podomarket.AppConstants
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentMyPageBinding
 import com.android.example.podomarket.ui.product.buy.ProductUserBuyActivity
@@ -57,7 +58,7 @@ class MyPageFragment : Fragment() {
             lifecycleOwner = this@MyPageFragment
             viewModel = myPageViewModel
             profileImage.setOnClickListener {
-                startActivityForResult(UserInfoEditActivity.intent(requireContext()), 200)
+                startActivityForResult(UserInfoEditActivity.intent(requireContext()), AppConstants.USER_INFO_EDIT_ACTIVITY)
             }
             viewProfileButton.setOnClickListener {
                 val userId = viewModel.getMyInfo()?.id
