@@ -1,5 +1,6 @@
 package com.android.example.podomarket.utils
 
+import android.net.Uri
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -53,6 +54,13 @@ fun bindProductImageUrl(view: ImageView, url: String?) {
         .load(url)
         .placeholder(R.drawable.ic_baseline_image_24)
         .into(view)
+}
+
+@BindingAdapter("setProductImageUri")
+fun bindProductImageUri(view: ImageView, uri: Uri) {
+    Glide.with(view.context)
+        .load(uri)
+        .into(view);
 }
 
 @BindingAdapter("adapter")
