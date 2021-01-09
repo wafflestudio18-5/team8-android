@@ -42,6 +42,7 @@ class ProductListFragment : Fragment() {
             }
             addProductFab.setOnClickListener {
                 startActivity(ProductCreateActivity.intent(requireContext()))
+//                startActivity(ChatRoomActivity.intentWithProductIdAndUserId(1, 3, requireContext()))
             }
             lifecycleOwner = this@ProductListFragment
             viewModel = productViewModel

@@ -43,7 +43,6 @@
             android:layout_height="25dp"
             android:layout_margin="8dp"
             app:cardCornerRadius="12dp"
-            app:existNewMessage="@{chatRoom.existNewMessage}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -54,6 +53,7 @@
             <ImageView
                 android:id="@+id/background_color"
                 android:layout_width="match_parent"
+                app:existNewMessage="@{chatRoom.existNewMessage}"
                 android:layout_height="match_parent"
                 android:background="@color/purple_700"
                 android:contentDescription="@string/product_main_image"

@@ -17,7 +17,7 @@ import com.android.example.podomarket.ui.main.product.ProductListAdapter
 import com.bumptech.glide.Glide
 
 @BindingAdapter("existNewMessage")
-fun bindAlertItem(view: CardView, bool: Boolean) {
+fun bindAlertItem(view: ImageView, bool: Boolean) {
     if (bool)
         view.visibility = View.VISIBLE
     else
