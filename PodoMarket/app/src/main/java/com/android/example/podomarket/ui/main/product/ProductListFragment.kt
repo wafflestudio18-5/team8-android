@@ -1,16 +1,13 @@
 package com.android.example.podomarket.ui.main.product
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.example.podomarket.R
-import com.android.example.podomarket.databinding.FragmentProductCategoryBinding
 import com.android.example.podomarket.databinding.FragmentProductListBinding
 import com.android.example.podomarket.ui.product.create.ProductCreateActivity
 import com.android.example.podomarket.ui.product.detail.ProductDetailActivity
@@ -45,6 +42,7 @@ class ProductListFragment : Fragment() {
             addProductFab.setOnClickListener {
                 startActivity(ProductCreateActivity.intent(requireContext()))
             }
+            lifecycleOwner = this@ProductListFragment
             viewModel = productViewModel
             adapter = ProductListAdapter {
                 startActivity(ProductDetailActivity.intentWithProductId(it.id, requireContext()))

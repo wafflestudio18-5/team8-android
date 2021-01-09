@@ -11,14 +11,18 @@ import androidx.navigation.fragment.findNavController
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentMyPageBinding
 import com.android.example.podomarket.ui.product.buy.ProductUserBuyActivity
+import com.android.example.podomarket.ui.product.sell.ProductUserSellActivity
 import com.android.example.podomarket.ui.user.profile.UserInfoEditActivity
 import com.android.example.podomarket.ui.user.interested.UserInterestedActivity
+import com.android.example.podomarket.ui.user.profile.ProfileActivity
+import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class MyPageFragment : Fragment() {
 
-
     lateinit var binding: FragmentMyPageBinding
+    private val myPageViewModel: MyPageViewModel by viewModel()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,16 +54,18 @@ class MyPageFragment : Fragment() {
                     R.id.setting_item -> findNavController().navigate(R.id.action_myPageFragment_to_settingFragment)
                 }
             }
+            lifecycleOwner = this@MyPageFragment
+            viewModel = myPageViewModel
             profileImage.setOnClickListener {
-                startActivity(UserInfoEditActivity.intent(requireContext()))
+                startActivityForResult(UserInfoEditActivity.intent(requireContext()), 200)
             }
             viewProfileButton.setOnClickListener {
-                // Get User ID using SharedPreference
-                //startActivity(ProfileActivity.intentWithUserId(userId, requireContext()))
+                val userId = viewModel.getMyInfo()?.id
+                startActivity(userId?.let { id -> ProfileActivity.intentWithUserId(id, requireContext()) })
             }
             sellListIcon.setOnClickListener {
-                // Get User ID using SharedPreference
-                //startActivity(ProductUserSellActivity.intentWithUserId(userId, requireContext()))
+                val userId = viewModel.getMyInfo()?.id
+                startActivity(userId?.let { id -> ProductUserSellActivity.intentWithUserId(id, requireContext()) })
             }
             buyListIcon.setOnClickListener {
                 startActivity(ProductUserBuyActivity.intent(requireContext()))
