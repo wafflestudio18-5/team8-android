@@ -28,7 +28,9 @@ class ChatRoomViewModel(
     private val databaseReference = firebaseDatabase.reference
     private var chatRoomId: String = ""
     private val df: DateFormat = SimpleDateFormat("MM.dd 'at' HH:mm", Locale.KOREA)
-    private var messageNum: Int = 0
+    private val dfid: DateFormat = SimpleDateFormat("ddHHmmss", Locale.KOREA)
+    private val dfid2: DateFormat = SimpleDateFormat("ddHHmmss", Locale.ITALY)
+    private val dfid3: DateFormat = SimpleDateFormat("ddHHmmss", Locale.CANADA)
     private var productId = -1
 
     private val _productImageUrl = MutableLiveData<String>()
@@ -84,12 +86,17 @@ class ChatRoomViewModel(
         try {
             message.value?.let {
                 databaseReference.child("message").child(chatRoomId).push().setValue(
-                    ChatMessageDto(messageNum, chatUserMe.value!!, it, getCurrentTimeAsString())
+                    ChatMessageDto(
+                        getCurrentTimeAsInt(),
+                        chatUserMe.value!!,
+                        it,
+                        getCurrentTimeAsString()
+                    )
                 )
                 databaseReference.child("chats").child(chatUserMe.value!!.id.toString())
                     .child(chatRoomId).setValue(
                         ChatRoomDto(
-                            messageNum,
+                            getCurrentTimeAsInt2(),
                             chatUserOther.value!!.nickname,
                             chatUserOther.value!!.imageUrl,
                             productImageUrl.value,
@@ -102,7 +109,7 @@ class ChatRoomViewModel(
                 databaseReference.child("chats").child(chatUserOther.value!!.id.toString())
                     .child(chatRoomId).setValue(
                         ChatRoomDto(
-                            messageNum,
+                            getCurrentTimeAsInt3(),
                             chatUserMe.value!!.nickname,
                             chatUserMe.value!!.imageUrl,
                             productImageUrl.value,
@@ -141,7 +148,6 @@ class ChatRoomViewModel(
                         tmpList?.add(snapshot.getValue(ChatMessageDto::class.java)!!)
                         _messages.value = tmpList
                     }
-                    messageNum++
                 }
 
                 override fun onChildRemoved(snapshot: DataSnapshot) {
@@ -177,7 +183,6 @@ class ChatRoomViewModel(
 
     fun clearMessages() {
         _messages.value = null
-        messageNum = 0
     }
 
     fun generateChatRoomId(otherUserId: Int, productId: Int) {
@@ -188,5 +193,8 @@ class ChatRoomViewModel(
     }
 
     private fun getCurrentTimeAsString(): String = df.format(Calendar.getInstance().time)
+    private fun getCurrentTimeAsInt(): Int = dfid.format(Calendar.getInstance().time).toInt()
+    private fun getCurrentTimeAsInt2(): Int = dfid2.format(Calendar.getInstance().time).toInt()
+    private fun getCurrentTimeAsInt3(): Int = dfid3.format(Calendar.getInstance().time).toInt()
 
 }

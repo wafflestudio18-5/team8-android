@@ -36,8 +36,6 @@ class ChatRoomActivity : AppCompatActivity() {
             getUsersInfo(otherUserId)
             getProductInfo(productId)
             generateChatRoomId(otherUserId, productId)
-            readUnreadMessages()
-            getMessage()
         }
         val chatListAdapter = ChatListAdapter(userRepository.getMyInfo()!!.id)
         val linearLayoutManager = LinearLayoutManager(this)
@@ -79,9 +77,16 @@ class ChatRoomActivity : AppCompatActivity() {
         }
     }
 
-    override fun onDestroy() {
+    override fun onResume() {
+        super.onResume()
+        chatRoomViewModel.readUnreadMessages()
+        chatRoomViewModel.getMessage()
+
+    }
+
+    override fun onPause() {
         chatRoomViewModel.clearMessages()
-        super.onDestroy()
+        super.onPause()
     }
 
     companion object {

@@ -28,6 +28,9 @@ fun bindAlertItem(view: CardView, bool: Boolean) {
 fun bindChatMessageItems(view: RecyclerView, items: List<ChatMessageDto>?) {
     val adapter = view.adapter as ChatListAdapter
     adapter.submitList(items)
+    view.smoothScrollToPosition(
+        (view.adapter as ChatListAdapter).itemCount
+    )
 }
 
 @BindingAdapter("chatRooms")
