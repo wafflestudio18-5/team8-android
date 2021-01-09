@@ -66,7 +66,6 @@ class ProductCreateViewModel(private val productRepository: ProductRepository, p
             .subscribe { response ->
 
             }
-
     }
 
 }

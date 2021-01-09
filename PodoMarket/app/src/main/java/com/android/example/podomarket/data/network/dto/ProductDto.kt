@@ -15,7 +15,7 @@ data class ProductDto(
     val count_likes: Int,
     val count_views: Int,
     val images: List<ImageDto>?,
-    val like_product: List<LikeProductDto>?
+    val likeproduct: List<LikeProductDto>?
 )
 
 data class ImageDto(

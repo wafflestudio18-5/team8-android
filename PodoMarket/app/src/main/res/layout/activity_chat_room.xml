@@ -5,7 +5,6 @@
     tools:context=".ui.chat.ChatRoomActivity">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.android.example.podomarket.ui.chat.ChatRoomViewModel" />
