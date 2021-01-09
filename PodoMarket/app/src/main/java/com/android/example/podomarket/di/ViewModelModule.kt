@@ -6,6 +6,7 @@ import com.android.example.podomarket.ui.main.chat.ChatRoomListViewModel
 import com.android.example.podomarket.ui.main.mypage.MyPageViewModel
 import com.android.example.podomarket.ui.main.product.ProductViewModel
 import com.android.example.podomarket.ui.product.create.ProductCreateViewModel
+import com.android.example.podomarket.ui.product.create.SelectCityViewModel
 import com.android.example.podomarket.ui.product.detail.ProductDetailViewModel
 import com.android.example.podomarket.ui.user.login.LoginViewModel
 import org.koin.dsl.module
@@ -19,4 +20,5 @@ val viewModelModule = module {
     single { ChatRoomListViewModel(get()) }
     single { ProductDetailViewModel(get(), get()) }
     single { ProductCreateViewModel(get(), get()) }
+    single { SelectCityViewModel(get()) }
 }

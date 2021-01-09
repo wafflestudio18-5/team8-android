@@ -65,7 +65,7 @@ class ProductCreateActivity : AppCompatActivity() {
                 )
             }
             priceOfferButton.setOnClickListener {
-                productCreateViewModel.toggleAllowSuggest(it as ImageView)
+                productCreateViewModel.toggleAllowSuggest(imgPriceOffer as ImageView)
             }
             selectCityButton.setOnClickListener {
                 startActivityForResult(
