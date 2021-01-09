@@ -57,10 +57,12 @@ fun bindProductImageUrl(view: ImageView, url: String?) {
 }
 
 @BindingAdapter("setProductImageUri")
-fun bindProductImageUri(view: ImageView, uri: Uri) {
-    Glide.with(view.context)
-        .load(uri)
-        .into(view);
+fun bindProductImageUri(view: ImageView, uri: Uri?) {
+    if (uri != null) {
+        Glide.with(view.context)
+            .load(uri)
+            .into(view);
+    }
 }
 
 @BindingAdapter("adapter")
