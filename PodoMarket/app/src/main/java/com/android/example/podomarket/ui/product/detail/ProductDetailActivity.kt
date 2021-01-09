@@ -3,11 +3,16 @@ package com.android.example.podomarket.ui.product.detail
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.ActivityProductDetailBinding
+import com.android.example.podomarket.ui.chat.ChatRoomActivity
+import com.android.example.podomarket.ui.product.sell.ProductUserSellActivity
+import com.android.example.podomarket.ui.user.profile.ProfileActivity
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class ProductDetailActivity : AppCompatActivity() {
 
@@ -17,10 +22,17 @@ class ProductDetailActivity : AppCompatActivity() {
             R.layout.activity_product_detail
         ) as ActivityProductDetailBinding
     }
+    private val productDetailViewModel: ProductDetailViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val productId = intent.getIntExtra(ProductDetailActivity.PRODUCT_ID, -1)
+        productDetailViewModel.apply {
+            getProductById(productId)
+        }
         binding.run {
+            lifecycleOwner = this@ProductDetailActivity
+            viewModel = productDetailViewModel
             toolBar.also { tb ->
                 tb.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
                 tb.setNavigationOnClickListener { finish() }
@@ -29,12 +41,12 @@ class ProductDetailActivity : AppCompatActivity() {
                     when (it.itemId) {
                         R.id.share_button -> Toast.makeText(
                             this@ProductDetailActivity,
-                            "공유 기능 미완성",
+                            "Share",
                             Toast.LENGTH_SHORT
                         ).show()
                         R.id.more_button -> Toast.makeText(
                             this@ProductDetailActivity,
-                            "추가 기능 미완성",
+                            "More",
                             Toast.LENGTH_SHORT
                         ).show()
                         else -> return@setOnMenuItemClickListener false
@@ -43,35 +55,19 @@ class ProductDetailActivity : AppCompatActivity() {
                 }
             }
             userInfoLayout.setOnClickListener {
-                //startActivity(ProfileActivity.intentWithUserId(productDetailViewModel.userId, this@ProductDetailActivity))
+                val product = productDetailViewModel.theProduct.value
+                startActivity(product?.seller?.let { userId -> ProfileActivity.intentWithUserId(userId, this@ProductDetailActivity) })
             }
             moreButton.setOnClickListener {
-                Toast.makeText(
-                    this@ProductDetailActivity,
-                    "더보기 기능(미완성)",
-                    Toast.LENGTH_SHORT
-                ).show()
+                val product = productDetailViewModel.theProduct.value
+                startActivity(product?.seller?.let { userId -> ProductUserSellActivity.intentWithUserId(userId, this@ProductDetailActivity) })
             }
             likeButton.setOnClickListener {
-                /*
-                productDetailViewModel.isLikeOn = !productDetailViewModel.isLikeOn
-
-                if (productDetailViewModel.isLikeOn) {
-                    likeButton.setColorFilter(R.color.purple_500)
-                } else {
-                    likeButton.setColorFilter(R.color.dark_gray)
-                }
-                */
-            }
-            callButton.setOnClickListener {
-                Toast.makeText(
-                    this@ProductDetailActivity,
-                    "전화하기 기능(미완성)",
-                    Toast.LENGTH_SHORT
-                ).show()
+                productDetailViewModel.putLikeProduct(productId, it as ImageView)
             }
             chatButton.setOnClickListener {
-                //startActivity(ChatRoomActivity.intentWithChatRoomId(productDetailViewModel.chatRoomId))
+                val product = productDetailViewModel.theProduct.value
+                startActivity(product?.seller?.let { userId -> ChatRoomActivity.intentWithProductIdAndUserId(productId, userId, this@ProductDetailActivity) })
             }
         }
     }

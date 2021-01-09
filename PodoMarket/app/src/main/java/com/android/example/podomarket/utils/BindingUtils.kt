@@ -1,5 +1,6 @@
 package com.android.example.podomarket.utils
 
+import android.net.Uri
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -15,6 +16,7 @@ import com.android.example.podomarket.ui.chat.ChatListAdapter
 import com.android.example.podomarket.ui.main.chat.ChatRoomListAdapter
 import com.android.example.podomarket.ui.main.product.ProductListAdapter
 import com.bumptech.glide.Glide
+import timber.log.Timber
 
 @BindingAdapter("existNewMessage")
 fun bindAlertItem(view: ImageView, bool: Boolean) {
@@ -41,18 +43,31 @@ fun bindChatRoomItems(view: RecyclerView, items: List<ChatRoomDto>?) {
 
 @BindingAdapter("setPersonImageUrl")
 fun bindPersonImageUrl(view: ImageView, url: String?) {
-    Glide.with(view.context)
-        .load(url)
-        .placeholder(R.drawable.ic_baseline_person_24)
-        .into(view)
+    if (url != null) {
+        Glide.with(view.context)
+            .load(url)
+            .placeholder(R.drawable.ic_baseline_person_24)
+            .into(view)
+    }
 }
 
 @BindingAdapter("setProductImageUrl")
 fun bindProductImageUrl(view: ImageView, url: String?) {
-    Glide.with(view.context)
-        .load(url)
-        .placeholder(R.drawable.ic_baseline_image_24)
-        .into(view)
+    if (url != null) {
+        Glide.with(view.context)
+            .load(url)
+            .placeholder(R.drawable.ic_baseline_image_24)
+            .into(view)
+    }
+}
+
+@BindingAdapter("setProductImageUri")
+fun bindProductImageUri(view: ImageView, uri: Uri?) {
+    if (uri != null) {
+        Glide.with(view.context)
+            .load(uri)
+            .into(view)
+    }
 }
 
 @BindingAdapter("adapter")

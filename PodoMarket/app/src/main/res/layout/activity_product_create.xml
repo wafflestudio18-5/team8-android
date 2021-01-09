@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.product.create.ProductCreateActivity">
 
-    <data />
+    <data>
+        <variable
+            name="viewModel"
+            type="com.android.example.podomarket.ui.product.create.ProductCreateViewModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -89,11 +93,18 @@
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
 
+                        <!--
                         <androidx.recyclerview.widget.RecyclerView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:orientation="horizontal" />
+                        -->
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            app:setProductImageUri="@{viewModel.selectedImageUri}"/>
                     </LinearLayout>
                 </HorizontalScrollView>
 
@@ -110,6 +121,7 @@
                     android:gravity="center_vertical">
 
                     <EditText
+                        android:id="@+id/product_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
@@ -160,6 +172,7 @@
                     android:gravity="center_vertical">
 
                     <EditText
+                        android:id="@+id/product_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/product_create_price"

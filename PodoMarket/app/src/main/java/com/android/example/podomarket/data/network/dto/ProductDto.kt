@@ -40,7 +40,7 @@ data class SuggestPriceDto(
 
 data class PaginationResponse(
     val page: PageDto,
-    val products: List<ProductDto>
+    val product: List<ProductDto>
 )
 
 data class PageDto(

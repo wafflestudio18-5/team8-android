@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentProductListBinding
+import com.android.example.podomarket.ui.chat.ChatRoomActivity
 import com.android.example.podomarket.ui.product.create.ProductCreateActivity
 import com.android.example.podomarket.ui.product.detail.ProductDetailActivity
 import com.android.example.podomarket.ui.search.SearchActivity
@@ -27,7 +29,16 @@ class ProductListFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_product_list, container, false)
                     as FragmentProductListBinding
         }
+        productViewModel.apply {
+            getProductList()
+        }
         binding.run {
+            lifecycleOwner = this@ProductListFragment
+            viewModel = productViewModel
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            adapter = ProductListAdapter {
+                startActivity(ProductDetailActivity.intentWithProductId(it.id, requireContext()))
+            }
             toolBar.also { tb ->
                 tb.inflateMenu(R.menu.app_bar_fragment_product_list)
                 tb.setOnMenuItemClickListener {
@@ -41,13 +52,8 @@ class ProductListFragment : Fragment() {
                 }
             }
             addProductFab.setOnClickListener {
-                startActivity(ProductCreateActivity.intent(requireContext()))
-//                startActivity(ChatRoomActivity.intentWithProductIdAndUserId(1, 3, requireContext()))
-            }
-            lifecycleOwner = this@ProductListFragment
-            viewModel = productViewModel
-            adapter = ProductListAdapter {
-                startActivity(ProductDetailActivity.intentWithProductId(it.id, requireContext()))
+//                startActivity(ProductCreateActivity.intent(requireContext()))
+                startActivity(ChatRoomActivity.intentWithProductIdAndUserId(1, 3, requireContext()))
             }
         }
         return binding.root

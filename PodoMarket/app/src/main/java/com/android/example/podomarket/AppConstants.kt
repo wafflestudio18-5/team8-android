@@ -3,6 +3,7 @@ package com.android.example.podomarket
 class AppConstants {
     companion object {
 
+        const val PICK_FROM_CAMERA = -1
         const val MAIN_ACTIVITY = 0
         const val LOGIN_ACTIVITY = 1
         const val PROFILE_ACTIVITY = 2

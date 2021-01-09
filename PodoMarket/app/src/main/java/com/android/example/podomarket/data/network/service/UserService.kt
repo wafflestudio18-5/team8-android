@@ -21,7 +21,7 @@ interface UserService {
     fun putUserMe(
         @Part("full_name") full_name: String?,
         @Part("nickname") nickname: String?,
-        @Part image: MultipartBody.Part
+        @Part("img-file") image: MultipartBody.Part
     ): Single<Response<UserDto>>
 
     @GET("api/v1/user/me/")

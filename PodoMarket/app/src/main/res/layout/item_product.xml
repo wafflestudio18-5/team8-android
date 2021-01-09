@@ -32,8 +32,8 @@
                 android:background="@color/teal_700"
                 android:contentDescription="@string/product_main_image"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_baseline_image_24"
-                app:setProductImageUrl="@{item.images.get(0)}"/>
+                android:src="@drawable/ic_baseline_image_24"/>
+<!--                app:setProductImageUrl="@{item.images.get(0).image_url}"/>-->
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
-            android:text="@{item.price}"
+            android:text="@{Integer.toString(item.price)}"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -166,7 +166,7 @@
                 android:layout_marginBottom="4dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginEnd="4dp"
-                android:text="@{item.count_comments}" />
+                android:text="@{Integer.toString(item.count_comments)}" />
 
             <ImageView
                 android:id="@+id/like_count_image"
@@ -187,7 +187,7 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginEnd="4dp"
                 android:layout_gravity="center_vertical"
-                android:text="@{item.count_likes}" />
+                android:text="@{Integer.toString(item.count_likes)}" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

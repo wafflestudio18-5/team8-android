@@ -61,11 +61,11 @@ class MyPageFragment : Fragment() {
                 startActivityForResult(UserInfoEditActivity.intent(requireContext()), AppConstants.USER_INFO_EDIT_ACTIVITY)
             }
             viewProfileButton.setOnClickListener {
-                val userId = viewModel.getMyInfo()?.id
+                val userId = myPageViewModel.getMyInfo()?.id
                 startActivity(userId?.let { id -> ProfileActivity.intentWithUserId(id, requireContext()) })
             }
             sellListIcon.setOnClickListener {
-                val userId = viewModel.getMyInfo()?.id
+                val userId = myPageViewModel.getMyInfo()?.id
                 startActivity(userId?.let { id -> ProductUserSellActivity.intentWithUserId(id, requireContext()) })
             }
             buyListIcon.setOnClickListener {
