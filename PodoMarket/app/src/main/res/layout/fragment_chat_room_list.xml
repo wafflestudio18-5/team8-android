@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.main.chatroomlistfragment">
 
-    <data />
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.android.example.podomarket.ui.main.chat.ChatRoomListViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,8 +38,10 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chat_list_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            app:chatRooms="@{viewModel.chatRooms}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

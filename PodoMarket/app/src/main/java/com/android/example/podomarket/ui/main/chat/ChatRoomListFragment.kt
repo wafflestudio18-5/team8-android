@@ -6,21 +6,36 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.example.podomarket.R
 import com.android.example.podomarket.databinding.FragmentChatRoomListBinding
+import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class ChatRoomListFragment : Fragment() {
 
     lateinit var binding: FragmentChatRoomListBinding
+    private val chatRoomListViewModel: ChatRoomListViewModel by viewModel()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_chat_room_list, container, false)
+        binding.run {
+            viewModel = chatRoomListViewModel
+            lifecycleOwner = this@ChatRoomListFragment
+            chatListView.adapter = ChatRoomListAdapter()
+            chatListView.layoutManager = LinearLayoutManager(requireContext())
+        }
+        chatRoomListViewModel.getChatRooms()
 
         return binding.root
+    }
+
+    override fun onPause() {
+        chatRoomListViewModel.clearChatRooms()
+        super.onPause()
     }
 
 }
