@@ -36,6 +36,7 @@ class ChatRoomActivity : AppCompatActivity() {
             getUsersInfo(otherUserId)
             getProductInfo(productId)
             generateChatRoomId(otherUserId, productId)
+            readUnreadMessages()
             getMessage()
         }
         val chatListAdapter = ChatListAdapter(userRepository.getMyInfo()!!.id)

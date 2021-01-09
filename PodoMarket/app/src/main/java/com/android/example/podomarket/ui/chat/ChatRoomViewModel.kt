@@ -69,7 +69,8 @@ class ChatRoomViewModel(
         productRepository.getProductById(productId)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response ->
-                _productImageUrl.value = response.body()?.images?.first()?.url
+                if (response.body()?.images?.size != 0)
+                    _productImageUrl.value = response.body()?.images?.first()?.image_url
                 _productName.value = response.body()?.name
                 _productPrice.value = response.body()?.price.toString()
             }, {
@@ -142,8 +143,30 @@ class ChatRoomViewModel(
 
             }
         )
-        databaseReference.child("chats").child(chatUserMe.value!!.id.toString())
-            .child(chatRoomId).child("existNewMessage").setValue(false)
+    }
+
+    fun readUnreadMessages() {
+        val ref = databaseReference.child("chats").child(chatUserMe.value!!.id.toString())
+            .child(chatRoomId)
+        ref.addChildEventListener(object : ChildEventListener {
+            override fun onCancelled(error: DatabaseError) {
+            }
+
+            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+            }
+
+            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+            }
+
+            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+                if (snapshot.hasChild("existNewMessage"))
+                    ref.setValue(false)
+            }
+
+            override fun onChildRemoved(snapshot: DataSnapshot) {
+            }
+
+        })
     }
 
     fun clearMessages() {

@@ -20,7 +20,7 @@ data class ProductDto(
 
 data class ImageDto(
     val id: Int,
-    val url: String
+    val image_url: String
 )
 
 data class LikeProductDto(

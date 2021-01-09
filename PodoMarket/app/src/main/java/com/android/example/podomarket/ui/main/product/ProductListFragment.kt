@@ -25,6 +25,7 @@ class ProductListFragment : Fragment() {
     ): View {
         val binding: FragmentProductListBinding by lazy {
             DataBindingUtil.inflate(inflater, R.layout.fragment_product_list, container, false)
+                    as FragmentProductListBinding
         }
         binding.run {
             toolBar.also { tb ->
