@@ -28,9 +28,13 @@ class ChatRoomListFragment : Fragment() {
             chatListView.adapter = ChatRoomListAdapter()
             chatListView.layoutManager = LinearLayoutManager(requireContext())
         }
-        chatRoomListViewModel.getChatRooms()
 
         return binding.root
+    }
+
+    override fun onResume() {
+        chatRoomListViewModel.getChatRooms()
+        super.onResume()
     }
 
     override fun onPause() {

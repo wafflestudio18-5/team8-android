@@ -6,7 +6,9 @@ data class ChatRoomDto(
     val otherUserImageUrl: String? = null,
     val productImageUrl: String? = null,
     val lastMessageSent: String = "",
-    val existNewMessage: Boolean = false
+    val existNewMessage: Boolean = false,
+    val productId: Int = -1,
+    val otherUserId: Int = -1
 )
 
 data class ChatUserDto(

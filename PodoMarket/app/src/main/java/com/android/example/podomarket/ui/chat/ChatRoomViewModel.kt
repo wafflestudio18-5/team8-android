@@ -29,6 +29,7 @@ class ChatRoomViewModel(
     private var chatRoomId: String = ""
     private val df: DateFormat = SimpleDateFormat("MM.dd 'at' HH:mm", Locale.KOREA)
     private var messageNum: Int = 0
+    private var productId = -1
 
     private val _productImageUrl = MutableLiveData<String>()
     val productImageUrl: LiveData<String>
@@ -73,6 +74,7 @@ class ChatRoomViewModel(
                     _productImageUrl.value = response.body()?.images?.first()?.image_url
                 _productName.value = response.body()?.name
                 _productPrice.value = response.body()?.price.toString()
+                this.productId = response.body()?.id!!
             }, {
                 Timber.e(it)
             })
@@ -92,7 +94,9 @@ class ChatRoomViewModel(
                             chatUserOther.value!!.imageUrl,
                             productImageUrl.value,
                             it,
-                            false
+                            false,
+                            productId,
+                            chatUserOther.value!!.id
                         )
                     )
                 databaseReference.child("chats").child(chatUserOther.value!!.id.toString())
@@ -103,7 +107,9 @@ class ChatRoomViewModel(
                             chatUserMe.value!!.imageUrl,
                             productImageUrl.value,
                             it,
-                            true
+                            true,
+                            productId,
+                            chatUserOther.value!!.id
                         )
                     )
             }
